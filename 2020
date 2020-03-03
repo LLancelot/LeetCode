@@ -156,3 +156,41 @@ class Solution {
             temp.append(node.val)
         res.append(temp)
     4. return res
+
+325. Maximum Size Subarray Sum Equals k
+    1. HashMap<int, int>;
+    2. for (i, nums):
+        sum = sum + nums[i]
+        if (match) // if (sum == k)
+            max = idx + 1 // 这一步是求当前match的数（包括自己在内）前面所有数字的长度
+                          // 即nums[:idx+1]
+        distance = sum - k
+        if map.containsKey(distance):
+            更新max = Math.max(max, idx - map.containsKey(distance))
+        else (!map.containsKey(sum)):
+            若当前的sum不在map中，则将对应的sum和下标放到map里面
+    3. return max
+
+395. Longest Substring with At Least K Repeating Characters
+    1. corner case:
+        if len(s) < K:
+            总长度小于目标K， 直接返回0
+    
+    2. min_freq_char = min(set(s), key = s.count)
+        // 把string中频率最小的char取出。
+
+        if s.count(min_freq_char) > K:
+            如果最小频率已经大于目标值K， 则将整个string 返回
+            return s
+    
+    3. return max(self.函数(sub, K = freq) for sub in s.split(min_freq_char))
+        递归。对string进行切片，然后将切片后的每个substring进行递归。
+
+141. Linked List Cycle
+    1. 用快慢指针，slower = faster = head
+    2. while (faster.next != None and faster.next.next != None):
+        slower = slower.next
+        faster = faster.next.next
+        if (slower == faster):
+            return True
+    3. return False
