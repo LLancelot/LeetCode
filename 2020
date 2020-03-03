@@ -1,0 +1,158 @@
+24. Swap nodes in pair
+    input : 1-2-3-4
+    output: 2-1-4-3
+
+    ********************
+    dummy.next = head
+    current = dummy
+    [d-1-2-3-4]
+    1) current = dummy, first = 1, second = 2
+        first.next = second.next
+        1 - 3
+        current.next = second
+        head = 2
+        current.next.next = first
+        (head.next = first)
+        2 - 1 - 3
+        current = current.next.next
+
+1034. Find N Unique Integers Sum up to Zero
+    input: n = 5
+    output: [-7, -1, 1, 3, 4]
+
+    *******************
+    n = 1, ans = [0]
+    n = 2, ans = [-1, 1]
+    n = 3, ans = [-1, 0, 1]   
+
+706. Design HashMap
+ 
+
+1311. Get watched videos by your friends
+
+200. Numbers of Islands
+***********************
+class Solution {
+    // 首先定义四个方向的向量，方便计算矩阵上下左右的位置
+    final static int [][]dirs = {{-1, 0},
+                                 {1, 0},
+                                 {0, -1},
+                                 {0, 1}
+                                 };
+    public int numIslands(char[][] grid) {
+        // corner case
+        if (grid == null || grid.length == 0 || grid[0].length == 0){
+            return 0;
+        }
+        int count = 0;
+        final int rows = grid.length;
+        final int cols = grid[0].length;
+        // 用DFS遍历所有的相邻'1'的位置
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++){
+                if (grid[i][j] == '1'){
+                    count++;
+                    dfs(grid, i, j, rows, cols);
+                }
+            }
+        return count;
+    }
+    
+    public void dfs(char[][]grid, int x, int y, int rows, int cols){
+        if (x < 0 || x >= rows || y < 0 || y >= cols || grid[x][y] == '0'){
+            return;
+        }
+        grid[x][y] = '0';
+        for (int []dir : dirs){
+            int next_x = dir[0] + x;
+            int next_y = dir[1] + y;
+            dfs(grid, next_x, next_y, rows, cols);
+        }
+    }
+}
+***************************************
+
+700. Search in a Binary Search Tree
+    
+
+701. Insert into a BST
+***************************************
+    if root:
+        if target < root and not root.left:
+            into(root.left)
+        elif target > root and not root.right:
+            into(root.right)
+        else:
+            if target < root:
+                root.left = target
+            else:
+                root.right = target
+
+#63. Unique Path
+    方法1：动态规划问题，从下至上递推求解
+    int uniquePaths(int m, int n) {
+        if (m==0||n==0)
+            return 0;
+        auto f = vector<vector<int>>(n+1, vector<int>(m+1, 0));
+        f[1][1] = 1;
+        for (int y = 1; y <= n; y++){
+            for (int x = 1; x <= m; x++){
+                if (x==1 && y==1){
+                    continue;              
+                }
+                else{
+                    f[y][x] = f[y-1][x] + f[y][x-1];  
+                }
+            }
+        }
+        return f[n][m];
+    
+    方法2： 记忆化递归求解，耗时较长
+    public:
+    int uniquePaths(int m, int n) {
+        if (m<0 || n<0)
+            return 0;
+        if (m==1 && n==1)
+            return 1;
+        if (memo[m][n] > 0)
+            return memo[m][n];
+        int left_path = uniquePaths(m-1, n);
+        int up_path = uniquePaths(m, n-1);
+        memo[m][n] = left_path + up_path;
+        return memo[m][n];
+    }
+    private:
+        unordered_map<int, unordered_map<int, int>> memo;
+    
+    总结：基本思路一致，就是若要求得走到(m,n)的位置，即f[m][n]，只有从left和up两个方向进行考虑
+    即f[m][n] = f[m-1][n] + f[m][n-1]，直到终止条件为起点。
+
+98. Validate a BST
+    两种办法：
+        1. 递归。通过递归在分别对左子树和右子树进行如下检查：
+            初始状态：(-∞ < root.value < ∞)
+            对左子树： (-∞ < root.left.value < root.val)
+            对左子树：保持下界不变，改变上界值为其父节点（它的根节点）的值，判断root.left.val 是否比根节点要小，check(root.left, low, root.val)
+
+            对右子树： (root.val < root.right.value < ∞)
+            对右子树：保持上界不变，改变下界值为父节点（它的根节点）的值，
+                    判断root.right.val 是否比根节点大，check(root.right, root.val, high)
+
+        2. 中序遍历，in-order traversal
+
+
+107. 层序遍历
+    1. res = queue = []
+    2. queue.append(root)
+    3. while len(queue) != 0:
+        temp = []
+        quesize = len(queue)
+        for i in range(quesize):
+            node = queue.pop(0)
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+            temp.append(node.val)
+        res.append(temp)
+    4. return res
