@@ -293,6 +293,38 @@ public class Solution {
 ```
 # DP (Dynamic Programming)
 
+## 198. House Robber
+
+<p>
+核心思想：
+<li>
+对于第N间房子，我们有两种选择，要么偷，还么不偷
+</li>
+<li>
+所以动态规划转移方程money[N] = max(money[N-2] + house[N], money[N-1])
+</li>
+<li>
+DP初始条件：money[0] = house[0], money[1] = max(house[:2])
+</li>
+</p>
+ 
+```python
+class Solution:
+    def rob(self, A: List[int]) -> int:
+        money = [-1]*len(A)
+        if not A:
+            return 0
+        if len(A) == 1:
+            return A[0]
+        if len(A) == 2:
+            return max(A[0],A[1])
+        money[0] = A[0]
+        money[1] = max(A[:2])
+        for i in range(2, len(A)):
+            money[i] = max(money[i-2]+A[i], money[i-1])
+        return max(money)
+```
+
 # Subset 子集问题
 
 ## 1) 78. Subset
@@ -330,4 +362,4 @@ class Solution():
 
 ```
 
-## 1) 90. Subset
+## 2) 90. Subset
