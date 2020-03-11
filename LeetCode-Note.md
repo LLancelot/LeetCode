@@ -223,6 +223,25 @@ class Solution:
 
         return min(costs[-1])
 ```
+
+## 265. Paint House 2
+
+_n个房子，k种颜色_
+```python
+class Solution:
+    def minCostII(self, costs: List[List[int]]) -> int:
+        if not costs:
+            return 0
+        if len(costs) == 1:
+            return min(costs[0])
+
+        for i_house in range(1, len(costs)):
+            for j_color in range(len(costs[0])):
+                costs[i_house][j_color] = min(costs[i_house-1][:j_color]+costs[i_house-1][j_color+1:]) + costs[i_house][j_color]
+        print(costs)
+        return min(costs[-1])
+```
+
 ## 24. Swap nodes in pair
 ```
     input : 1-2-3-4
