@@ -1,3 +1,228 @@
+
+#  **Linked List 链表总结**
+
+## 19. Remove Nth Node From End of List
+>核心思想(One-pass一趟完成)：
+>
+>- 用快慢指针，将fast指针先移动到第n+1个位置。例如1-2-3-4-5，n = 2, 则将fast移动到“3”的位置上。
+>
+>- 然后，开始移动slow, 并且继续移动fast，直到fast == None，即移动到空value为止。
+>
+>- 此时只需要将slow.next给跳过，即slow.next = slow.next.next
+>
+>- 最终返回start.next。
+
+```python
+# one-pass
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        start = ListNode(-1)
+        fast = start
+        slow = start
+        slow.next = head
+        
+        for i in range(1,n+2):
+            fast = fast.next
+        while fast != None:
+            # let fast keep moving, till it ends
+            fast = fast.next
+            slow = slow.next
+        
+        # just skip the slow.next to .next.next
+        slow.next = slow.next.next
+        return start.next
+```
+## 141. Linked List Cycle
+```java
+    1. 用快慢指针，slower = faster = head
+    2. while (faster.next != None and faster.next.next != None):
+        slower = slower.next
+        faster = faster.next.next
+        if (slower == faster):
+            return True
+    3. return False
+```
+-------------
+
+# **Tree**
+
+## 111. Minimum Depth of Binary Tree
+```python
+class Solution(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root: return 0
+        h = map(self.minDepth, [root.left, root.right]) if root else [-1]
+        return 1 + (min(h) or max(h))
+```
+
+## 107. 层序遍历
+```python
+    1. res = queue = []
+    2. queue.append(root)
+    3. while len(queue) != 0:
+        temp = []
+        quesize = len(queue)
+        for i in range(quesize):
+            node = queue.pop(0)
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+            temp.append(node.val)
+        res.append(temp)
+    4. return res
+```
+## 98. Validate a BST
+```
+两种办法：
+1. 递归。通过递归在分别对左子树和右子树进行如下检查：
+    初始状态：(-∞ < root.value < ∞)
+    对左子树： (-∞ < root.left.value < root.val)
+    对左子树：保持下界不变，改变上界值为其父节点（它的根节点）的值，判断root.left.val 是否比根节点要小，check(root.left, low, root.val)
+
+    对右子树： (root.val < root.right.value < ∞)
+    对右子树：保持上界不变，改变下界值为父节点（它的根节点）的值，
+            判断root.right.val 是否比根节点大，check(root.right, root.val, high)
+
+2. 中序遍历，in-order traversal
+```
+    
+
+## 701. Insert into a BST
+
+```python
+if root:
+    if target < root and not root.left:
+        into(root.left)
+    elif target > root and not root.right:
+        into(root.right)
+    else:
+        if target < root:
+            root.left = target
+        else:
+            root.right = target
+```
+## 112. Path Sum
+<p>
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
+Note: A leaf is a node with no children.
+</p>
+
+```python
+class Solution:
+    def hasPathSum(self, root: TreeNode, findSum: int) -> bool:
+        res = []
+        self.dfs(root,findSum,res)
+        if True in res:
+            return True
+        return False
+
+    def dfs(self, root, target, res):
+        if root:
+            if not root.left and not root.right:
+                if root.val == target:
+                    res.append(True)
+            if root.left:
+                remain = target - root.val
+                self.dfs(root.left, remain, res)
+            if root.right:
+                remain = target - root.val
+                self.dfs(root.right, remain, res)
+        
+                
+```
+## 437. Path Sum III (easy)
+
+## 124. Binary Tree Maximum Path Sum
+```java
+public class Solution {
+    int maxValue;
+    
+    public int maxPathSum(TreeNode root) {
+        maxValue = Integer.MIN_VALUE;
+        maxPathDown(root);
+        return maxValue;
+    }
+    
+    private int maxPathDown(TreeNode node) {
+        if (node == null) return 0;
+        int left = Math.max(0, maxPathDown(node.left));
+        int right = Math.max(0, maxPathDown(node.right));
+        maxValue = Math.max(maxValue, left + right + node.val);
+        return Math.max(left, right) + node.val;
+    }
+}
+```
+---
+
+# **DP (Dynamic Programming)**
+
+## 198. House Robber
+
+<p>
+核心思想：
+<li>
+对于第N间房子，我们有两种选择，要么偷，还么不偷
+</li>
+<li>
+所以动态规划转移方程money[N] = max(money[N-2] + house[N], money[N-1])
+</li>
+<li>
+DP初始条件：money[0] = house[0], money[1] = max(house[:2])
+</li>
+</p>
+ 
+```python
+class Solution:
+    def rob(self, A: List[int]) -> int:
+        money = [-1]*len(A)
+        if not A:
+            return 0
+        if len(A) == 1:
+            return A[0]
+        if len(A) == 2:
+            return max(A[0],A[1])
+        money[0] = A[0]
+        money[1] = max(A[:2])
+        for i in range(2, len(A)):
+            money[i] = max(money[i-2]+A[i], money[i-1])
+        return max(money)
+```
+
+
+## 198. House Robber
+
+## 256. Paint House
+
+> #### 核心思想：
+>
+> - 直接在costs修改``` costs[i][j]```
+> - ```costs[n][0] = min(costs[n-1][1], costs[n-1][2]) + costs[n][0]```
+> - ```costs[n][1] = min(costs[n-1][0], costs[n-1][2]) + costs[n][1]```
+> - ```costs[n][2] = min(costs[n-1][0], costs[n-1][1]) + costs[n][2]```
+>
+> - 返回costs最后一间房子的最小值, ```min(costs[-1])```
+
+```python
+class Solution:
+    def minCost(self, costs: List[List[int]]) -> int:
+        if not costs:
+            return 0
+        if len(costs) == 1:
+            return min(costs[0])
+        
+        for n in range(1, len(costs)):
+            costs[n][0] = min(costs[n-1][1], costs[n-1][2]) + costs[n][0]
+            costs[n][1] = min(costs[n-1][0], costs[n-1][2]) + costs[n][1]
+            costs[n][2] = min(costs[n-1][0], costs[n-1][1]) + costs[n][2]
+
+        return min(costs[-1])
+```
 ## 24. Swap nodes in pair
 ```
     input : 1-2-3-4
@@ -151,16 +376,9 @@ class Solution {
     3. return max(self.函数(sub, K = freq) for sub in s.split(min_freq_char))
         递归。对string进行切片，然后将切片后的每个substring进行递归。
 ```
-## 141. Linked List Cycle
-```java
-    1. 用快慢指针，slower = faster = head
-    2. while (faster.next != None and faster.next.next != None):
-        slower = slower.next
-        faster = faster.next.next
-        if (slower == faster):
-            return True
-    3. return False
-```
+
+--------------
+
 
 ## 209. Minimum Size Subarray Sum
 ```python
@@ -177,153 +395,7 @@ class Solution:
         return minlen if minlen <= len(nums) else 0
 
 ```
-# Tree
 
-## 111. Minimum Depth of Binary Tree
-```python
-class Solution(object):
-    def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root: return 0
-        h = map(self.minDepth, [root.left, root.right]) if root else [-1]
-        return 1 + (min(h) or max(h))
-```
-
-## 107. 层序遍历
-```python
-    1. res = queue = []
-    2. queue.append(root)
-    3. while len(queue) != 0:
-        temp = []
-        quesize = len(queue)
-        for i in range(quesize):
-            node = queue.pop(0)
-            if node.left is not None:
-                queue.append(node.left)
-            if node.right is not None:
-                queue.append(node.right)
-            temp.append(node.val)
-        res.append(temp)
-    4. return res
-```
-## 98. Validate a BST
-```
-两种办法：
-1. 递归。通过递归在分别对左子树和右子树进行如下检查：
-    初始状态：(-∞ < root.value < ∞)
-    对左子树： (-∞ < root.left.value < root.val)
-    对左子树：保持下界不变，改变上界值为其父节点（它的根节点）的值，判断root.left.val 是否比根节点要小，check(root.left, low, root.val)
-
-    对右子树： (root.val < root.right.value < ∞)
-    对右子树：保持上界不变，改变下界值为父节点（它的根节点）的值，
-            判断root.right.val 是否比根节点大，check(root.right, root.val, high)
-
-2. 中序遍历，in-order traversal
-```
-    
-
-## 701. Insert into a BST
-
-```python
-if root:
-    if target < root and not root.left:
-        into(root.left)
-    elif target > root and not root.right:
-        into(root.right)
-    else:
-        if target < root:
-            root.left = target
-        else:
-            root.right = target
-```
-## 112. Path Sum
-<p>
-Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
-
-Note: A leaf is a node with no children.
-</p>
-
-```python
-class Solution:
-    def hasPathSum(self, root: TreeNode, findSum: int) -> bool:
-        res = []
-        self.dfs(root,findSum,res)
-        if True in res:
-            return True
-        return False
-
-    def dfs(self, root, target, res):
-        if root:
-            if not root.left and not root.right:
-                if root.val == target:
-                    res.append(True)
-            if root.left:
-                remain = target - root.val
-                self.dfs(root.left, remain, res)
-            if root.right:
-                remain = target - root.val
-                self.dfs(root.right, remain, res)
-        
-                
-```
-## 437. Path Sum III (easy)
-
-## 124. Binary Tree Maximum Path Sum
-```java
-public class Solution {
-    int maxValue;
-    
-    public int maxPathSum(TreeNode root) {
-        maxValue = Integer.MIN_VALUE;
-        maxPathDown(root);
-        return maxValue;
-    }
-    
-    private int maxPathDown(TreeNode node) {
-        if (node == null) return 0;
-        int left = Math.max(0, maxPathDown(node.left));
-        int right = Math.max(0, maxPathDown(node.right));
-        maxValue = Math.max(maxValue, left + right + node.val);
-        return Math.max(left, right) + node.val;
-    }
-}
-```
-# DP (Dynamic Programming)
-
-## 198. House Robber
-
-<p>
-核心思想：
-<li>
-对于第N间房子，我们有两种选择，要么偷，还么不偷
-</li>
-<li>
-所以动态规划转移方程money[N] = max(money[N-2] + house[N], money[N-1])
-</li>
-<li>
-DP初始条件：money[0] = house[0], money[1] = max(house[:2])
-</li>
-</p>
- 
-```python
-class Solution:
-    def rob(self, A: List[int]) -> int:
-        money = [-1]*len(A)
-        if not A:
-            return 0
-        if len(A) == 1:
-            return A[0]
-        if len(A) == 2:
-            return max(A[0],A[1])
-        money[0] = A[0]
-        money[1] = max(A[:2])
-        for i in range(2, len(A)):
-            money[i] = max(money[i-2]+A[i], money[i-1])
-        return max(money)
-```
 
 # Subset 子集问题
 
@@ -363,3 +435,32 @@ class Solution():
 ```
 
 ## 2) 90. Subset
+
+- Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
+
+- _Note: The solution set must not contain duplicate subsets._
+
+```python
+Input: [1,2,2]
+Output:
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+
+class Solution(object):
+    def subsetsWithDup(self, nums):
+        nums, result, pos = sorted(nums), [[]], {}
+        for n in nums:
+            start, len_ = pos.get(n, 0), len(result)
+            # start: if current num is new, then start = 0
+            # if not, then start = len_
+            for r in result[start:]:
+                result += [r + [n]]
+            pos[n] = len_
+        return result
+```
