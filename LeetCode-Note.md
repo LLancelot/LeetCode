@@ -121,7 +121,7 @@ class Solution:
         if True in res:
             return True
         return False
-
+ 
     def dfs(self, root, target, res):
         if root:
             if not root.left and not root.right:
