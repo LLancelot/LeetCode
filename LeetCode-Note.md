@@ -162,7 +162,7 @@ public class Solution {
 
 # **DP (Dynamic Programming)**
 
-## 198. House Robber
+## [**DP-1**] 198. House Robber
 
 <p>
 核心思想：
@@ -195,9 +195,34 @@ class Solution:
 ```
 
 
-## 198. House Robber
+## [**DP-2**] 198. House Robber III (Medium)
 
-## 256. Paint House
+```python
+class Solution:
+
+    def rob_subtree(self, root, Hashmap):
+        if not root:
+            return 0
+        if root in Hashmap:
+            return Hashmap.get(root)
+        val = 0
+        if root.left != None:
+            val += self.rob_subtree(root.left.left, Hashmap) + self.rob_subtree(root.left.right, Hashmap)
+        if root.right != None:
+            val += self.rob_subtree(root.right.left, Hashmap) + self.rob_subtree(root.right.right, Hashmap)
+            
+        val = max(val + root.val, self.rob_subtree(root.left,Hashmap)
+                  +self.rob_subtree(root.right,Hashmap))
+        Hashmap[root] = val
+                
+        return val
+    
+    def rob(self, root: TreeNode) -> int:
+        Hashmap = {}
+        return self.rob_subtree(root, {})
+```
+
+## [**DP-3**] 256. Paint House
 
 > #### 核心思想：
 >
@@ -224,9 +249,10 @@ class Solution:
         return min(costs[-1])
 ```
 
-## 265. Paint House 2
+## [**DP-4**] 265. Paint House 2 (Hard)
 
-_n个房子，k种颜色_
+
+NOTE: _n houses, k colors, **costs**: n * k matrix_
 ```python
 class Solution:
     def minCostII(self, costs: List[List[int]]) -> int:
@@ -240,6 +266,74 @@ class Solution:
                 costs[i_house][j_color] = min(costs[i_house-1][:j_color]+costs[i_house-1][j_color+1:]) + costs[i_house][j_color]
         print(costs)
         return min(costs[-1])
+```
+
+## [**DP-5**] 221. Maximal Square (Medium)
+
+思路1 (不降维)：
+
+![alt text](https://github.com/LLancelot/LeetCode/blob/master/images/DP-5.png)
+
+代码:
+
+```python
+class Solution:
+    def maximalSquare(self, m: List[List[str]]) -> int:
+        if len(m) == 0: 
+            return 0
+        rows = len(m)
+        cols = len(m[0]) if rows > 0 else 0
+        dp = [[0]*(cols+1) for _ in range(rows+2)]
+        
+        MAX_LEN = 0
+        for i in range(1, rows+1):
+            for j in range(1, cols+1):
+                if m[i-1][j-1] == "1":
+                    dp[i][j] = min(dp[i][j-1], dp[i-1][j], dp[i-1][j-1]) + 1
+                    MAX_LEN = max(MAX_LEN, dp[i][j])
+
+        return MAX_LEN * MAX_LEN
+```
+
+## [**DP-6**] 494.Target Sum (Medium)
+
+You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+
+Find out how many ways to assign symbols to make sum of integers equal to target S.
+
+核心思路：
+
+https://zxi.mytechroad.com/blog/?s=494
+
+```java
+// Java
+// Runtime: 7 ms (83%)
+
+class Solution {
+    public int findTargetSumWays(int[] nums, int S) {
+        int sum = 0;
+        for (final int num : nums)
+            sum += num;
+        if (sum < S) return 0;
+        final int kOffset = sum;
+        final int kMaxN = sum * 2 + 1;
+        int[] ways = new int[kMaxN];
+        ways[kOffset] = 1;
+        for (final int num : nums) {      
+            int[] tmp = new int[kMaxN];      
+            for (int i = num; i < kMaxN - num; ++i) {
+                // 以当前数字为中心，分别找加上或减去num刚好在kMaxN范围内，从上一层的计算得到的ways[i].
+                // ways[i] means the total ways to sum up N (-kMaxN ~ kMaxN)
+                tmp[i + num] += ways[i];
+                tmp[i - num] += ways[i];
+            }
+            // update ways
+            ways = tmp;
+        }
+        return ways[S + kOffset];
+    }
+}
+
 ```
 
 ## 24. Swap nodes in pair
