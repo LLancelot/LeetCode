@@ -274,7 +274,7 @@ class Solution:
 
 ![alt text](https://github.com/LLancelot/LeetCode/blob/master/images/DP-5.png)
 
-代码:
+参考代码:
 
 ```python
 class Solution:
