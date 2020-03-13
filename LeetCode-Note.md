@@ -90,7 +90,36 @@ class Solution(object):
 
 2. 中序遍历，in-order traversal
 ```
-    
+
+代码如下:
+
+```python
+'''
+    In-order Traversal
+'''
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root:
+            return True
+        res = []
+        res1 = self.in_order_trv(root, res)
+        for i in range(len(res1)-1):
+            if res1[i+1] <= res1[i]:
+                return False
+        return True
+        
+        
+    def in_order_trv(self, root, res):
+        if root:
+            res = self.in_order_trv(root.left, res)
+            res.append(root.val)
+            res = self.in_order_trv(root.right, res)
+        return res
+```
 
 ## 701. Insert into a BST
 
