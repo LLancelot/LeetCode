@@ -739,3 +739,64 @@ class Solution(object):
             pos[n] = len_
         return result
 ```
+
+----
+# DFS (Depth-first-search)
+
+## 79. Word Search
+
+Given a 2D board and a word, find if the word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+```
+Example:
+
+board =
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+Given word = "ABCCED", return true.
+Given word = "SEE", return true.
+Given word = "ABCB", return false.
+```
+
+代码：
+
+```java
+class Solution {
+    private int w;
+    private int h;
+    
+    public boolean exist(char[][] board, String word) {
+        if (board.length == 0)
+            return false;
+        h = board.length;
+        w = board[0].length;
+        for (int i = 0; i < w; i++)
+            for (int j = 0; j < h; j++)
+                if (search(board, word, 0, i, j))
+                    return true;
+        return false;
+    }
+    
+    public boolean search(char[][] board, String word, int pos, int x, int y){
+        if (x<0 || x==w || y<0 || y==h || word.charAt(pos) != board[y][x])
+            return false;
+        if (pos == word.length() -1)
+            return true;
+        char cur = board[y][x];
+        board[y][x] = 0;
+        boolean find_every_dir = 
+            search(board, word, pos+1, x+1, y)
+            || search(board, word, pos+1, x-1, y)
+            || search(board, word, pos+1, x, y+1)
+            || search(board, word, pos+1, x, y-1);
+        board[y][x] = cur;
+        return find_every_dir;
+    }
+}
+```
