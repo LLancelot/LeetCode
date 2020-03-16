@@ -42,6 +42,26 @@ class Solution:
             return True
     3. return False
 ```
+
+## 24. Swap nodes in pair
+```
+    input : 1-2-3-4
+    output: 2-1-4-3
+
+    ********************
+    dummy.next = head
+    current = dummy
+    [d-1-2-3-4]
+    1) current = dummy, first = 1, second = 2
+        first.next = second.next
+        1 - 3
+        current.next = second
+        head = 2
+        current.next.next = first
+        (head.next = first)
+        2 - 1 - 3
+        current = current.next.next
+```
 -------------
 
 # **Tree**
@@ -224,6 +244,8 @@ class Solution:
 
 ## [**DP-3**] 256. Paint House
 
+题目描述详见 [issue](https://github.com/LLancelot/LeetCode/issues)
+
 > #### 核心思想：
 >
 > - 直接在costs修改``` costs[i][j]```
@@ -336,26 +358,150 @@ class Solution {
 
 ```
 
-## 24. Swap nodes in pair
-```
-    input : 1-2-3-4
-    output: 2-1-4-3
+## [**DP-7**] 746. Min Cost Climbing Stairs
 
-    ********************
-    dummy.next = head
-    current = dummy
-    [d-1-2-3-4]
-    1) current = dummy, first = 1, second = 2
-        first.next = second.next
-        1 - 3
-        current.next = second
-        head = 2
-        current.next.next = first
-        (head.next = first)
-        2 - 1 - 3
-        current = current.next.next
+```java
+// DP rules := dp[i] = Math.min(dp[i-2] + cost[i-2], dp[i-1] + cost[i-1])
+// dp[i] means the min cost before climbing the "i"th stairs, two ways. 
+
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int dp[] = new int[cost.length + 1];
+        Arrays.fill(dp, 0);
+        
+        for (int i = 2; i<=cost.length; i++){
+            dp[i] = Math.min(dp[i-2] + cost[i-2], dp[i-1] + cost[i-1]);
+        }
+        return dp[cost.length];
+    }
+}
 ```
-## 1034. Find N Unique Integers Sum up to Zero
+
+## [**DP-8**] 279. Perfect Squares 
+
+```java
+class Solution {
+    public int numSquares(int n) {
+        int dp[] = new int[n+1];
+        Arrays.fill(dp, n+1);
+        dp[0] = 0;
+
+        int top = (int)Math.sqrt(n);
+        int squares[] = new int[top];
+        for (int i = 0; i < top; i++){
+            squares[i] = (i+1) * (i+1);
+        }
+
+        for (int number : squares){
+            for (int i = number; i <= n; i++){
+                dp[i] = Math.min(dp[i], dp[i-number]+1);
+            }
+        }
+
+        return dp[n];
+    }
+}
+
+```
+
+## [**DP-9**] 63. Unique Path
+```cpp
+    方法1：动态规划问题，从下至上递推求解
+    int uniquePaths(int m, int n) {
+        if (m==0||n==0)
+            return 0;
+        auto f = vector<vector<int>>(n+1, vector<int>(m+1, 0));
+        f[1][1] = 1;
+        for (int y = 1; y <= n; y++){
+            for (int x = 1; x <= m; x++){
+                if (x==1 && y==1){
+                    continue;              
+                }
+                else{
+                    f[y][x] = f[y-1][x] + f[y][x-1];  
+                }
+            }
+        }
+        return f[n][m];
+ ```
+ ``` cpp  
+    方法2： 记忆化递归求解，耗时较长
+    public:
+    int uniquePaths(int m, int n) {
+        if (m<0 || n<0)
+            return 0;
+        if (m==1 && n==1)
+            return 1;
+        if (memo[m][n] > 0)
+            return memo[m][n];
+        int left_path = uniquePaths(m-1, n);
+        int up_path = uniquePaths(m, n-1);
+        memo[m][n] = left_path + up_path;
+        return memo[m][n];
+    }
+    private:
+        unordered_map<int, unordered_map<int, int>> memo;
+    
+    总结：基本思路一致，就是若要求得走到(m,n)的位置，即f[m][n]，只有从left和up两个方向进行考虑
+    即f[m][n] = f[m-1][n] + f[m][n-1]，直到终止条件为起点。
+```
+
+## [**DP-10**] 322. Coin Change
+
+与这题相似的解法题为 **[DP-8] Perfect Squares**
+
+>我们定义dp[i]时，dp长度为amount+1, 初始化dp[0] = 0, 其余dp[1...N]为amount+1 (或者integer最大值)。
+
+```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int []dp = new int[amount+1];
+        Arrays.fill(dp, amount+1);
+        dp[0] = 0;
+        
+        for (int coinType : coins)
+            for (int i = coinType; i<= amount; i++){
+                dp[i] = Math.min(dp[i], dp[i - coinType]+1);
+            }
+        return dp[amount] < amount+1 ? dp[amount] : -1;
+    }
+}
+```
+
+## [**DP-11**] 518. Coin Change_2
+
+> 与上一题不同，在coin change 2当中，我们定义dp[i]时，dp长度为amount+1, 初始化dp[0] = 1, 其余dp[1...N]为0。
+>
+>因为这题求的是一共有多少种累加到amount的方法，所以dp[i]应该叠加。
+>
+> 与上一题不同，在每次更新dp[i]时，应该累加之前的结果，转换方程为：
+dp[i] += dp[i - coin]，意思就是每次遇到新的钱币类型($1, $2, $5)，时，都要叠加之前算过的结果，和上一题不同的是，上一题的dp[i]代表每次循环新的钱币类型时，都要先比较出一个最小值，再更新dp[i]  
+
+python代码：
+
+```python
+class Solution(object):
+    def change(self, amount, coins):
+        """
+        :type amount: int
+        :type coins: List[int]
+        :rtype: int
+        """
+        dp = [0]* (amount + 1)
+        dp[0] = 1
+        
+        for coin in coins:
+            for i in range(coin, amount+1):
+                dp[i] += dp[i - coin]
+                
+        return dp[amount] if dp[amount] != 0 else 0
+
+```
+----
+
+# Others 更新中
+
+## 1304. Find N Unique Integers Sum up to Zero
 ```
     input: n = 5 
     output: [-7, -1, 1, 3, 4]
@@ -364,6 +510,35 @@ class Solution {
     n = 1, ans = [0]
     n = 2, ans = [-1, 1]
     n = 3, ans = [-1, 0, 1]   
+```
+
+代码如下：
+
+```python
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        base = [-1,1]
+        if n == 1:
+            return [0]
+        if n == 2:
+            return base
+        if n == 3:
+            base.insert(1,0)
+            return base
+        else:
+            if n % 2 == 0:
+                ans = [x for x in range(-n//2, n//2 + 1)]
+                ans.remove(0)
+            else:
+                return [x for x in range(-(n//2), n//2 + 1)]
+        return ans
+'''
+n = 4, ans = [-2,-1,1,2], [x for x in range(-n//2, n//2 +1)]
+ans.remove(0)
+
+n = 5, ans = [-2,-1,0,1,2]
+
+'''
 ```
 ## 706. Design HashMap
  
@@ -414,48 +589,6 @@ class Solution {
 ```
 ***************************************
 
-
-## 63. Unique Path
-```cpp
-    方法1：动态规划问题，从下至上递推求解
-    int uniquePaths(int m, int n) {
-        if (m==0||n==0)
-            return 0;
-        auto f = vector<vector<int>>(n+1, vector<int>(m+1, 0));
-        f[1][1] = 1;
-        for (int y = 1; y <= n; y++){
-            for (int x = 1; x <= m; x++){
-                if (x==1 && y==1){
-                    continue;              
-                }
-                else{
-                    f[y][x] = f[y-1][x] + f[y][x-1];  
-                }
-            }
-        }
-        return f[n][m];
- ```
- ``` cpp  
-    方法2： 记忆化递归求解，耗时较长
-    public:
-    int uniquePaths(int m, int n) {
-        if (m<0 || n<0)
-            return 0;
-        if (m==1 && n==1)
-            return 1;
-        if (memo[m][n] > 0)
-            return memo[m][n];
-        int left_path = uniquePaths(m-1, n);
-        int up_path = uniquePaths(m, n-1);
-        memo[m][n] = left_path + up_path;
-        return memo[m][n];
-    }
-    private:
-        unordered_map<int, unordered_map<int, int>> memo;
-    
-    总结：基本思路一致，就是若要求得走到(m,n)的位置，即f[m][n]，只有从left和up两个方向进行考虑
-    即f[m][n] = f[m-1][n] + f[m][n-1]，直到终止条件为起点。
-```
 
 
 ## 325. Maximum Size Subarray Sum Equals k
