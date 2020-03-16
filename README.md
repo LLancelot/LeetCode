@@ -1,7 +1,7 @@
 # LeetCode
 LeetCode刷题总结.
 
-我的LeetCode刷题总结, 以Top 100 liked questions为主（since 2020, 更新中）.
+我的LeetCode刷题总结, 以Top 100 liked & Top interviewed questions 为主（since 2020, 更新中）.
 
 - [DP](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-dynamic-programming)
 
@@ -10,6 +10,8 @@ LeetCode刷题总结.
 - [Linked List](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#19-remove-nth-node-from-end-of-list)
 
 - [Subset](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#1-78-subset)
+
+- [DFS](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dfs-depth-first-search)
 
 
 ## 题目列表
