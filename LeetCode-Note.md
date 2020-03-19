@@ -207,6 +207,59 @@ public class Solution {
     }
 }
 ```
+
+## 105. Construct Binary Tree from Preorder and Inorder Traversal
+
+```
+Given preorder and inorder traversal of a tree, construct the binary tree.
+
+For example, given
+
+preorder = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+
+Return the following binary tree:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
+
+核心思路：
+
+通过前序遍历，找到根节点，然后在中序遍历中把该根节点的下标找到，以root为中心，依次对中序遍历的左半部分和右半部分分别进行左子树和右子树的构建。
+
+代码：
+
+```python
+class Solution(object):
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: TreeNode
+        """
+           
+        def build(preorder, inorder, pre_start, in_start, in_end, mp):
+            # corner case
+            if pre_start >= len(preorder) or in_start > in_end:
+                return None
+            root = TreeNode(preorder[pre_start])
+            root_index = mp[preorder[pre_start]]
+            # build left and right subtree
+            root.left = build(preorder, inorder, pre_start+1, in_start, root_index-1, mp)
+            root.right = build(preorder, inorder, pre_start + root_index - in_start+1,
+                              root_index+1, in_end, mp)            
+            return root
+        
+        mp = {}
+        for i, num in enumerate(inorder):
+            mp[num] = i
+        return build(preorder, inorder, 0, 0, len(inorder)-1, mp)
+```
+
 ---
 
 # **DP (Dynamic Programming)**
@@ -526,6 +579,49 @@ class Solution(object):
         return dp[amount] if dp[amount] != 0 else 0
 
 ```
+
+## [**DP-12**] 486. Predict the Winner
+
+方法一：递归所有子序列的所有可能，非常慢
+
+```python
+class Solution(object):
+    def PredictTheWinner(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        def getScore(nums, le, ri):
+            if le == ri:
+                return nums[le]
+            return max(nums[le] - getScore(nums, le+1, ri),
+                      nums[ri] - getScore(nums, le, ri-1))
+        return getScore(nums, 0, len(nums)-1) >= 0
+```
+
+方法二：记忆化递归，高效（推荐）
+
+```python
+class Solution(object):
+    def PredictTheWinner(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        def getScore(nums, le, ri, m):
+            if le == ri:
+                return nums[le]
+            m_pos = le * len(nums) + ri
+            if m[m_pos] > 0:
+                return m[m_pos]
+            m[m_pos] = max(nums[le] - getScore(nums, le+1, ri, m),
+                      nums[ri] - getScore(nums, le, ri-1, m))
+            return m[m_pos]
+        
+        m = [0]*(len(nums)**2)
+        return getScore(nums, 0, len(nums)-1, m) >= 0
+```
+
 ----
 
 # Others 更新中
