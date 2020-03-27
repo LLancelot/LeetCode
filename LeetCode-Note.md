@@ -33,6 +33,10 @@ class Solution:
         return start.next
 ```
 
+
+
+
+
 ## 141. Linked List Cycle
 
 ```java
@@ -685,7 +689,176 @@ class Solution(object):
         return getScore(nums, 0, len(nums)-1, m) >= 0
 ```
 
+## [DP-13] 377. Combination Sum IV
+
+>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
+
+**Example:**
+
+```
+nums = [1, 2, 3]
+target = 4
+
+The possible combination ways are:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+
+Note that different sequences are counted as different combinations.
+
+Therefore the output is 7.
+```
+
+```python
+class Solution:
+    def combinationSum4(self, nums, target):
+        dp = [0] * (target+1)
+        dp[0] = 1
+        for i in range(1,target+1):
+            for num in nums:
+                if i - num>=0:
+                    dp[i] += dp[i-num]
+        return dp[target]
+```
+
+
+
 ----
+
+
+# Subset 子集问题
+
+## 1) 78. Subset
+
+Given a set of distinct integers, nums, return all possible subsets (the power set).
+
+**_Note: The solution set must not contain duplicate subsets._**
+
+```
+Input: nums = [1,2,3]
+Output:
+[
+  [3],
+  [1],
+  [2],
+  [1,2,3],
+  [1,3],
+  [2,3],
+  [1,2],
+  []
+]
+
+```
+
+```python
+class Solution():
+    def subset(self, nums):
+        res = [[]]
+        if not nums:
+            return res
+        for num in nums:
+            for le in range(len(res)):
+                res.append(res[le] + [num])
+        return res
+
+```
+
+## 2) 90. Subset
+
+- Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
+
+- _Note: The solution set must not contain duplicate subsets._
+
+```python
+Input: [1,2,2]
+Output:
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+
+class Solution(object):
+    def subsetsWithDup(self, nums):
+        nums, result, pos = sorted(nums), [[]], {}
+        for n in nums:
+            start, len_ = pos.get(n, 0), len(result)
+            # start: if current num is new, then start = 0
+            # if not, then start = len_
+            for r in result[start:]:
+                result += [r + [n]]
+            pos[n] = len_
+        return result
+```
+
+----
+
+# DFS (Depth-first-search)
+
+## 79. Word Search
+
+Given a 2D board and a word, find if the word exists in the grid.
+
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+```
+Example:
+
+board =
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+Given word = "ABCCED", return true.
+Given word = "SEE", return true.
+Given word = "ABCB", return false.
+```
+
+代码：
+
+```java
+class Solution {
+    private int w;
+    private int h;
+    
+    public boolean exist(char[][] board, String word) {
+        if (board.length == 0)
+            return false;
+        h = board.length;
+        w = board[0].length;
+        for (int i = 0; i < w; i++)
+            for (int j = 0; j < h; j++)
+                if (search(board, word, 0, i, j))
+                    return true;
+        return false;
+    }
+    
+    public boolean search(char[][] board, String word, int pos, int x, int y){
+        if (x<0 || x==w || y<0 || y==h || word.charAt(pos) != board[y][x])
+            return false;
+        if (pos == word.length() -1)
+            return true;
+        char cur = board[y][x];
+        board[y][x] = 0;
+        boolean find_every_dir = 
+            search(board, word, pos+1, x+1, y)
+            || search(board, word, pos+1, x-1, y)
+            || search(board, word, pos+1, x, y+1)
+            || search(board, word, pos+1, x, y-1);
+        board[y][x] = cur;
+        return find_every_dir;
+    }
+}
+```
 
 # Others 更新中
 
@@ -839,133 +1012,52 @@ class Solution:
 
 ```
 
+## 59. Spiral Matrix II
 
-# Subset 子集问题
-
-## 1) 78. Subset
-
-Given a set of distinct integers, nums, return all possible subsets (the power set).
-
-**_Note: The solution set must not contain duplicate subsets._**
-
-```
-Input: nums = [1,2,3]
-Output:
-[
-  [3],
-  [1],
-  [2],
-  [1,2,3],
-  [1,3],
-  [2,3],
-  [1,2],
-  []
-]
-
-```
+> Given a positive integer *n*, generate a square matrix filled with elements from 1 to *n*2 in spiral order.
+>
+> **Example:**
+>
+> ```
+> Input: 3
+> Output:
+> [
+>  [ 1, 2, 3 ],
+>  [ 8, 9, 4 ],
+>  [ 7, 6, 5 ]
+> ]
+> ```
 
 ```python
-class Solution():
-    def subset(self, nums):
-        res = [[]]
-        if not nums:
-            return res
-        for num in nums:
-            for le in range(len(res)):
-                res.append(res[le] + [num])
-        return res
-
-```
-
-## 2) 90. Subset
-
-- Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
-
-- _Note: The solution set must not contain duplicate subsets._
-
-```python
-Input: [1,2,2]
-Output:
-[
-  [2],
-  [1],
-  [1,2,2],
-  [2,2],
-  [1,2],
-  []
-]
-
 class Solution(object):
-    def subsetsWithDup(self, nums):
-        nums, result, pos = sorted(nums), [[]], {}
-        for n in nums:
-            start, len_ = pos.get(n, 0), len(result)
-            # start: if current num is new, then start = 0
-            # if not, then start = len_
-            for r in result[start:]:
-                result += [r + [n]]
-            pos[n] = len_
-        return result
+    def generateMatrix(self, nn):
+        """
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        matrix = []
+        level = []
+        res = []
+        res1 = []
+        for i in range(1,nn**2+1):
+            level.append(i)
+            if i%nn == 0:
+                matrix.append(level)
+                level = []
+                
+        m = len(matrix)
+        n = m
+        count, ub1, ub2 = 1, n, m-1
+        i, j, di, dj = 0, 0, 0, 1
+        for k in range(m*n):
+            matrix[i][j] = k+1
+            if count == ub1:
+                count, di, dj = 0, dj, -di
+                ub1, ub2 = ub2, ub1 - 1
+            count += 1
+            i += di
+            j += dj
+        # print(matrix)
+        return matrix
 ```
 
-----
-
-# DFS (Depth-first-search)
-
-## 79. Word Search
-
-Given a 2D board and a word, find if the word exists in the grid.
-
-The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
-
-```
-Example:
-
-board =
-[
-  ['A','B','C','E'],
-  ['S','F','C','S'],
-  ['A','D','E','E']
-]
-
-Given word = "ABCCED", return true.
-Given word = "SEE", return true.
-Given word = "ABCB", return false.
-```
-
-代码：
-
-```java
-class Solution {
-    private int w;
-    private int h;
-    
-    public boolean exist(char[][] board, String word) {
-        if (board.length == 0)
-            return false;
-        h = board.length;
-        w = board[0].length;
-        for (int i = 0; i < w; i++)
-            for (int j = 0; j < h; j++)
-                if (search(board, word, 0, i, j))
-                    return true;
-        return false;
-    }
-    
-    public boolean search(char[][] board, String word, int pos, int x, int y){
-        if (x<0 || x==w || y<0 || y==h || word.charAt(pos) != board[y][x])
-            return false;
-        if (pos == word.length() -1)
-            return true;
-        char cur = board[y][x];
-        board[y][x] = 0;
-        boolean find_every_dir = 
-            search(board, word, pos+1, x+1, y)
-            || search(board, word, pos+1, x-1, y)
-            || search(board, word, pos+1, x, y+1)
-            || search(board, word, pos+1, x, y-1);
-        board[y][x] = cur;
-        return find_every_dir;
-    }
-}
-```
