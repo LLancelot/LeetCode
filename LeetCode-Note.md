@@ -1,7 +1,7 @@
-
 #  **Linked List 链表总结**
 
 ## 19. Remove Nth Node From End of List
+
 >核心思想(One-pass一趟完成)：
 >
 >- 用快慢指针，将fast指针先移动到第n+1个位置。例如1-2-3-4-5，n = 2, 则将fast移动到“3”的位置上。
@@ -32,7 +32,9 @@ class Solution:
         slow.next = slow.next.next
         return start.next
 ```
+
 ## 141. Linked List Cycle
+
 ```java
     1. 用快慢指针，slower = faster = head
     2. while (faster.next != None and faster.next.next != None):
@@ -44,6 +46,7 @@ class Solution:
 ```
 
 ## 24. Swap nodes in pair
+
 ```
     input : 1-2-3-4
     output: 2-1-4-3
@@ -62,11 +65,13 @@ class Solution:
         2 - 1 - 3
         current = current.next.next
 ```
+
 -------------
 
 # **Tree**
 
 ## 111. Minimum Depth of Binary Tree
+
 ```python
 class Solution(object):
     def minDepth(self, root):
@@ -80,6 +85,7 @@ class Solution(object):
 ```
 
 ## 107. 层序遍历
+
 ```python
     1. res = queue = []
     2. queue.append(root)
@@ -96,7 +102,9 @@ class Solution(object):
         res.append(temp)
     4. return res
 ```
+
 ## 98. Validate a BST
+
 ```
 两种办法：
 1. 递归。通过递归在分别对左子树和右子树进行如下检查：
@@ -155,9 +163,12 @@ if root:
         else:
             root.right = target
 ```
+
 ## 112. Path Sum
+
 <p>
 Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
 
 Note: A leaf is a node with no children.
 </p>
@@ -185,9 +196,11 @@ class Solution:
         
                 
 ```
+
 ## 437. Path Sum III (easy)
 
 ## 124. Binary Tree Maximum Path Sum
+
 ```java
 public class Solution {
     int maxValue;
@@ -260,6 +273,52 @@ class Solution(object):
         return build(preorder, inorder, 0, 0, len(inorder)-1, mp)
 ```
 
+## 306. Find Leaves of Binary Tree
+
+> Given a binary tree, collect a tree's nodes as if you were doing this: Collect and remove all leaves, repeat until the tree is empty.
+>
+> **Example:**
+>
+> ```
+> Input: [1,2,3,4,5]
+>   
+>           1
+>          / \
+>         2   3
+>        / \     
+>       4   5    
+> 
+> Output: [[4,5,3],[2],[1]]
+> ```
+
+```python
+class Solution():
+    def findLeaves(self, root):
+        if root == None:
+            return []
+        def removeLeaves(root, lst):
+            if root == None:
+                return True
+            if root.left == None and root.right==None:
+                lst.append(root.val)
+                return True
+            if root.left and removeLeaves(root.left,lst):
+                root.left = None
+            if root.right and removeLeaves(root.right, lst):
+                root.right = None
+            return False
+        
+        res = []
+        while root:
+            lst = []
+            if (removeLeaves(root,lst)):
+                root = None
+            res.append(lst)
+            
+```
+
+
+
 ---
 
 # **DP (Dynamic Programming)**
@@ -278,7 +337,8 @@ class Solution(object):
 DP初始条件：money[0] = house[0], money[1] = max(house[:2])
 </li>
 </p>
- 
+
+
 ```python
 class Solution:
     def rob(self, A: List[int]) -> int:
@@ -357,6 +417,7 @@ class Solution:
 
 
 NOTE: _n houses, k colors, **costs**: n * k matrix_
+
 ```python
 class Solution:
     def minCostII(self, costs: List[List[int]]) -> int:
@@ -487,6 +548,7 @@ class Solution {
 ```
 
 ## [**DP-9**] 63. Unique Path
+
 ```cpp
     方法1：动态规划问题，从下至上递推求解
     int uniquePaths(int m, int n) {
@@ -505,7 +567,8 @@ class Solution {
             }
         }
         return f[n][m];
- ```
+```
+
  ``` cpp  
     方法2： 记忆化递归求解，耗时较长
     public:
@@ -526,7 +589,7 @@ class Solution {
     
     总结：基本思路一致，就是若要求得走到(m,n)的位置，即f[m][n]，只有从left和up两个方向进行考虑
     即f[m][n] = f[m-1][n] + f[m][n-1]，直到终止条件为起点。
-```
+ ```
 
 ## [**DP-10**] 322. Coin Change
 
@@ -554,10 +617,10 @@ class Solution {
 
 > 与上一题不同，在coin change 2当中，我们定义dp[i]时，dp长度为amount+1, 初始化dp[0] = 1, 其余dp[1...N]为0。
 >
->因为这题求的是一共有多少种累加到amount的方法，所以dp[i]应该叠加。
+> 因为这题求的是一共有多少种累加到amount的方法，所以dp[i]应该叠加。
 >
 > 与上一题不同，在每次更新dp[i]时，应该累加之前的结果，转换方程为：
-dp[i] += dp[i - coin]，意思就是每次遇到新的钱币类型($1, $2, $5)，时，都要叠加之前算过的结果，和上一题不同的是，上一题的dp[i]代表每次循环新的钱币类型时，都要先比较出一个最小值，再更新dp[i]  
+> dp[i] += dp[i - coin]，意思就是每次遇到新的钱币类型($1, $2, $5)，时，都要叠加之前算过的结果，和上一题不同的是，上一题的dp[i]代表每次循环新的钱币类型时，都要先比较出一个最小值，再更新dp[i]  
 
 python代码：
 
@@ -627,6 +690,7 @@ class Solution(object):
 # Others 更新中
 
 ## 1304. Find N Unique Integers Sum up to Zero
+
 ```
     input: n = 5 
     output: [-7, -1, 1, 3, 4]
@@ -665,13 +729,16 @@ n = 5, ans = [-2,-1,0,1,2]
 
 '''
 ```
+
 ## 706. Design HashMap
- 
+
 
 ## 1311. Get watched videos by your friends
 
 ## 200. Numbers of Islands
+
 ***********************
+
 ```java
 class Solution {
     // 首先定义四个方向的向量，方便计算矩阵上下左右的位置
@@ -712,11 +779,13 @@ class Solution {
     }
 }
 ```
+
 ***************************************
 
 
 
 ## 325. Maximum Size Subarray Sum Equals k
+
 ```java
     1. HashMap<int, int>;
     2. for (i, nums):
@@ -731,7 +800,9 @@ class Solution {
             若当前的sum不在map中，则将对应的sum和下标放到map里面
     3. return max
 ```
+
 ## 395. Longest Substring with At Least K Repeating Characters
+
 ```python
     1. corner case:
         if len(s) < K:
@@ -752,6 +823,7 @@ class Solution {
 
 
 ## 209. Minimum Size Subarray Sum
+
 ```python
 class Solution:
     def minSubArrayLen(self, k: int, nums: List[int]) -> int:
@@ -791,8 +863,8 @@ Output:
 ]
 
 ```
-```python
 
+```python
 class Solution():
     def subset(self, nums):
         res = [[]]
@@ -837,6 +909,7 @@ class Solution(object):
 ```
 
 ----
+
 # DFS (Depth-first-search)
 
 ## 79. Word Search
