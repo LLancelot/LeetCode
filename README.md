@@ -44,7 +44,7 @@ LeetCode刷题总结.
 
 - [105. Construct Binary Tree from Preorder and Inorder Traversal](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#105-construct-binary-tree-from-preorder-and-inorder-traversal)
 
-- [107. 层序遍历]([https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#107-%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#107-层序遍历))
+- [107. 层序遍历](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#107-%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86)
 - [112. Path Sum](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#112-path-sum)
 - [124. Binary Tree Maximum Path Sum](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#124-binary-tree-maximum-path-sum)
 - [306. Find Leaves of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#306-find-leaves-of-binary-tree)
