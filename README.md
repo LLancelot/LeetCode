@@ -1,13 +1,11 @@
 # LeetCode
-LeetCode刷题总结.
-
 我的LeetCode刷题总结, 以Top 100 liked & Top interviewed questions 为主（since 2020, 更新中）.
 
 - [DP](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-dynamic-programming)
 
 - [Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#tree)
 
-- [Linked List](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#19-remove-nth-node-from-end-of-list)
+- [Linked List](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md)
 
 - [Subset](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#1-78-subset)
 
@@ -16,6 +14,8 @@ LeetCode刷题总结.
 - [Sliding Window](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md)
 
 - [BackTracking](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md)
+
+- [Stack](https://github.com/LLancelot/LeetCode/blob/master/stack.md)
 
   
 
@@ -62,3 +62,21 @@ LeetCode刷题总结.
 
 - [17. Letter Combinations of a Phone Number](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md)
 - [22. Generate Parentheses](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#median-22-generate-parentheses)
+
+
+
+### Linked List
+
+- [19. Remove Nth Node From End of List](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#19-remove-nth-node-from-end-of-list)
+
+- [24. Swap Nodes in Pair](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#24-swap-nodes-in-pair)
+
+- [141. Linked List Cycle](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#141-linked-list-cycle)
+- [160. Intersection of Two Linked Lists](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#160-intersection-of-two-linked-lists)
+
+
+
+### Stack
+
+- [84. Largest Rectangle in Histogram 直方图最大面积](https://github.com/LLancelot/LeetCode/blob/master/stack.md#84-largest-rectangle-in-histogram-%E5%8D%95%E8%B0%83%E6%A0%88%E7%B3%BB%E5%88%97)
+
