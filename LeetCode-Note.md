@@ -1,4 +1,115 @@
-#  **Linked List 链表总结**
+
+
+
+
+#  Linked List 链表总结
+
+## 160. Intersection of Two Linked Lists
+
+>Write a program to find the node at which the intersection of two singly linked lists begins.
+>
+>For example, the following two linked lists:
+>
+>[![img](https://assets.leetcode.com/uploads/2018/12/13/160_statement.png)](https://assets.leetcode.com/uploads/2018/12/13/160_statement.png)
+>
+>begin to intersect at node c1.
+>
+> 
+>
+>**Example 1:**
+>
+>[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png)
+>
+>```
+>Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
+>Output: Reference of the node with value = 8
+>Input Explanation: The intersected node's value is 8 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,0,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.
+>```
+>
+> 
+>
+>**Example 2:**
+>
+>[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png)
+>
+>```
+>Input: intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+>Output: Reference of the node with value = 2
+>Input Explanation: The intersected node's value is 2 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [0,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.
+>```
+>
+> 
+>
+>**Example 3:**
+>
+>[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png)
+
+思路和代码 (reference: ***Cracking the Coding Interview***)：
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+
+public class Solution {
+    public class Result {
+        public ListNode tail;
+        public int size;
+        public Result(ListNode tail, int size){
+            this.tail = tail;
+            this.size = size;
+        }
+	}
+    Result getTailAndSize(ListNode list){
+        if (list == null) return null;
+        int size = 1;
+        ListNode current = list;
+        while(current.next != null){
+            size++;
+            current = current.next;
+        }
+        return new Result(current,size);
+}
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        Result resA = getTailAndSize(headA);
+        Result resB = getTailAndSize(headB);
+        // if different tail nodes, then there's no intersection
+        if (resA.tail != resB.tail) return null;
+        // set pointer to the start of each linked list
+        ListNode shorter = resA.size < resB.size ? headA : headB;
+        ListNode longer = resA.size < resB.size ? headB : headA;
+        
+        // Advance the pointer for the longer linked list by difference in lengths
+        longer = getKthNode(longer, Math.abs(resA.size - resB.size));
+        // move both pointers until you have a collision
+        while (shorter != longer){
+            shorter = shorter.next;
+            longer = longer.next;
+        }    
+        return longer;
+    }
+    
+    public ListNode getKthNode(ListNode head, int k){
+        ListNode current = head;
+        while (k>0 && current != null){
+            current = current.next;
+            k--;
+        }
+        return current;
+    }
+}
+```
+
+
 
 ## 19. Remove Nth Node From End of List
 
@@ -33,10 +144,6 @@ class Solution:
         return start.next
 ```
 
-
-
-
-
 ## 141. Linked List Cycle
 
 ```java
@@ -70,7 +177,28 @@ class Solution:
         current = current.next.next
 ```
 
+```python
+class Solution:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        dummy = ListNode(0)
+        dummy.next = head
+        current = dummy
+        while current.next != None and current.next.next != None:
+            first = current.next
+            second = current.next.next
+            first.next = second.next
+            current.next = second
+            current.next.next = first
+            current = current.next.next
+        
+        return dummy.next
+```
+
+
+
 -------------
+
+
 
 # **Tree**
 
@@ -88,23 +216,23 @@ class Solution(object):
         return 1 + (min(h) or max(h))
 ```
 
-## 107. 层序遍历
+## 107. 层序遍历 Level Order Traversal
 
 ```python
-    1. res = queue = []
-    2. queue.append(root)
-    3. while len(queue) != 0:
-        temp = []
-        quesize = len(queue)
-        for i in range(quesize):
-            node = queue.pop(0)
-            if node.left is not None:
-                queue.append(node.left)
-            if node.right is not None:
-                queue.append(node.right)
-            temp.append(node.val)
-        res.append(temp)
-    4. return res
+res, queue = [], []
+queue.append(root)
+while len(queue) != 0:
+    temp = []
+    quesize = len(queue)
+    for i in range(quesize):
+        node = queue.pop(0)
+        if node.left is not None:
+            queue.append(node.left)
+        if node.right is not None:
+            queue.append(node.right)
+        temp.append(node.val)
+    res.append(temp)
+return res
 ```
 
 ## 98. Validate a BST
@@ -170,12 +298,25 @@ if root:
 
 ## 112. Path Sum
 
-<p>
-Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
-
-
-Note: A leaf is a node with no children.
-</p>
+>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+>
+>**Note:** A leaf is a node with no children.
+>
+>**Example:**
+>
+>Given the below binary tree and `sum = 22`,
+>
+>```
+>      5
+>     / \
+>    4   8
+>   /   / \
+>  11  13  4
+> /  \      \
+>7    2      1
+>```
+>
+>return true, as there exist a root-to-leaf path `5->4->11->2` which sum is 22.
 
 ```python
 class Solution:
@@ -202,6 +343,65 @@ class Solution:
 ```
 
 ## 437. Path Sum III (easy)
+
+>You are given a binary tree in which each node contains an integer value.
+>
+>Find the number of paths that sum to a given value.
+>
+>The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).
+>
+>The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
+>
+>**Example:**
+>
+>```
+>root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
+>
+>      10
+>     /  \
+>    5   -3
+>   / \    \
+>  3   2   11
+> / \   \
+>3  -2   1
+>
+>Return 3. The paths that sum to 8 are:
+>
+>1.  5 -> 3
+>2.  5 -> 2 -> 1
+>3. -3 -> 11
+>```
+
+代码：
+
+```python
+class Solution:
+    def pathSum(self, root: TreeNode, S: int) -> int:
+        if not root:
+            return 0
+        ans = {"nums":0}
+        sums = {0:1}
+
+        def dfs(node, sums, currSum):
+            if not node:
+                return
+            newSum = node.val + currSum
+            if newSum - S in sums:
+                ans['nums'] += sums[newSum - S]
+            if not node.left and not node.right:
+                return
+            
+            sums[newSum] = sums.get(newSum,0)+1
+            dfs(node.left, sums, newSum)
+            dfs(node.right, sums, newSum)
+            sums[newSum] -= 1
+            
+        dfs(root, sums, 0)
+        return ans['nums']
+            
+```
+
+
 
 ## 124. Binary Tree Maximum Path Sum
 
