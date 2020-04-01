@@ -751,26 +751,31 @@ class Solution {
 
 ```
 
-## [**DP-9**] 63. Unique Path
+## [**DP-9**.1] 63. Unique Path
 
-```cpp
+```java
     方法1：动态规划问题，从下至上递推求解
-    int uniquePaths(int m, int n) {
-        if (m==0||n==0)
+class Solution {
+    public int uniquePaths(int m, int n) {
+        if (m<=0||n<=0){
             return 0;
-        auto f = vector<vector<int>>(n+1, vector<int>(m+1, 0));
-        f[1][1] = 1;
-        for (int y = 1; y <= n; y++){
-            for (int x = 1; x <= m; x++){
-                if (x==1 && y==1){
-                    continue;              
-                }
-                else{
-                    f[y][x] = f[y-1][x] + f[y][x-1];  
-                }
+        }
+        
+        int [][]dp = new int[m][n];
+        for (int row = 0; row < m ; row++){
+            dp[row][0] = 1;
+        }
+        for (int col = 0; col < n; col++){
+            dp[0][col] = 1;
+        }
+        for (int i = 1; i < m ; i++){
+            for (int j = 1; j < n; j++){
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
             }
         }
-        return f[n][m];
+        return dp[m-1][n-1];
+    }
+}
 ```
 
  ``` cpp  
@@ -794,6 +799,74 @@ class Solution {
     总结：基本思路一致，就是若要求得走到(m,n)的位置，即f[m][n]，只有从left和up两个方向进行考虑
     即f[m][n] = f[m-1][n] + f[m][n-1]，直到终止条件为起点。
  ```
+
+## [DP-9.2] Unique Path 2 (with obstacle)
+
+A robot is located at the top-left corner of a *m* x *n* grid (marked 'Start' in the diagram below).
+
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+
+Now consider if some obstacles are added to the grids. How many unique paths would there be?
+
+![img](https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png)
+
+An obstacle and empty space is marked as `1` and `0` respectively in the grid.
+
+**Note:** *m* and *n* will be at most 100.
+
+**Example 1:**
+
+```
+Input:
+[
+  [0,0,0],
+  [0,1,0],
+  [0,0,0]
+]
+Output: 2
+Explanation:
+There is one obstacle in the middle of the 3x3 grid above.
+There are two ways to reach the bottom-right corner:
+1. Right -> Right -> Down -> Down
+2. Down -> Down -> Right -> Right
+```
+
+*****
+
+与上一题的基本思路相似，可以采用记忆化递归求解，在这里需要注意的是：
+
+- 在递归的时候，需要处理```grid[i-1][j-1] == 1```的情况，即碰到障碍物时，将```dp[i][j] = 0```.
+- 边界条件, ```return 0```
+- 记忆化处理：```if dp[i][j] != INT_MIN```, 直接返回求过的dp值, ```return dp[i][j]```
+
+代码：
+
+```python
+class Solution(object):
+    def uniquePathsWithObstacles(self, grid):
+        row = len(grid)
+        if row == 0:  return 0
+        col = len(grid[0])
+        # dp[i][j] = path(i,j), INT_MIN: not solved yet, unknown solution
+        dp = [[-2**31]*(col+1) for _ in range(row+2)]
+        
+        def paths(dp,r,c,grid):
+            if r<=0 or c<=0:    return 0
+            # if r,c=1, reach the start point
+            if r==1 and c==1:   return 1-grid[0][0]
+            # if already solved, just return the answer.
+            if dp[r][c] != -2**31:  return dp[r][c]
+            # if there's an obstacle, set path to 0.
+            if grid[r-1][c-1] == 1: 
+                dp[r][c] = 0
+            else:
+                dp[r][c] = paths(dp,r,c-1,grid)+paths(dp,r-1,c,grid)
+            return dp[r][c]
+        
+        return paths(dp,row,col,grid)
+```
+
+
 
 ## [**DP-10**] 322. Coin Change
 
@@ -1260,4 +1333,69 @@ class Solution(object):
         # print(matrix)
         return matrix
 ```
+
+## 73. Set Matrix Zeroes
+
+>Given a *m* x *n* matrix, if an element is 0, set its entire row and column to 0. Do it [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm).
+>
+>**Example 1:**
+>
+>```
+>Input: 
+>[
+>  [1,1,1],
+>  [1,0,1],
+>  [1,1,1]
+>]
+>Output: 
+>[
+>  [1,0,1],
+>  [0,0,0],
+>  [1,0,1]
+>]
+>```
+>
+>**Example 2:**
+>
+>```
+>Input: 
+>[
+>  [0,1,2,0],
+>  [3,4,5,2],
+>  [1,3,1,5]
+>]
+>Output: 
+>[
+>  [0,0,0,0],
+>  [0,4,5,0],
+>  [0,3,1,0]
+>]
+>```
+
+```python
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        flag, m, n = False, len(matrix), len(matrix[0])
+        # first scan, find "0", if "0" in first col, flag=0
+        # if "0" in other position(i,j), then set matrix[i][0] = matrix[0][j] = 0
+        for i in range(m):
+            if matrix[i][0] == 0: flag = True
+            for j in range(1, n):
+                if matrix[i][j] == 0:
+                    matrix[i][0] = matrix[0][j] = 0
+        # second scan, bottom-up
+        for i in range(m-1, -1, -1):
+            for j in range(n-1, 0, -1):
+            # for each [i][1...j], check the header of col and row
+                if matrix[i][0] == 0 or matrix[0][j] == 0:
+                    matrix[i][j] = 0
+            # for each num in header of row, check flag
+            if flag == True:
+                matrix[i][0] = 0
+                
+```
+
 
