@@ -89,3 +89,66 @@ class Solution(object):
         return res
 ```
 
+## [Hard]  51. N-Queens 
+
+>The *n*-queens puzzle is the problem of placing *n* queens on an *n*×*n* chessboard such that no two queens attack each other.
+>
+>![img](https://assets.leetcode.com/uploads/2018/10/12/8-queens.png)
+>
+>Given an integer *n*, return all distinct solutions to the *n*-queens puzzle.
+>
+>Each solution contains a distinct board configuration of the *n*-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space respectively.
+
+参考：[回溯算法详解](https://github.com/labuladong/fucking-algorithm/blob/master/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E4%BF%AE%E8%AE%A2%E7%89%88.md)
+
+code:
+
+```c++
+class Solution {
+public:
+    vector<vector<string>> res;
+    vector<vector<string>> solveNQueens(int n) {
+        vector<string> board(n, string(n,'.'));
+        backtrack(board, 0);
+        return res;
+    }
+    
+    void backtrack(vector<string>& board, int row){
+        // 触发结束条件
+        if (row == board.size()){
+            res.push_back(board);
+            return;
+        }
+        int n = board[row].size();
+        for (int col = 0; col < n; col++){
+            if (!isValid(board, row, col))
+                continue;
+            board[row][col] = 'Q';
+            backtrack(board, row+1);
+            board[row][col] = '.';
+        }
+    }
+    
+    // check if conflict
+    bool isValid(vector<string>& board, int row, int col){
+        int N = board.size();
+        // check column first
+        for (int i = 0; i < N; i++) {
+            if (board[i][col] == 'Q')
+                return false;
+        }
+        // check 右上方
+        for (int i = row - 1, j = col + 1; i>=0 && j<N; i--, j++) {
+            if (board[i][j] == 'Q')
+                return false;
+        }
+        // check 左上方
+        for (int i = row - 1, j = col - 1; i>=0 && j>=0; i--, j--){
+            if (board[i][j] == 'Q')
+                return false;
+        }
+        return true;
+    }
+};
+```
+
