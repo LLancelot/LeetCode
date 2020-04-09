@@ -1133,6 +1133,90 @@ class Solution {
 }
 ```
 
+## 130. Surrounded Regions
+
+>Given a 2D board containing `'X'` and `'O'` (**the letter O**), capture all regions surrounded by `'X'`.
+>
+>A region is captured by flipping all `'O'`s into `'X'`s in that surrounded region.
+>
+>**Example:**
+>
+>```
+>X X X X
+>X O O X
+>X X O X
+>X O X X
+>```
+>
+>After running your function, the board should be:
+>
+>```
+>X X X X
+>X X X X
+>X X X X
+>X O X X
+>```
+>
+>**Explanation:**
+>
+>Surrounded regions shouldn’t be on the border, which means that any `'O'` on the border of the board are not flipped to `'X'`. Any `'O'` that is not on the border and it is not connected to an `'O'` on the border will be flipped to `'X'`. Two cells are connected if they are adjacent cells connected horizontally or vertically.
+
+基本思路:
+
+- 先处理边界条件，对第一行、最后一行、第一列、最后一列进行遍历，找到为'O'的岛屿进行DFS，标记visited, 对这些岛屿**不进行反转**。
+- 然后，遍历边界内部的区域，找到为'O'的岛屿进行**上下左右**的DFS，标记visited, 并且将```boolean change```设为```true```, 在DFS中针对这些值为```true```的岛屿做反转操作。
+
+代码：
+
+```python
+class Solution(object):
+    def solve(self, board):
+        if not board or len(board) == 0:
+            return
+        row, col = len(board), len(board[0])
+        visited = [[False]*col for _ in range(row)]
+        # 先处理四条边的情况
+        for j in range(col):
+            # 第一行
+            if board[0][j] == 'O':
+                self.dfs(board, 0, j, visited, False)
+            # 最后一行
+            if board[row-1][j] == 'O':
+                self.dfs(board, row-1, j, visited, False)
+        for i in range(row):
+            # 第一列
+            if board[i][0] == 'O':
+                self.dfs(board, i, 0, visited, False)
+            # 最后一列
+            if board[i][col-1] == 'O':
+                self.dfs(board, i, col-1, visited, False)
+                
+        # 其余情况，对边界内部的岛屿进行dfs和反转操作        
+        for i in range(1,row-1):
+            for j in range(1, col-1):
+                if board[i][j] == 'O':
+                    self.dfs(board, i, j, visited, True)
+        
+    def dfs(self, board, row, col, visited, change):
+		# 越界情况，return
+        if row<0 or row>len(board)-1 or col<0 or col>len(board[0])-1:
+            return
+        if board[row][col] == 'X':
+            return
+        if visited[row][col] == True:
+            return
+        if change == True:
+            board[row][col] = 'X'
+        
+        visited[row][col] = True
+        self.dfs(board, row+1, col, visited, change)
+        self.dfs(board, row-1, col, visited, change)
+        self.dfs(board, row, col+1, visited, change)
+        self.dfs(board, row, col-1, visited, change)
+```
+
+
+
 # Others 更新中
 
 ## 1304. Find N Unique Integers Sum up to Zero
