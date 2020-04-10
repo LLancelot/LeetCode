@@ -1215,6 +1215,62 @@ class Solution(object):
         self.dfs(board, row, col-1, visited, change)
 ```
 
+## 200. Numbers of Islands
+
+>Given a 2d grid map of `'1'`s (land) and `'0'`s (water), count the number of islands. An island is surrounded by water  and is formed by connecting adjacent lands horizontally or vertically.  You may assume all four edges of the grid are all surrounded by water.
+>
+>**Example 1:**
+>
+>```
+>Input:
+>11110
+>11010
+>11000
+>00000
+>
+>Output: 1
+>```
+>
+>**Example 2:**
+>
+>```
+>Input:
+>11000
+>11000
+>00100
+>00011
+>
+>Output: 3
+>```
+
+代码：
+
+```java
+class Solution {
+    public int numIslands(char[][] board) {
+        if (board == null || board.length == 0)   return 0;
+        int row = board.length, col = board[0].length;
+        int count = 0;
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < col; j++){
+                count += board[i][j] - '0';
+                dfs(board, i, j);
+            }
+        }
+        return count;
+    }
+    private void dfs(char[][] board, int i, int j){
+        if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == '0')
+            return;
+        board[i][j] = '0';
+        dfs(board, i, j+1);
+        dfs(board, i, j-1);
+        dfs(board, i+1, j);
+        dfs(board, i-1, j);
+    }
+}
+```
+
 
 
 # Others 更新中
@@ -1265,54 +1321,7 @@ n = 5, ans = [-2,-1,0,1,2]
 
 ## 1311. Get watched videos by your friends
 
-## 200. Numbers of Islands
-
-***********************
-
-```java
-class Solution {
-    // 首先定义四个方向的向量，方便计算矩阵上下左右的位置
-    final static int [][]dirs = {{-1, 0},
-                                 {1, 0},
-                                 {0, -1},
-                                 {0, 1}
-                                 };
-    public int numIslands(char[][] grid) {
-        // corner case
-        if (grid == null || grid.length == 0 || grid[0].length == 0){
-            return 0;
-        }
-        int count = 0;
-        final int rows = grid.length;
-        final int cols = grid[0].length;
-        // 用DFS遍历所有的相邻'1'的位置
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++){
-                if (grid[i][j] == '1'){
-                    count++;
-                    dfs(grid, i, j, rows, cols);
-                }
-            }
-        return count;
-    }
-    
-    public void dfs(char[][]grid, int x, int y, int rows, int cols){
-        if (x < 0 || x >= rows || y < 0 || y >= cols || grid[x][y] == '0'){
-            return;
-        }
-        grid[x][y] = '0';
-        for (int []dir : dirs){
-            int next_x = dir[0] + x;
-            int next_y = dir[1] + y;
-            dfs(grid, next_x, next_y, rows, cols);
-        }
-    }
-}
-```
-
-***************************************
-
-
+## 
 
 ## 325. Maximum Size Subarray Sum Equals k
 
