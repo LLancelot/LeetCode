@@ -17,8 +17,10 @@
 
 - [Stack](https://github.com/LLancelot/LeetCode/blob/master/stack.md)
 
-  
+- [Bit Manipulation](https://github.com/LLancelot/LeetCode/blob/master/bit-manipulation.md)
 
+- [Heap](https://github.com/LLancelot/LeetCode/blob/master/heap.md)
+  
 
 ## 题目列表
 
