@@ -923,9 +923,40 @@ class Solution(object):
 
 ## [**DP-12**] 486. Predict the Winner
 
+>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.
+>
+>Given an array of scores, **predict whether player 1 is the winner**. You can assume each player plays to maximize his score.
+>
+>**Example 1:**
+>
+>```
+>Input: [1, 5, 2]
+>Output: False
+>Explanation: Initially, player 1 can choose between 1 and 2. If he chooses 2 (or 1), then player 2 can choose from 1 (or 2) and 5. If player 2 chooses 5, then player 1 will be left with 1 (or 2). So, final score of player 1 is 1 + 2 = 3, and player 2 is 5. Hence, player 1 will never be the winner and you need to return False.
+>```
+>
+>
+>
+>**Example 2:**
+>
+>```
+>Input: [1, 5, 233, 7]
+>Output: True
+>Explanation: Player 1 first chooses 1. Then player 2 have to choose between 5 and 7. No matter which number player 2 choose, player 1 can choose 233.Finally, player 1 has more score (234) than player 2 (12), so you need to return True representing player1 can win.
+>```
+>
+>
+>
+>**Note:**
+>
+>1. 1 <= length of the array <= 20.
+>2. Any scores in the given array are non-negative integers and will not exceed 10,000,000.
+>3. If the scores of both players are equal, then player 1 is still the winner.
+
 方法一：递归所有子序列的所有可能，非常慢
 
 ```python
+# Python
 class Solution(object):
     def PredictTheWinner(self, nums):
         """
@@ -938,6 +969,31 @@ class Solution(object):
             return max(nums[le] - getScore(nums, le+1, ri),
                       nums[ri] - getScore(nums, le, ri-1))
         return getScore(nums, 0, len(nums)-1) >= 0
+```
+
+```java
+// Java
+class Solution {
+    private int[] m;
+    public boolean PredictTheWinner(int[] A) {
+        m = new int[A.length * A.length];
+        Arrays.fill(m, 0);
+        return getscore(A, 0, A.length - 1) >= 0;
+    }
+    
+    public int getscore(int[] A, int left, int right) {
+        if (left == right)  return A[left];
+        int pos = left * A.length + right;
+        if (m[pos] > 0) {
+            // 记忆化递归
+            return m[pos];
+        }
+        
+        m[pos] = Math.max(A[left] - getscore(A, left + 1, right) , 
+                          A[right] - getscore(A, left, right - 1));
+        return m[pos];
+    }
+}
 ```
 
 方法二：记忆化递归，高效（推荐）
@@ -961,6 +1017,39 @@ class Solution(object):
         
         m = [0]*(len(nums)**2)
         return getScore(nums, 0, len(nums)-1, m) >= 0
+```
+
+**方法三**：
+
+> 设定两个函数，```f(x)``` 和 ```s(x)``` 分别表示先手和后手两种情况:
+>
+> 如果**先发**，那么应该返回的是拿走**前面的数字**或者拿走**后面的数字**能拿到的结果的**最大值**。但是如果**后发**，那么应该返回的是**前面不拿**和**后面不拿**的**最小值**。
+
+```python
+class Solution(object):
+    def PredictTheWinner(self, nums):
+        _sum = sum(nums)
+        self.f_map, self.s_map = dict(), dict()
+        player1 = self.f(nums, 0, len(nums)-1)
+        return player1 >= _sum / 2.0
+
+    def f(self, nums, start, end): # 先
+        if start == end:
+            return nums[start]
+        if (start, end) not in self.f_map:
+            # 先发，取最大值
+            f_val = max(nums[start] + self.s(nums, start+1, end), nums[end] + self.s(nums, start, end-1))
+            self.f_map[(start, end)] = f_val
+        return self.f_map[(start, end)]
+
+    def s(self, nums, start, end): # 后
+        if start == end:
+            return 0
+        if (start, end) not in self.s_map:
+            # 后发，取最小值
+            s_val = min(self.f(nums, start+1, end), self.f(nums, start, end-1))
+            self.s_map[(start, end)] = s_val
+        return self.s_map[(start, end)]
 ```
 
 ## [DP-13] 377. Combination Sum IV
