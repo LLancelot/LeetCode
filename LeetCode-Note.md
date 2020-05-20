@@ -10,7 +10,7 @@
 >
 >For example, the following two linked lists:
 >
->[![img](https://assets.leetcode.com/uploads/2018/12/13/160_statement.png)](https://assets.leetcode.com/uploads/2018/12/13/160_statement.png)
+>[<img src="https://assets.leetcode.com/uploads/2018/12/13/160_statement.png" alt="img" style="zoom:50%;" />](https://assets.leetcode.com/uploads/2018/12/13/160_statement.png)
 >
 >begin to intersect at node c1.
 >
@@ -18,7 +18,7 @@
 >
 >**Example 1:**
 >
->[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png)
+>[<img src="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png" alt="img" style="zoom:50%;" />](https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png)
 >
 >```
 >Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -30,7 +30,7 @@
 >
 >**Example 2:**
 >
->[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png)
+>[<img src="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png" alt="img" style="zoom:50%;" />](https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png)
 >
 >```
 >Input: intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
@@ -42,7 +42,7 @@
 >
 >**Example 3:**
 >
->[![img](https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png)](https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png)
+>[<img src="https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png" alt="img" style="zoom:50%;" />](https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png)
 
 思路和代码 (reference: ***Cracking the Coding Interview***)：
 
@@ -1361,6 +1361,71 @@ class Solution {
 }
 ```
 
+## 695. Max Area of Island
+
+> Given a non-empty 2D array `grid` of 0's and 1's, an **island** is a group of `1`'s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.
+>
+> Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)
+>
+> **Example 1:**
+>
+> ```
+> [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+>  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+>  [0,1,1,0,1,0,0,0,0,0,0,0,0],
+>  [0,1,0,0,1,1,0,0,1,0,1,0,0],
+>  [0,1,0,0,1,1,0,0,1,1,1,0,0],
+>  [0,0,0,0,0,0,0,0,0,0,1,0,0],
+>  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+>  [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+> ```
+>
+> Given the above grid, return `6`. Note the answer is not 11, because the island must be connected 4-directionally.
+>
+> **Example 2:**
+>
+> ```
+> [[0,0,0,0,0,0,0,0]]
+> ```
+>
+> Given the above grid, return `0`.
+
+代码：
+
+```java
+// return max area of island
+class Solution {
+    private int h;
+    private int w;
+    
+    public int maxAreaOfIsland(int[][] grid) {
+        if (grid.length == 0)   return 0;
+        h = grid.length;
+        w = grid[0].length;
+        
+        int max_area = 0;
+        for (int i = 0; i < h; i++)
+            for (int j = 0; j < w; j++)
+                max_area = Math.max(max_area, getArea(grid, j, i));
+        return max_area;
+    }
+    
+    private int getArea(int[][] grid, int x, int y) {
+        // stop condition, [border or water area]
+        if (x < 0 || x >= w || y < 0 || y >= h || grid[y][x] == 0)
+            return 0;  
+        // 排除“0”之后，对于“1”的点，这里作置0处理，即将其岛屿沉没，避免重复计算岛屿数量
+        grid[y][x] = 0;
+        int ans = getArea(grid, x + 1, y)
+            	+ getArea(grid, x - 1, y)
+            	+ getArea(grid, x, y + 1)
+            	+ getArea(grid, x, y - 1)
+            	+ 1;
+        return ans;
+    }
+}
+```
+
 ## 547. Friend Circles
 
 >There are **N** students in a class. Some of them are friends, while  some are not. Their friendship is transitive in nature. For example, if A is a **direct** friend of B, and B is a **direct** friend of C, then A is an **indirect** friend of C. And we defined a friend circle is a group of students who are direct or indirect friends.
@@ -1419,7 +1484,68 @@ class Solution:
         return ans
 ```
 
+# BFS (Breath-First-Search)
 
+ ## 994. Rotting Oranges
+
+> In a given grid, each cell can have one of three values:
+>
+> - the value `0` representing an empty cell;
+> - the value `1` representing a fresh orange;
+> - the value `2` representing a rotten orange.
+>
+> Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.
+>
+> Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return `-1` instead.
+>
+>  
+>
+> **Example 1:**
+>
+> **![img](https://assets.leetcode.com/uploads/2019/02/16/oranges.png)**
+>
+> ```
+> Input: [[2,1,1],[1,1,0],[0,1,1]]
+> Output: 4
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input: [[2,1,1],[0,1,1],[1,0,1]]
+> Output: -1
+> Explanation:  The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+> ```
+>
+> **Example 3:**
+>
+> ```
+> Input: [[0,2]]
+> Output: 0
+> Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.
+> ```
+
+代码 (用set处理)：
+
+```python
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        row, col = len(grid), len(grid[0])
+        rotting = {(i, j) for i in range(row) for j in range(col) if grid[i][j] == 2}
+        fresh = {(i, j) for i in range(row) for j in range(col) if grid[i][j] == 1}
+        dir = [(0,1), (1,0), (0,-1), (-1,0)]
+        time = 0
+        while fresh:
+            if not rotting:
+                return -1
+            rotting = {(i+di, j+dj) for i, j in rotting for di, dj in dir if (i+di, j+dj) in fresh}
+            # remove those infected oranges
+            fresh -= rotting
+            time += 1
+        return time
+```
+
+------------------------------
 
 # Others 更新中
 
