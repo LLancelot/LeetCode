@@ -521,6 +521,172 @@ class Solution():
             
 ```
 
+## 100. Same Tree (Easy)
+
+> Given two binary trees, write a function to check if they are the same or not.
+>
+> Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+>
+> **Example 1:**
+>
+> ```
+> Input:     1         1
+>           / \       / \
+>          2   3     2   3
+> 
+>         [1,2,3],   [1,2,3]
+> 
+> Output: true
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input:     1         1
+>           /           \
+>          2             2
+> 
+>         [1,2],     [1,null,2]
+> 
+> Output: false
+> ```
+>
+> **Example 3:**
+>
+> ```
+> Input:     1         1
+>           / \       / \
+>          2   1     1   2
+> 
+>         [1,2,1],   [1,1,2]
+> 
+> Output: false
+> ```
+
+代码：
+
+```java
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        // 递归终止，左右子树均为空，则返回true
+        if (p==null && q==null)
+            return true;
+        // 一边为空，一边不为空，说明不是same tree，返回false
+        if (p==null || q==null)
+            return false;
+        // 比较值不同，返回false
+        if (p.val != q.val)
+            return false;
+        
+        // 递归调用左子树(p.left, q.left) 和 右子树(p.right, q.right)
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+}
+```
+
+## 101. Symmetric Tree	(Easy)
+
+> Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+>
+> For example, this binary tree `[1,2,2,3,4,4,3]` is symmetric:
+>
+> ```
+>     1
+>    / \
+>   2   2
+>  / \ / \
+> 3  4 4  3
+> ```
+>
+>  
+>
+> But the following `[1,2,2,null,3,null,3]` is not:
+>
+> ```
+>     1
+>    / \
+>   2   2
+>    \   \
+>    3    3
+> ```
+
+**判断条件：**
+
+- 两个值相同，```t1.val == t2.val```
+- 左=右，右=左，```isMirror(t1.right, t2.left) && isMirror(t1.left, t2.right);```
+
+**代码：**
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        return isMirror(root, root);
+    }
+
+    public boolean isMirror(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        return (t1.val == t2.val)
+            && isMirror(t1.right, t2.left)
+            && isMirror(t1.left, t2.right);
+    }
+}
+```
+
+
+
+## 108. Convert Sorted Array to Binary Search Tree (Easy)
+
+> Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+>
+> For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of *every* node never differ by more than 1.
+>
+> **Example:**
+>
+> ```
+> Given the sorted array: [-10,-3,0,5,9],
+> 
+> One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
+> 
+>       0
+>      / \
+>    -3   9
+>    /   /
+>  -10  5
+> ```
+
+**思路：**
+
+- 因为数组已经排好序，且BST是左 < 中 < 右，则只需要将数组中位数```arr[mid]```作为root，分别对数组左半部分和右半部分进行递归。
+
+**代码：**
+
+```java
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        if(nums.length==0)
+            return null;
+        int mid = nums.length / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sortedArrayToBST(Arrays.copyOfRange(nums, 0, mid));
+        root.right = sortedArrayToBST(Arrays.copyOfRange(nums, mid + 1, nums.length));
+        return root;
+    }
+}
+```
+
+```python
+class Solution:
+    def sortedArrayToBST(self, arr: List[int]) -> TreeNode:
+        if not arr:
+            return None
+        mid = len(arr) // 2
+        root = TreeNode(arr[mid])
+        root.left = self.sortedArrayToBST(arr[:mid])
+        root.right = self.sortedArrayToBST(arr[mid+1:])        
+        return root
+```
+
 
 
 ---
@@ -1483,6 +1649,75 @@ class Solution:
                 dfs(M, i, n)
         return ans
 ```
+
+## 733. Flood Fill
+
+> An `image` is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).
+>
+> Given a coordinate `(sr, sc)` representing the starting pixel (row and column) of the flood fill, and a pixel value `newColor`, "flood fill" the image.
+>
+> To perform a "flood fill", consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.
+>
+> At the end, return the modified image.
+>
+> **Example 1:**
+>
+> ```
+> Input: 
+> image = [[1,1,1],[1,1,0],[1,0,1]]
+> sr = 1, sc = 1, newColor = 2
+> Output: [[2,2,2],[2,2,0],[2,0,1]]
+> Explanation: 
+> From the center of the image (with position (sr, sc) = (1, 1)), all pixels connected 
+> by a path of the same color as the starting pixel are colored with the new color.
+> Note the bottom corner is not colored 2, because it is not 4-directionally connected
+> to the starting pixel.
+> ```
+>
+> 
+>
+> **Note:**
+>
+> The length of `image` and `image[0]` will be in the range `[1, 50]`.
+>
+> The given starting pixel will satisfy `0 <= sr < image.length` and `0 <= sc < image[0].length`.
+>
+> The value of each color in `image[i][j]` and `newColor` will be an integer in `[0, 65535]`.
+
+代码：
+
+```java
+class Solution {
+    private int h;
+    private int w;
+    
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        if (image.length == 0)  return null;
+        if (image[sr][sc] == newColor)  return image;
+        
+        h = image.length;
+        w = image[0].length;     
+        dfs(image, sc, sr, image[sr][sc], newColor);      
+        return image;
+    }
+    
+    private void dfs(int[][] image, int x, int y, int oldColor, int newColor){
+        if (x < 0 || x >= w || y < 0 || y >= h) 
+            return;
+        if (image[y][x] != oldColor)
+            return;
+        
+        image[y][x] = newColor;
+        
+        dfs(image, x + 1, y, oldColor, newColor);
+        dfs(image, x - 1, y, oldColor, newColor);
+        dfs(image, x, y + 1, oldColor, newColor);
+        dfs(image, x, y - 1, oldColor, newColor);
+    }
+}
+```
+
+
 
 # BFS (Breath-First-Search)
 
