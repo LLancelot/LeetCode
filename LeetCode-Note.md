@@ -687,6 +687,147 @@ class Solution:
         return root
 ```
 
+## 95. Unique Binary Search Tree 2
+
+> Given an integer *n*, generate all structurally unique **BST's** (binary search trees) that store values 1 ... *n*.
+>
+> **Example:**
+>
+> ```
+> Input: 3
+> Output:
+> [
+>   [1,null,3,2],
+>   [3,2,null,1],
+>   [3,1,null,null,2],
+>   [2,1,3],
+>   [1,null,2,null,3]
+> ]
+> Explanation:
+> The above output corresponds to the 5 unique BST's shown below:
+> 
+>    1         3     3      2      1
+>     \       /     /      / \      \
+>      3     2     1      1   3      2
+>     /     /       \                 \
+>    2     1         2                 3
+> ```
+
+**思路：**
+
+- 对于1...n 中每个值 i ，都可以作为树根，那么左子树范围 [1... i-1] 和右子树范围 [i+1 ... n]分别通过相同的递归添加到 ```root{i}.left ``` 和```root{i}.right``` 中。
+- 递归终止1：当上述范围出现区间的边界值都相等，比如[3, 3]，这时直接把“3”加到result列表中，并返回
+- 递归终止2：当区间 [l, r] 出现 l > r, 则说明构不成BST，直接返回```null```
+
+**代码：**
+
+```java
+class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        if (n == 0)
+            return new ArrayList<TreeNode>();
+        return gen(1, n);
+    }
+    
+    private List<TreeNode> gen(int l, int r) {
+        List<TreeNode> ans = new ArrayList<>();
+        if (l > r) {
+            ans.add(null);
+            return ans;
+        }
+        
+        if (l == r) {
+            ans.add(new TreeNode(l));
+            return ans;
+        }
+   
+        for (int i = l; i <= r; i++) {
+            // 对每个值都当做根节点root，找到左子树和右子树递归。
+            List<TreeNode> sub_left = gen(l, i - 1);
+            List<TreeNode> sub_right = gen(i + 1, r);
+            
+            for (TreeNode left : sub_left)
+                for (TreeNode right : sub_right) {
+                    TreeNode node = new TreeNode(i);
+                    node.left = left;
+                    node.right = right;
+                    ans.add(node);
+                }
+        }
+        return ans;
+    }
+}
+```
+
+## 96. Unique Binary Search Trees
+
+Given *n*, how many structurally unique **BST's** (binary search trees) that store values 1 ... *n*?
+
+**代码：**
+
+```java
+class Solution {
+    public int numTrees(int n) {
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, 0);
+        dp[0] = 1;
+        for (int i = 1; i <= n; i++)
+            for (int j = 0; j < i; j++)
+                dp[i] += dp[j] * dp[i - j - 1];
+        return dp[n];
+    }
+}
+```
+
+
+
+## 1448. Count Good Nodes in Binary Tree (Tree / DFS)
+
+> Given a binary tree `root`, a node *X* in the tree is named **good** if in the path from root to *X* there are no nodes with a value *greater than* X.
+>
+> Return the number of **good** nodes in the binary tree.
+>
+>  
+>
+> **Example 1:**
+>
+> **![img](https://assets.leetcode.com/uploads/2020/04/02/test_sample_1.png)**
+>
+> ```
+> Input: root = [3,1,4,3,null,1,5]
+> Output: 4
+> Explanation: Nodes in blue are good.
+> Root Node (3) is always a good node.
+> Node 4 -> (3,4) is the maximum value in the path starting from the root.
+> Node 5 -> (3,4,5) is the maximum value in the path
+> Node 3 -> (3,1,3) is the maximum value in the path.
+> ```
+
+**思路：**
+
+- 从根节点开始递归，因为要找至少大于等于root的值，所以在dfs的时候要先判断当前最大值MAX和当前节点的值，也就是说，找到比max更大的节点值后，需要把MAX更新为 max(MAX, node.val)，再进行递归。
+
+**代码：**
+
+```java
+class Solution {
+    public int goodNodes(TreeNode root) {
+        return helper(root, -10000); // 讲MAX初始化成一个最小值
+    }
+    
+    private int helper(TreeNode root, int MAX) {
+        if (root == null)
+            return 0;
+        int count = root.val >= MAX ? 1 : 0; // 找到一个节点大于等于MAX
+        count += helper(root.left, Math.max(MAX, root.val));
+		count += helper(root.right, Math.max(MAX, root.val));
+        return count;
+    }
+}
+```
+
+
+
 
 
 ---
@@ -1830,8 +1971,6 @@ n = 5, ans = [-2,-1,0,1,2]
 
 ## 1311. Get watched videos by your friends
 
-## 
-
 ## 325. Maximum Size Subarray Sum Equals k
 
 ```java
@@ -1999,5 +2138,4 @@ class Solution:
                 matrix[i][0] = 0
                 
 ```
-
 
