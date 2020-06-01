@@ -1735,7 +1735,7 @@ class Solution(object):
         self.dfs(board, row, col-1, visited, change)
 ```
 
-## 200. Numbers of Islands
+## 200. Numbers of Islands （经典）
 
 >Given a 2d grid map of `'1'`s (land) and `'0'`s (water), count the number of islands. An island is surrounded by water  and is formed by connecting adjacent lands horizontally or vertically.  You may assume all four edges of the grid are all surrounded by water.
 >
@@ -1763,7 +1763,13 @@ class Solution(object):
 >Output: 3
 >```
 
-代码：
+**三种方法：**
+
+- DFS
+- BFS + queue
+- 并查集 (Union Find)
+
+**DFS：**
 
 ```java
 class Solution {
@@ -1790,6 +1796,117 @@ class Solution {
     }
 }
 ```
+
+**BFS + queue:**
+
+```python
+# BFS
+import collections
+
+class Solution(object):
+    def __init__(self):
+        self.dx = [-1, 1, 0, 0]
+        self.dy = [0, 0, -1, 1]
+
+    def numIslands(self, grid): # main
+        if not grid or not grid[0]: return 0
+        self.max_x = len(grid); self.max_y = len(grid[0]); self.grid = grid;
+        self.visited = set()
+        count = 0
+        for i in range(self.max_x):
+            for j in range(self.max_y):
+                if self.isValid(i, j):
+                    self.floodfill(i, j)
+                    count += 1
+        return count
+
+    def floodfill(self, x, y):
+        if not self.isValid(x, y):
+            return
+        self.visited.add((x, y))
+        
+        queue = collections.deque()
+        queue.append((x, y))
+        
+        while queue:
+            cur_x, cur_y = queue.popleft()
+            for i in range(4):
+                next_x, next_y = cur_x + self.dx[i], cur_y + self.dy[i]
+                if self.isValid(next_x, next_y):
+                    self.visited.add((next_x, next_y))
+                    queue.append((next_x, next_y))
+        
+    def isValid(self, x, y):
+        if x < 0 or x >= self.max_x or y < 0 or y >= self.max_y:
+            return False
+
+        if self.grid[x][y] == '0' or ((x, y) in self.visited):
+            return False
+        
+        return True
+
+```
+
+**并查集 Union Find:**
+
+```python
+# numbers of island - union find
+
+class UnionFind(object):
+    def __init__(self, grid):
+        m, n = len(grid), len(grid[0])
+        self.count = 0;
+        self.parent = [-1] * (m * n)    # size = m * n
+        self.rank = [0] * (m * n)       # size = m * n
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    self.parent[i * n + j] = i * n + j
+                    self.count += 1     # count nums of 1
+    
+    def find(self, i):
+        if self.parent[i] != i:
+            self.parent[i] = self.find(self.parent[i])
+        return self.parent[i]
+
+    def union(self, x, y):
+        rootx = self.find(x)
+        rooty = self.find(y)
+
+        if rootx != rooty:
+            if self.rank[rootx] > self.rank[rooty]:
+                self.parent[rooty] = rootx
+            elif self.rank[rooty] > self.rank[rootx]:
+                self.parent[rootx] = rooty
+            else:
+                self.parent[rooty] = rootx
+                self.rank[rootx] += 1
+            self.count -= 1     # every time find its root
+
+   ###########################################################################         
+            
+class Solution(object):
+    def numIslands(self, grid):
+        if not grid or not grid[0]:
+            return 0
+        
+        uf = UnionFind(grid)
+        m, n = len(grid), len(grid[0])
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '0':
+                    continue
+                for d in dirs:
+                    nr, nc = i + d[0], j + d[1]
+                    if (nr >= 0 and nr < m and nc >=0 and nc < n and grid[nr][nc] == '1'):
+                        uf.union(i * n + j, nr * n + nc)
+        
+        return uf.count
+```
+
+
 
 ## 695. Max Area of Island
 
