@@ -47,44 +47,44 @@ class Solution(object):
         :type queries: List[List[str]]
         :rtype: List[float]
         """
-    graph = {}              # graph[f] = [(g1, v1), (g2, v2), (g3, v3)...]
-    
-    def build_graph(equations, values):
-        def add_edges(f, g, value):
-            if f in graph:
-                graph[f].append((g, value))
-            else:
-                graph[f] = [(g, value)]
-        
-        for vertices, val in zip(equations, values):
-            f, g = vertices
-            add_edges(f, g, val)
-            add_edges(g, f, 1/val)      # add its reciprocal value
-            
-        # end def build_graph()
-    
-    def find_path(query):
-        begin, end = query
-        
-        if begin not in graph or end not in graph:
+        graph = {}              # graph[f] = [(g1, v1), (g2, v2), (g3, v3)...]
+
+        def build_graph(equations, values):
+            def add_edges(f, g, value):
+                if f in graph:
+                    graph[f].append((g, value))
+                else:
+                    graph[f] = [(g, value)]
+
+            for vertices, val in zip(equations, values):
+                f, g = vertices
+                add_edges(f, g, val)
+                add_edges(g, f, 1/val)      # add its reciprocal value
+
+            # end def build_graph()
+
+        def find_path(query):
+            begin, end = query
+
+            if begin not in graph or end not in graph:
+                return -1.0
+
+            # BFS 
+            queue = collections.deque([(begin, 1.0)])
+            visited = set()
+
+            while queue:
+                find, curr_product = queue.popleft()
+                if find == end:
+                    return curr_product
+                visited.add(find)
+                for neighbor, value in graph[find]:         # search for its neighbors
+                    if neighbor not in visited:
+                        queue.append((neighbor, curr_product * value))	# multiply 
+
+            # finally, if not found
             return -1.0
-        
-        # BFS 
-        queue = collections.deque([(begin, 1.0)])
-        visited = set()
-        
-        while queue:
-            find, curr_product = queue.popleft()
-            if find == end:
-                return curr_product
-            visited.add(find)
-            for neighbor, value in graph[find]:         # search for its neighbors
-                if neighbor not in visited:
-                    queue.append((neighbor, curr_product * value))	# multiply 
-        
-        # finally, if not found
-        return -1.0
-        
-    build_graph(equations, values)
-    return [find_path(q) for q in queries]		# result
+
+        build_graph(equations, values)
+        return [find_path(q) for q in queries]		# result
 ```
