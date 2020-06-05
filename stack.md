@@ -93,7 +93,97 @@ class Solution {
 }
 ```
 
+## 232. Implement Queue using Stacks
 
+> Implement the following operations of a queue using stacks.
+>
+> - push(x) -- Push element x to the back of queue.
+> - pop() -- Removes the element from in front of queue.
+> - peek() -- Get the front element.
+> - empty() -- Return whether the queue is empty.
+>
+> **Example:**
+>
+> ```
+> MyQueue queue = new MyQueue();
+> 
+> queue.push(1);
+> queue.push(2);  
+> queue.peek();  // returns 1
+> queue.pop();   // returns 1
+> queue.empty(); // returns false
+> ```
+>
+> **Notes:**
+>
+> - You must use *only* standard operations of a stack -- which means only `push to top`, `peek/pop from top`, `size`, and `is empty` operations are valid.
+> - Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.
+> - You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 
+题意：用栈实现队列的一系列操作。
 
+**思路**
 
+- 设立两个栈，s1 and s2.
+- 对于 **push** 操作，直接在 s1 中加到末尾，即可
+- 对于 **pop** 操作，我的思想是，既然要被pop掉的数字在栈底，那么我们就把栈 s1 的所有元素 pop 到另一个栈 s2 中去，这样能保证在 s1 中处于栈底的元素会出现在 s2 的栈顶，比如 s1 = [1, 2, 3]，我们需要元素"1"出队列，那么我们把 s1 按照栈的性质 pop 到 s2 中，那么 s2 这时就变成了 s2 = [3, 2, 1]，我们把 s2 的栈顶元素 pop，即1，就得到了结果。最后，再用同样的方式，把 s2 依次出栈到 s1，还原s1.
+- 对于 **peek** 操作，思路和 pop 相同，需要在 s2.pop() 时，用 res 记录 s2.pop()，并且把 res 添加到 s1 中去，再用同样的方式，把s2依次出栈到s1，还原s1.
+- 对于 empty()，判断 s1 == [] 与否即可
+
+**代码**
+
+```python
+class MyQueue(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.s1 = []
+        self.s2 = []
+
+    def push(self, x):
+        """
+        Push element x to the back of queue.
+        :type x: int
+        :rtype: None
+        """
+        self.s1.append(x)
+        
+
+    def pop(self):
+        """
+        Removes the element from in front of queue and returns that element.
+        :rtype: int
+        """
+        while self.s1:
+            self.s2.append(self.s1.pop())
+        
+        res = self.s2.pop()
+        while self.s2:
+            self.s1.append(self.s2.pop())
+        
+        return res
+
+    def peek(self):
+        """
+        Get the front element.
+        :rtype: int
+        """
+        while self.s1:
+            self.s2.append(self.s1.pop())
+        
+        res = self.s2.pop()
+        self.s1.append(res)
+        while self.s2:
+            self.s1.append(self.s2.pop())
+
+        return res
+        
+    def empty(self):
+        """
+        Returns whether the queue is empty.
+        :rtype: bool
+        """
+        return self.s1 == []
+```
