@@ -127,6 +127,7 @@
 ### Stack
 
 - [84. Largest Rectangle in Histogram 直方图最大面积](https://github.com/LLancelot/LeetCode/blob/master/stack.md#84-largest-rectangle-in-histogram-%E5%8D%95%E8%B0%83%E6%A0%88%E7%B3%BB%E5%88%97)
+- [232. Implement Queue using Stacks 利用栈实现队列](https://github.com/LLancelot/LeetCode/blob/master/stack.md#232-implement-queue-using-stacks)
 
 ### Heap / Heap Sort
 
