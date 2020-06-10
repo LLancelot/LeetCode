@@ -152,3 +152,118 @@ public:
 };
 ```
 
+## 46. Permutation
+
+给定一个**Distinct**的数组求全排列
+
+> Given a collection of **distinct** integers, return all possible permutations.
+>
+> **Example:**
+>
+> ```
+> Input: [1,2,3]
+> Output:
+> [
+>   [1,2,3],
+>   [1,3,2],
+>   [2,1,3],
+>   [2,3,1],
+>   [3,1,2],
+>   [3,2,1]
+> ]
+> ```
+
+```java
+class Solution {
+    private List<List<Integer>> res = new LinkedList<>();
+
+    public List<List<Integer>> permute(int[] nums) {
+        LinkedList<Integer> route = new LinkedList<>();
+        backtrack(nums, route);
+        return res;
+    }
+    
+    public void backtrack(int[] nums, LinkedList<Integer> route) {
+        if (route.size() == nums.length) {
+            res.add(new LinkedList(route));
+            return;
+        }
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (route.contains(nums[i]))
+                continue;
+            route.add(nums[i]);
+            backtrack(nums, route);
+            route.removeLast();
+        }
+    }
+}
+```
+
+## 47. Permutations II
+
+给定一个有**重复**的数组求全排列
+
+> Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+>
+> **Example:**
+>
+> ```
+> Input: [1,1,2]
+> Output:
+> [
+>   [1,1,2],
+>   [1,2,1],
+>   [2,1,1]
+> ]
+> ```
+
+#### 注意
+
+1. 先要对数组排序，目的是为了处理duplicate number
+2. 设置 visited[] 记录访问情况
+3. 回溯中的if条件有二：
+   - visited[i] == true
+   - 当前数字不是数组（排序后）中第一位，且前一个数字未被访问（因为回溯会在每次循环时，对 visited[i] 先 true 后 false，如果当前数字与它前一个相同，且未被访问，例如 [1, 1, 2]，当第一次进行循环时，**先对第一个1进行遍历**，包括它在内的三个数字会被依次访问且添加到路径中，此时**第一个1**的循环结束时，来到 res.add() 的操作，return 后再对**第二个1**重复跟第一个1一样的操作，但需要注意的是，每次回溯都会进到for循环的 i = 0 的地方，也就是每次回溯都会经过第一个1，如何保证不会重复添加？这里体现了 visited 的作用，最外层的循环只有三个数，1,1,2，第一个1走完所有的分支后，它的visited就从 true 变成了 false，所以第二个1开始走，发现前一个1的 visited 是 false 的时候，就说明前一个是重复的数，不需要添加。可以画**递归树**来理解！
+
+
+
+### 代码
+
+```java
+class Solution {
+    
+    private List<List<Integer>> res = new LinkedList<>();
+    
+    public List<List<Integer>> permuteUnique(int[] nums) {
+
+        Arrays.sort(nums);  // first sort nums;
+        LinkedList<Integer> route = new LinkedList<>();
+        boolean[] visited = new boolean[nums.length];
+        backtrack(nums, visited, route);
+        return res;
+    }
+    
+    private void backtrack(int[] nums, boolean[] visited, LinkedList<Integer> route) {
+        if (route.size() == nums.length) {
+            res.add(new LinkedList<>(route));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (visited[i] == true)
+                continue;
+            if (i > 0 && visited[i - 1] == false && nums[i] == nums[i - 1]) {
+                // meet duplicate number
+                continue;
+            }
+ 
+            visited[i] = true;
+            route.add(nums[i]);     
+            backtrack(nums, visited, route);
+            visited[i] = false;
+            route.removeLast();
+        }
+    }
+}
+```
+
