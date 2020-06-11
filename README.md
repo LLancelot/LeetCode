@@ -81,7 +81,7 @@
 
 - [79. Word Search](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#79-word-search)
 - [130. Surrounded Regions](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#130-surrounded-regions)
-- [200. Numbers of Islands (三种方法, 经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#130-surrounded-regions)
+- [200. Numbers of Islands (三种方法, 经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#200-numbers-of-islands-%E7%BB%8F%E5%85%B8)
 - [695. Max Area of Island](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#695-max-area-of-island)
 - [547. Friend Circles](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#547-friend-circles)
 - [733. Flood Fill (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#733-flood-fill)
@@ -123,6 +123,8 @@
 - [17. Letter Combinations of a Phone Number](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md)
 - [22. Generate Parentheses](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#median-22-generate-parentheses)
 - [51. N皇后问题](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#hard--51-n-queens)
+- [46. Permutation](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#46-permutation)
+- [47. Permutations II](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#47-permutations-ii)
 
 ### Stack
 
