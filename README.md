@@ -1,6 +1,10 @@
 # LeetCode
 我的LeetCode刷题总结, 以Top 100 liked & Top interviewed questions 为主（since 2020, 更新中）.
 
+部分题目待更新，题解将逐步完善.
+
+## Tag
+
 - [Array](https://github.com/LLancelot/LeetCode/blob/master/Array.md)
 
 - [DP](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-dynamic-programming)
@@ -76,6 +80,8 @@
 - [24. Swap Nodes in Pair](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#24-swap-nodes-in-pair)
 - [141. Linked List Cycle](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#141-linked-list-cycle)
 - [160. Intersection of Two Linked Lists](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#160-intersection-of-two-linked-lists)
+- [109. Convert Sorted List to BST](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%209%E3%80%91%202020-06-09%20-%20109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.md)
+- [206. Reverse Linked List (经典 每日一题)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%207%E3%80%91%202020-06-07%20-%20206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.md)
 
 ### Depth-First-Search
 
@@ -134,3 +140,9 @@
 ### Heap / Heap Sort
 
 - [973. K Closest Points to Origin (Medium)](https://github.com/LLancelot/LeetCode/blob/ea6e819054ad2ebb8f6a7c43df11927c4aee38c2/heap.md#973-k-closest-points-to-origin-medium)
+
+### Design
+
+- [146. LRU Cache (每日一题)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%2012%E3%80%91-%20146.%20LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
+- [380. Insert Delete GetRandom O(1) (每日一题)](https://github.com/LLancelot/LeetCode/blob/bed167dfe9cd188c99ee76d4d01379d82386eca4/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%206%E3%80%91%202020-06-06%20-%20380.%20%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0.md)
+
