@@ -82,6 +82,7 @@
 - [160. Intersection of Two Linked Lists](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#160-intersection-of-two-linked-lists)
 - [109. Convert Sorted List to BST](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%209%E3%80%91%202020-06-09%20-%20109.%20%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.md)
 - [206. Reverse Linked List (经典 每日一题)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%207%E3%80%91%202020-06-07%20-%20206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.md)
+- [25. Reverse Node in k-Group (经典 Hard)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#25-reverse-nodes-in-k-group)
 
 ### Depth-First-Search
 
