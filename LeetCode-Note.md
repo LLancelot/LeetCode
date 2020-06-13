@@ -194,9 +194,71 @@ class Solution:
         return dummy.next
 ```
 
+## 25. Reverse Nodes in k-Group
 
+### 题目
 
--------------
+> **Example:**
+>
+> Given this linked list: `1->2->3->4->5`
+>
+> For *k* = 2, you should return: `2->1->4->3->5`
+>
+> For *k* = 3, you should return: `3->2->1->4->5`
+
+### 思路
+
+        /*
+        
+        dm -  1  - 2  - 3  - 4 - 5
+        |     |    |    |    | 
+       prev tail curr next last
+        
+        */
+### 代码
+
+```java
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null)   return null;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode prev = dummy;
+        while (prev != null)
+            prev = reverse(prev, k); // return tail, each k times move, let prev = tail
+        return dummy.next;
+    }
+    
+    private ListNode reverse(ListNode prev, int k) {
+        ListNode last = prev;
+        for (int i = 0; i < k + 1; i++) {
+            last = last.next;
+            if (i != k && last == null)
+                // k=3, dm-1-2-3-4-5, 4和5来说，长度不满足3, 无法反转
+                return null;
+        }
+        
+        /*
+        
+        dm -  1  - 2  - 3  - 4 - 5
+        |     |    |    |    | 
+       prev tail curr next last
+        
+        */
+        
+        ListNode tail = prev.next;      // tail is "1"
+        ListNode curr = prev.next.next; // curr is "2"
+        while (curr != last) {
+            ListNode next = curr.next;  // next is "3"
+            curr.next = prev.next;      // 2 -> 1
+            prev.next = curr;           // dm -> 2
+            tail.next = next;           // 1 -> 3
+            curr = next;                // move curr to next
+        }
+        return tail;
+    }
+}
+```
 
 
 
