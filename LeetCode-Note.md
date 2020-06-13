@@ -260,6 +260,83 @@ class Solution {
 }
 ```
 
+## 92. Reverse Linked List II
+
+### 题目
+
+> Reverse a linked list from position *m* to *n*. Do it in one-pass.
+>
+> **Note:** 1 ≤ *m* ≤ *n* ≤ length of list.
+>
+> **Example:**
+>
+> ```
+> Input: 1->2->3->4->5->NULL, m = 2, n = 4
+> Output: 1->4->3->2->5->NULL
+> ```
+
+### 思路
+
+- ```
+  
+      dm -  1  - 2  - 3  - 4 - 5
+      |     |    |    |    | 
+     prev tail curr next last
+  ```
+
+- 模板题，要反转“2 -> 3 -> 4”，依次将3接上2，4接上3，即可。
+
+- **与上一题相似**，也是属于反转链表的题目，要在[m, n]区间反转：
+  - 关键：明确**五个指针**的含义（以Example为例）：
+    - ```prev``` : 区间的前一个node，“1”
+    - ```last``` : 区间的后一个node，“5“
+    - ```tail``` : 左区间node，“2”。因为反转后会跑到区间尾部，顾名思义为 tail
+    - ```curr``` : 区间的第二个node，“3”。因为定义了 ```last``` 表示区间的下一个点，如果循环 ```curr``` 到 last 则表明不再执行 reverse 操作。
+    - ```next``` : ```curr``` 的下一个， ``` next = curr.next``` 
+
+### 代码
+
+```java
+
+class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null)
+	        return null;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode prev = dummy;
+        for (int i = 0; i < m - 1; i++) {		// 通过(m - 1)步找到prev
+            prev = prev.next;
+        }
+        reverse(prev, n - m + 1);				// 区间长度
+	    return dummy.next;
+    }
+
+    private void reverse(ListNode prev, int k) {
+		ListNode last = prev;
+		for (int i = 0; i < k + 1; i++) {
+	  		last = last.next;					// 区间右边界
+	  	}
+	  	/*
+	  	
+	  	dm - 1 - 2 - 3 - 4 - 5 - null
+	  	|	 |	 |   |
+	  prev tail curr next
+	  	*/
+	  	
+	  	ListNode tail = prev.next;
+	  	ListNode curr = prev.next.next;
+	  	while (curr != last) {
+	  		ListNode next = curr.next;
+	  		curr.next = prev.next;
+	  		prev.next = curr;
+	  		tail.next = next;
+	  		curr = next;
+	  	}
+    }
+}
+```
+
 
 
 # **Tree**
