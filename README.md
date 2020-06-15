@@ -125,6 +125,8 @@
 
 ### Sliding Window
 
+- [3. Longest Substring Without Repeating Characters](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#3-longest-substring-without-repeating-characters)
+
 - [76. Minimum Window Substring](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#sliding-window)
 
 ### Subset
