@@ -105,3 +105,84 @@ class Solution {
 }
 ```
 
+## 30. Substring with Concatenation of All Words
+
+> You are given a string, **s**, and a list of words, **words**, that are all of the same length. Find all starting indices of substring(s) in **s** that is a concatenation of each word in **words** exactly once and without any intervening characters.
+>
+>  
+>
+> **Example 1:**
+>
+> ```
+> Input:
+>   s = "barfoothefoobarman",
+>   words = ["foo","bar"]
+> Output: [0,9]
+> Explanation: Substrings starting at index 0 and 9 are "barfoo" and "foobar" respectively.
+> The output order does not matter, returning [9,0] is fine too.
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input:
+>   s = "wordgoodgoodgoodbestword",
+>   words = ["word","good","best","word"]
+> Output: []
+> ```
+
+模板题。
+
+### 思路
+
+This problem follows the **Sliding Window** pattern and has a lot of similarities with [Maximum Sum Subarray of Size K](https://www.educative.io/collection/page/5668639101419520/5671464854355968/5177043027230720/). We will keep track of all the words in a **HashMap** and try to match them in the given string. Here are the set of steps for our algorithm:
+
+1. Keep the frequency of every word in a **HashMap**.
+2. Starting from every index in the string, try to match all the words.
+3. In each iteration, keep track of all the words that we have already seen in another **HashMap**.
+4. If a word is not found or has a higher frequency than required, we can move on to the next character in the string.
+5. Store the index if we have found all the words.
+
+### 代码
+
+```java
+class Solution {
+    public List<Integer> findSubstring(String str, String[] words) {
+        Map<String, Integer> wordFreqMap = new HashMap<>();
+        List<Integer> res = new ArrayList<Integer>();
+        
+        int wordsCount = words.length;
+        if (wordsCount == 0)
+            return res;
+        
+        int wordLength = words[0].length();
+        if (str.length() < wordsCount * wordLength)
+            return res;
+        
+        for (String word : words)
+            wordFreqMap.put(word, wordFreqMap.getOrDefault(word, 0) + 1);
+        
+        for (int i = 0; i <= str.length() - wordsCount * wordLength; i++) { 
+            //注意是：<=
+            Map<String, Integer> wordsSeen = new HashMap<>();
+            for (int j = 0; j < wordsCount; j++) {
+                int nextWordIndex = i + j * wordLength;
+                String word = str.substring(nextWordIndex, nextWordIndex + wordLength);
+                
+                if (!wordFreqMap.containsKey(word))
+                    break;
+                
+                wordsSeen.put(word, wordsSeen.getOrDefault(word, 0) + 1);
+                
+                if (wordsSeen.get(word) > wordFreqMap.getOrDefault(word, 0))
+                    break;
+                
+                if (j == wordsCount - 1) // end of iteration, add index to res
+                    res.add(i);
+            }
+        }
+        return res;
+    }
+}
+```
+
