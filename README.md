@@ -46,6 +46,8 @@
 - [Remove Duplicates (模板)](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#%E6%A8%A1%E6%9D%BF%E9%A2%982-easy---remove-duplicates)
 - [Triplet Sum to Zero (模板)](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#%E6%A8%A1%E6%9D%BF%E9%A2%984-medium---triplet-sum-to-zero)
   - [Follow up: Triplet Sum Close to Target](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#follow-up-triplet-sum-close-to-target-medium)
+- Subarrays with Product Less than a Target (medium)
+- Dutch National Flag Problem (medium)
 
 ### DP
 
