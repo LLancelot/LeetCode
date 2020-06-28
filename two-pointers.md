@@ -230,3 +230,59 @@ class Solution {
 
 ```
 
+## 713. Subarray Product Less Than K
+
+#### 题目
+
+> Your are given an array of positive integers `nums`.
+>
+> Count and print the number of (contiguous) subarrays where the product of all the elements in the subarray is less than `k`.
+>
+> **Example 1:**
+>
+> ```
+> Input: nums = [10, 5, 2, 6], k = 100
+> Output: 8
+> Explanation: The 8 subarrays that have product less than 100 are: [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6].
+> Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+> ```
+
+1、找到的 subarray 必须是**连续**的
+
+2、subarray 的乘积小于 K
+
+#### 思路
+
+- 双指针，left 和 right，right 用来遍历整个数组（常规定义），left 指向第一个元素。均表示**下标**。
+- for 循环每次遍历一个元素，且将乘积 product 累乘，乘完之后，为了保证 product 要小于 K，我们还要加一个 while 循环，循环的判断条件是：left <= right 且 product >= K，意思就说，如果我们发现当前的乘积 product 已经超出了 K，我们就要减少一些元素，做法是： ```product /= arr[left++]```，即除去```arr[left]```的值，并移动左指针 ```left++```。
+- while 循环判断结束后，我们就得到了一个总乘积不超过 K 的，[left, right]区间的 subarray，如何得到这个区间的所有连续子序列的个数呢？
+  - 以 [1, 3, 6] 为例，left 对应arr[0]=1，right 对应arr[2]=6，所有连续子序列为：[1]，[1, 3]，[1, 3, 6]，不难发现子序列个数即为 2 - 0 + 1 = 3，即：**right - left + 1**
+
+- 最后将所有的子序列个数累加，```count += right - left + 1```，结束、返回。
+
+#### 代码
+
+```java
+class Solution {
+    public int numSubarrayProductLessThanK(int[] arr, int k) {
+        if (k == 0)
+            return 0;
+        int cnt = 0, product = 1;
+        // i means left, j means right
+        for (int i = 0, j = 0; j < arr.length; j++) {
+            product *= arr[j];
+            while (i <= j && product >= k) {
+                product /= arr[i++];
+            }
+            cnt += j - i + 1;
+        }
+        return cnt;
+    }
+}
+```
+
+#### 复杂度分析
+
+- 外层for循环，因为 j 要遍历 n 次，即O(n)，内层while循环，因为 i 每次增加1，且 i <= j，也就是说无论外循环执行 n 次，内层的 while 循环总共也最多执行 n 次，所以也是 O(n)。（这种内外循环的题，主要看内层究竟是每次执行n次还是总共执行n次，因为内层的 i 是累加的，最多执行 j 次，而外层循环一次，内层的 i 并不会初始化为0，所以内层并不是每次都执行n遍，所以总时间复杂度并不是O(n^2)！）
+- 综上，time complexity 为 O(n)
+- 此外，并无额外数组开销，space complexity 为 O(1)
