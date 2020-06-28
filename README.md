@@ -140,6 +140,12 @@
 
 - [76. Minimum Window Substring](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#sliding-window)
 
+- [30. Substring with Concatenation of All Words](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#30-substring-with-concatenation-of-all-words)
+
+- [模板题：String Anagrams (hard)](https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3)
+
+- [模板题：Permutation in a String (hard)](https://www.educative.io/courses/grokking-the-coding-interview/N0o9QnPLKNv)
+
 ### Subset
 
 - [78. Subsets](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#1-78-subset)
