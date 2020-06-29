@@ -286,3 +286,88 @@ class Solution {
 - 外层for循环，因为 j 要遍历 n 次，即O(n)，内层while循环，因为 i 每次增加1，且 i <= j，也就是说无论外循环执行 n 次，内层的 while 循环总共也最多执行 n 次，所以也是 O(n)。（这种内外循环的题，主要看内层究竟是每次执行n次还是总共执行n次，因为内层的 i 是累加的，最多执行 j 次，而外层循环一次，内层的 i 并不会初始化为0，所以内层并不是每次都执行n遍，所以总时间复杂度并不是O(n^2)！）
 - 综上，time complexity 为 O(n)
 - 此外，并无额外数组开销，space complexity 为 O(1)
+
+## 18. 4Sum (Quadruple Sum to Target (medium))
+
+#### 题目
+
+> Given an array of unsorted numbers and a target number, find all **unique quadruplets** in it, whose **sum is equal to the target number**.
+>
+> **Example 1:**
+>
+> ```
+> Input: [4, 1, 2, -1, 1, -3], target=1
+> Output: [-3, -1, 1, 4], [-3, 1, 1, 2]
+> Explanation: Both the quadruplets add up to the target.
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input: [2, 0, -1, 1, -2, 2], target=2
+> Output: [-2, 0, 2, 2], [-1, 0, 1, 2]
+> Explanation: Both the quadruplets add up to the target.
+> ```
+
+1、不重复的四元组，跟 [3Sum](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#%E6%A8%A1%E6%9D%BF%E9%A2%984-medium---triplet-sum-to-zero) 类似
+
+#### 思路
+
+假设存在四元组，<i, j, ?, ?>
+
+- 先固定前两个数，即用两层 for 循环(i, j)，调用search_pairs函数，去查找满足四个数之和等于 targetSum 的另外两个数
+- search_pairs() 中，运用双指针，left 表示要找的第3个数，right 表示要找的第4个数。**四个步骤**跟3Sum的做法一样：
+  - 求当前 curSum
+  - 判断 curSum == targetSum ？匹配，则加到result，left 右移，right 左移
+    - 匹配后，两个while，去掉重复的数
+  - 小于targetSum，left 右移
+  - 大于targetSum，right 左移
+
+#### 代码
+
+```python
+class Solution(object):
+    def fourSum(self, arr, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        if arr == [] or len(arr) < 4:
+            return []
+        arr.sort()
+        result = []
+        # first:i, second:j
+        for i in range(0, len(arr) - 3):
+            if i > 0 and arr[i] == arr[i-1]:
+                continue
+            for j in range(i+1, len(arr) - 2):
+                if j > i+1 and arr[j] == arr[j-1]:
+                    continue
+                self.search_pairs(arr, target, i, j, result)
+    
+        return result
+    
+    def search_pairs(self, arr, targetSum, first, second, result):
+        left = second + 1   # the third number after second
+        right = len(arr) - 1
+        while left < right:
+            curSum = arr[first] +arr[second] +arr[left] +arr[right]
+            if curSum == targetSum:
+                # add to result
+                result.append([arr[first], arr[second], arr[left], arr[right]])
+                left += 1
+                right -= 1
+                # pass duplicate for left and right
+                while left < right and arr[left] == arr[left - 1]:
+                    left += 1
+                while left < right and arr[right] == arr[right + 1]:
+                    right -= 1
+            elif curSum < targetSum:
+                # less than target, move left++
+                left += 1
+            else:
+                right -= 1
+        
+```
+
