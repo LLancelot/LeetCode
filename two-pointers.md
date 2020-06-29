@@ -371,3 +371,95 @@ class Solution(object):
         
 ```
 
+## 模板题5 - Minimum Window Sort
+
+同 [leetcode 581. Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)
+
+#### 题目
+
+> Given an array, find the length of the **smallest** subarray in it which when sorted will sort the whole array.
+>
+> **Example 1:**
+>
+> ```
+> Input: [1, 2, 5, 3, 7, 10, 9, 12]
+> Output: 5
+> Explanation: We need to sort only the subarray [5, 3, 7, 10, 9] to make the whole array sorted
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input: [1, 3, 2, 0, -1, 7, 10]
+> Output: 5
+> Explanation: We need to sort only the subarray [1, 3, 2, 0, -1] to make the whole array sorted
+> ```
+>
+> **Example 3:**
+>
+> ```
+> Input: [1, 2, 3]
+> Output: 0
+> Explanation: The array is already sorted
+> ```
+>
+> **Example 4:**
+>
+> ```
+> Input: [3, 2, 1]
+> Output: 3
+> Explanation: The whole array needs to be sorted.
+> ```
+
+1、找到最小的区间长度，使得 sort 这个区间之后，整个数组便成为升序列。
+
+#### 思路
+
+假设例子 [1, 3, 2, 0, -1, 7, 10]，左异常值：3，和右异常值：-1，因为3是第一个从前往后出现比后面大的数字，-1是从后往前第一个出现比左边小的数字（即不满足升序条件的左右边界）
+
+- 双指针，low 和 high。首先找到从左往右方向的第一个异常值，以及右异常值。low 和 high 分别为异常值下标
+- 对于**正区间** [low, high]，分别求区间内的**最小值**和**最大值**，记 sub_min 和 sub_max
+- 对于**左区间** [0, low)，若找到比 sub_min 还要大的数，则 low -= 1，表示目前区间窗口需要扩展
+- 对于**右区间** (high, ~)，若找到比 sub_max 还要小的数，high += 1，表示扩展
+
+**解释：** 为什么要排查区间的左、右部分，扩展？很简单，我们已经知道了区间内的最小值和最大值，如果左区间的数都比正区间的最小值要小，右区间的数都比正区间的大，那么这整个数组当然是升序的了，那么正区间就是我们要找的最小待处理区间。**但是，**如果左区间的数并非小于正区间的最小值，那说明左区间的这个数不应该出现在这个位置，以思路中的例子，3到-1之间为正区间，-1是最小值，此时左区间只有一个数，1，而1比-1大，说明1不应该出现在这，因为就算正区间排好序，比-1大的数竟然还在左区间，显然不符合要求，换句话说1也该被考虑到加入正区间才对。同理，右区间需要排查。
+
+#### 代码
+
+```python
+import math
+class Solution(object):
+    def findUnsortedSubarray(self, arr):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        low, high = 0, len(arr) - 1
+        
+        while (low < len(arr) - 1 and arr[low] <= arr[low + 1]):
+            low += 1
+            
+        if low == len(arr) - 1:
+            # already sorted
+            return 0
+        
+        while (high > 0 and arr[high] >= arr[high - 1]):
+            high -= 1
+        
+        sub_min = float('inf')
+        sub_max = -float('inf')
+        
+        for k in range(low, high + 1):
+            sub_min = min(sub_min, arr[k])
+            sub_max = max(sub_max, arr[k])
+        
+        # extend numbers
+        while (low > 0 and arr[low - 1] > sub_min):		# 左区间排查
+            low -= 1
+        
+        while (high < len(arr) - 1 and arr[high + 1] < sub_max):	# 右区间排查
+            high += 1
+        
+        return high - low + 1
+```
+
