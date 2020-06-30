@@ -6,35 +6,21 @@
 ## Tag
 
 - [Array](https://github.com/LLancelot/LeetCode#array)
-
 - [Two Pointers](https://github.com/LLancelot/LeetCode#two-pointers)
-
 - [DP](https://github.com/LLancelot/LeetCode#dp)
-
 - [Tree](https://github.com/LLancelot/LeetCode#tree)
-
 - [Linked List](https://github.com/LLancelot/LeetCode#linked-list)
-
 - [Subset](https://github.com/LLancelot/LeetCode#subset)
-
 - [DFS](https://github.com/LLancelot/LeetCode#depth-first-search)
-
 - [BFS](https://github.com/LLancelot/LeetCode#breath-first-search)
-
 - [Binary Search](https://github.com/LLancelot/LeetCode#binary-search)
-
 - [Graph](https://github.com/LLancelot/LeetCode#graph)
-
 - [Sliding Window](https://github.com/LLancelot/LeetCode#sliding-window)
-
+- [Merge Intervals](https://github.com/LLancelot/LeetCode#merge-intervals)
 - [BackTracking](https://github.com/LLancelot/LeetCode#backtracking)
-
 - [Stack](https://github.com/LLancelot/LeetCode#stack)
-
 - [Bit Manipulation](https://github.com/LLancelot/LeetCode/blob/master/bit-manipulation.md)
-
 - [Heap](https://github.com/LLancelot/LeetCode#heap--heap-sort)
-
 - [Design](https://github.com/LLancelot/LeetCode#design)
   
 
@@ -146,6 +132,16 @@
 - [模板题：String Anagrams (hard)](https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3)
 
 - [模板题：Permutation in a String (hard)](https://www.educative.io/courses/grokking-the-coding-interview/N0o9QnPLKNv)
+
+### Merge Intervals
+
+- [模板题: Merge Intervals](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%981---merge-intervals)
+- [模板题: Insert Interval](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%982---insert-interval)
+- Intervals Intersection 
+- Conflicting Appointments
+- Minimum Meeting Rooms
+- Maximum CPU Load
+- Employee Free Time (Hard)
 
 ### Subset
 
