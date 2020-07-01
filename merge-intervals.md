@@ -161,6 +161,16 @@ Input: A = [[0,2],[5,10],[13,23],[24,25]], B = [[1,5],[8,12],[15,24],[25,26]]
 Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
 ```
 
+#### 思路
+
+与上一题一样，有五种情况：
+
+![merge-intervals-3.png](https://github.com/LLancelot/LeetCode/blob/master/images/merge-intervals-3.png?raw=true)
+
+- while 循环，查找overlap的情况（图2,3,4,5），并对交集作如下操作：
+  1. 更改交集起点 start = ***max***(a.start, b.start)
+  2. 更改交集终点 end = ***min***(a.end, b.end)
+
 #### 代码
 
 ```python
