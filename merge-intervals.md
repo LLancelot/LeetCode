@@ -238,3 +238,97 @@ Appointments: [[4,5], [2,3], [3,6]]
 Output: false
 Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these appointments.
 ```
+
+#### 代码
+
+```python
+def can_attend_all_appointments(intervals):
+    intervals.sort(key=lambda x: x[0])
+    start, end = 0, 1
+    for i in range(1, len(intervals)):
+        if intervals[i][start] < intervals[i-1][end]:
+            # please note the comparison above, it is "<" and not "<="
+            # while merging we needed "<=" comparison, as we will be merging the two
+            # intervals having condition "intervals[i][start] == intervals[i - 1][end]" but
+            # such intervals don't represent conflicting appointments as one starts right
+            # after the other
+            return False
+    return True
+```
+
+
+
+## leetcode 729. My Calendar I
+
+#### 题目
+
+> Implement a `MyCalendar` class to store your events. A new event can be added if adding the event will not cause a double booking.
+>
+> Your class will have the method, `book(int start, int end)`. Formally, this represents a booking on the half open interval `[start, end)`, the range of real numbers `x` such that `start <= x < end`.
+>
+> A *double booking* happens when two events have some non-empty intersection (ie., there is some time that is common to both events.)
+>
+> For each call to the method `MyCalendar.book`, return `true` if the event can be added to the calendar successfully without causing a double booking. Otherwise, return `false` and do not add the event to the calendar.
+>
+> Your class will be called like this: `MyCalendar cal = new MyCalendar();` `MyCalendar.book(start, end)`
+
+> **Example 1:**
+>
+> ```
+> MyCalendar();
+> MyCalendar.book(10, 20); // returns true
+> MyCalendar.book(15, 25); // returns false
+> MyCalendar.book(20, 30); // returns true
+> Explanation: 
+> The first event can be booked.  The second can't because time 15 is already booked by another event.
+> The third event can be booked, as the first event takes every time less than 20, but not including 20.
+> ```
+
+#### 思路
+
+- Brute force 暴力搜索，时间复杂度O(n^2)。因为总搜索次数为1+2+3+...+n，每次book都要重头查找一遍
+- Binary Search 二分查找，时间复杂度O(n*logn)。
+
+#### 定义：
+
+数据结构定义：定义一个orderMap或者TreeMap的数据类型，保存当前已经book的所有pairs，即TreeMap<int, int>，这个Map的映射关系是 start -> end，即 start 为 key，end 为 value。
+
+假定 booked 中已有数据：[(**10**, 20), (**15**, 20)]，我们这时如果要查询<12, 18>，那么：
+
+floor 定义：Largest entry whose key <= query_key。 即当前小于query_key=**12** 的最大时间段，就是[10, 20]，因为**10最接近12**
+
+ceiling 定义：smallest entry whose key >query_key。即当前大于query_key=**12** 的最小时间段，就是[15, 20]，因为**15刚好大于10**
+
+所以我们只需要找两次，即分别找出```booked(int start, int end)``` 时，以start为query_key所对应的floor和celling，在 java/c++ 中这一步操作时间复杂度为 O(logn)。找到 floor 和 ceiling 有何用？
+
+- 以查询<**12**, 18> 为例，如果我们的query_start=12 比 floor.end (对应 value值) 要小，也就是12<20，则必定overlap。
+- 同样，如果我们的ceiling.start 比 end=18 小，也就是**15** < 18，也属于overlap。
+
+#### 代码
+
+```java
+class MyCalendar {
+    TreeMap<Integer, Integer> m_booked;
+    
+    public MyCalendar() {
+        m_booked = new TreeMap<>();
+    }
+    
+    public boolean book(int start, int end) {
+        Integer largest_key_smaller = m_booked.floorKey(start);		// := floor.key
+        if (largest_key_smaller != null && m_booked.get(largest_key_smaller) > start) {
+            // lower_bound.end > start, then overlap
+            return false;
+        }
+        Integer smallest_key_larger = m_booked.ceilingKey(start);	// := ceiling.key
+        if (smallest_key_larger != null && smallest_key_larger < end) {
+            // upper_bound.start < end, then overlap
+            return false;
+        }
+        m_booked.put(start, end);	// not overlap, add them to TreeMap
+        return true;
+    }
+}
+
+```
+
