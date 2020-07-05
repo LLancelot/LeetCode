@@ -332,3 +332,51 @@ class MyCalendar {
 
 ```
 
+## leetcode 253. Meeting Rooms II
+
+#### 题目
+
+Given an array of meeting time intervals consisting of start and end times `[[s1,e1],[s2,e2],...]` (si < ei), find the minimum number of conference rooms required.
+
+**Example 1:**
+
+```
+Input: [[0, 30],[5, 10],[15, 20]]
+Output: 2
+```
+
+**Example 2:**
+
+```
+Input: [[7,10],[2,4]]
+Output: 1
+```
+
+#### 思路
+
+- 用 Heapq ，每次遇到一个 meeting，先比较 Heap 里面是否存在已经结束的会议，即检查 [s1, e1] 中 e1 <= s2
+- 若存在这样已经结束的 meetings，那么就用 Min-Heap 去 pop 这些会议区间
+
+#### 代码
+
+```python
+from heapq import *
+
+class Solution(object):
+    def minMeetingRooms(self, meetings):
+        meetings.sort(key = lambda x: x[0])
+        
+        minRooms = 0
+        minHeap = []
+        
+        for meet in meetings:
+            # remove all the meetings that have ended
+            while (len(minHeap) > 0 and meet[0] >= minHeap[0]):              
+                heappop(minHeap)       
+            # add current meeting into min_heap
+            heappush(minHeap, meet[1])
+            # all active meetings are in heap, we need to know the max rooms if happened.
+            minRooms = max(minRooms, len(minHeap))
+        return minRooms
+```
+
