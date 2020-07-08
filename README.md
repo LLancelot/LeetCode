@@ -143,7 +143,7 @@
 - [模板题: Insert Interval (插入区间)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%982---insert-interval)
 - [模板题: Intervals Intersection (查找交集)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%983---interval-intersection)
 - [模板题: Conflicting Appointments (冲突区间)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%984---conflicting-appointments)
-- Minimum Meeting Rooms
+- [模板题: Minimum Meeting Rooms (最少的会议室)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-253-meeting-rooms-ii)
 - Maximum CPU Load
 - Employee Free Time (Hard)
 - [729. My Calendar I](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-729-my-calendar-i)
