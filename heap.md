@@ -70,7 +70,7 @@
            self.point = point
            
        def __lt__(self, other):
-           return self.distance < other.distance
+           return self.distance > other.distance
        
        
    class Solution(object):
@@ -78,22 +78,23 @@
            heap = []
            # put the first K element to maintain its size
            for i in range(0, K):
-               heappush(heap, HeapItem(-get_dist(points[i]), points[i]))
+               heappush(heap, HeapItem(get_dist(points[i]), points[i]))
            
            # for the rest of N-K points:
            for i in range(K, len(points)):
                cur_dist = get_dist(points[i])
                # if dist is less than the max we got in heap, just replace it with this smaller one
-               if cur_dist < -heap[0].distance:
+               if cur_dist < heap[0].distance:
                    heappop(heap)
-                   heappush(heap, HeapItem(-cur_dist, points[i]))
+                   heappush(heap, HeapItem(cur_dist, points[i]))
                    
            return [each.point for each in heap]
        
-       
+               
    def get_dist(p):
        x = p[0]
        y = p[1]
-   ```
-
+       return sqrt(x**2 + y**2)
+```
+   
    
