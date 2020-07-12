@@ -88,3 +88,126 @@ class Solution(object):
         build_graph(equations, values)
         return [find_path(q) for q in queries]		# result
 ```
+
+## 269. Alien Dictionary
+
+#### [题目](https://leetcode.com/problems/alien-dictionary/)
+
+There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of **non-empty** words from the dictionary, where **words are sorted lexicographically by the rules of this new language**. Derive the order of letters in this language.
+
+**Example 1:**
+
+```
+Input:
+[
+  "wrt",
+  "wrf",
+  "er",
+  "ett",
+  "rftt"
+]
+
+Output: "wertf"
+```
+
+**Example 2:**
+
+```
+Input:
+[
+  "z",
+  "x"
+]
+
+Output: "zx"
+```
+
+**Example 3:**
+
+```
+Input:
+[
+  "z",
+  "x",
+  "z"
+] 
+
+Output: "" 
+
+Explanation: The order is invalid, so return "".
+```
+
+#### 思路
+
+- 利用拓扑排序，将words中出现的字符放到 Graph 中，即```Map<Character, Set<Character>>``` 记录每个字母对应的 set 集合，这个集合存放的是 words 中比自己低级的字母，比如 example 1 中的 “wrt” 和 “wrf” ，我们就能知道 t 比 f 优先级高，那么我们就把 f 加到 t 的集合中。
+- 其次，我们还需要记录每个字母的入度，即 ```int[] inDegree = new int[26]``` ，便于在 BFS 中的队列操作。
+
+#### 代码
+
+```java
+class Solution {
+    public String alienOrder(String[] words) {
+        Map<Character, Set<Character>> graph = new HashMap<>();
+        int[] inDegree = new int[26];
+        buildGraph(graph, inDegree, words);
+        return bfs(graph, inDegree);
+    }
+    
+    private void buildGraph(Map<Character, Set<Character>> graph, int[] inDegree, String[] words)
+    {
+        for (String str: words) {
+            for (char ch : str.toCharArray()) {
+                graph.putIfAbsent(ch, new HashSet<>());
+            }
+        }
+        
+        // compare words[i] and words[i + 1]
+        for (int i = 1; i < words.length; i++) {
+            String first = words[i - 1];
+            String second = words[i];
+            int minLen = Math.min(first.length(), second.length());
+            for (int j = 0; j < minLen; j++) {
+                char c_out = first.charAt(j);
+                char c_in = second.charAt(j);
+                // find the first different char
+                if (c_out != c_in) {
+                    if (!graph.get(c_out).contains(c_in)) {
+                        graph.get(c_out).add(c_in);
+                        inDegree[c_in - 'a']++;
+                    }
+                    break;
+                }
+                
+                if (j + 1 == minLen && first.length() > second.length()) {
+                    graph.clear();
+                    return;
+                }
+            }
+        }
+    }
+    
+    private String bfs(Map<Character, Set<Character>> graph, int[] inDegree) {
+        StringBuilder sb = new StringBuilder();
+        Queue<Character> queue = new LinkedList<>();
+        for (char c : graph.keySet()) {
+            if (inDegree[c - 'a'] == 0) {
+                queue.offer(c);
+            }
+        }
+        
+        while (!queue.isEmpty()) {
+            char out = queue.poll();
+            sb.append(out);
+            for (char in : graph.get(out)) {
+                inDegree[in - 'a']--;
+                if (inDegree[in - 'a'] == 0) {
+                    queue.offer(in);
+                }
+            }
+        }
+        
+        return sb.length() == graph.size() ? sb.toString() : "";
+    }
+}
+```
+
