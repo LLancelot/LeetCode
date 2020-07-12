@@ -95,6 +95,53 @@
        x = p[0]
        y = p[1]
        return sqrt(x**2 + y**2)
+   ```
+## 378. Kth Smallest Element in a Sorted Matrix
+
+#### [题目](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+
+Given a *n* x *n* matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.
+
+Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+
+**Example:**
+
 ```
-   
-   
+matrix = [
+   [ 1,  5,  9],
+   [10, 11, 13],
+   [12, 13, 15]
+],
+k = 8,
+
+return 13.
+```
+
+题目总结：给定一个每行排好序的矩阵，返回矩阵中第 k 小的元素。
+
+#### 代码
+
+```python
+import heapq
+
+class Solution(object):
+    def kthSmallest(self, matrix, k):
+        
+        if not matrix or not matrix[0]:
+            return -1
+        row, col = len(matrix), len(matrix[0])
+        heap = []
+        
+        for m in range(row):
+            for n in range(col):
+                cur = -matrix[m][n]
+                if len(heap) < k:
+                    # add element into heap
+                    heapq.heappush(heap, cur)
+                    
+                elif cur > heap[0]:
+                    heapq.heappushpop(heap, cur)
+                    
+        return -heap[0]
+```
+
