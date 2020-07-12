@@ -24,6 +24,7 @@
 | [Bit Manipulation](https://github.com/LLancelot/LeetCode/blob/master/bit-manipulation.md) |    位运算    |
 | [Heap](https://github.com/LLancelot/LeetCode#heap--heap-sort) |      堆      |
 |    [Design](https://github.com/LLancelot/LeetCode#design)    |    设计题    |
+|    [String](https://github.com/LLancelot/LeetCode#string)    |    字符串    |
 
   
 
@@ -103,7 +104,8 @@
 
 ### Graph
 
-- [399. Evaluate Division](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#graph-%E5%9B%BE)
+- [399. Evaluate Division](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#graph-%E5%9B%BE) (Graph + BFS)
+- [269. Alien Dictionary](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#269-alien-dictionary) (Graph + BFS)
 
 ### Binary Search
 
@@ -168,13 +170,20 @@
 
 ### Heap / Heap Sort
 
-- [973. K Closest Points to Origin (Medium)](https://github.com/LLancelot/LeetCode/blob/ea6e819054ad2ebb8f6a7c43df11927c4aee38c2/heap.md#973-k-closest-points-to-origin-medium)
+- [973. K Closest Points to Origin (Medium)](https://github.com/LLancelot/LeetCode/blob/master/heap.md#973-k-closest-points-to-origin-medium)
+- [378. Kth Smallest Element in a Sorted Matrix](https://github.com/LLancelot/LeetCode/blob/master/heap.md#378-kth-smallest-element-in-a-sorted-matrix)
 
 ### Design
 
 - [146. LRU Cache (每日一题)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%2012%E3%80%91-%20146.%20LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
 - [380. Insert Delete GetRandom O(1) (每日一题)](https://github.com/LLancelot/LeetCode/blob/bed167dfe9cd188c99ee76d4d01379d82386eca4/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%206%E3%80%91%202020-06-06%20-%20380.%20%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0.md)
+- [208. Implement Trie (Prefix Tree)](https://github.com/LLancelot/LeetCode/blob/master/Design.md#208-implement-trie-prefix-tree)
+- [212. Word Search II](https://github.com/LLancelot/LeetCode/blob/master/Design.md#212-word-search-ii)
 
 ### Array
 
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
+
+### String
+
+- [38. Count and Say](https://github.com/LLancelot/LeetCode/blob/master/String.md#38-count-and-say)
