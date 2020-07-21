@@ -2045,6 +2045,44 @@ class Solution(object):
         return uf.count
 ```
 
+## 694. Number of Distinct Islands
+
+题目：https://leetcode.com/problems/number-of-distinct-islands/
+
+#### 代码
+
+```python
+class Solution(object):
+    def numDistinctIslands(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        m, n = len(grid), len(grid[0])
+        def dfs(pos, shape, i, j):
+            if i>=0 and j>=0 and i<m and j<n and grid[i][j]==1:
+                shape.append((i-pos[0], j-pos[1]))
+                grid[i][j]=0
+                dfs(pos,shape,i+1,j)
+                dfs(pos,shape,i,j+1)
+                dfs(pos,shape,i-1,j)
+                dfs(pos,shape,i,j-1)
+            return shape
+        
+        unique_shape, count = set(), 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    pos = (i, j)
+                    islandShape = tuple(dfs(pos, [], i, j))
+                    if islandShape not in unique_shape:
+                        unique_shape.add(islandShape)
+                        count+=1
+		
+        return count
+                
+```
+
 
 
 ## 695. Max Area of Island
