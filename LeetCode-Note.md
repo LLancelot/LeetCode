@@ -337,9 +337,57 @@ class Solution {
 }
 ```
 
+## 328. Odd Even Linked List
+
+题目大意：给一个单链表，先把奇数位置的数串起来，再把偶数位置的数串起来，最后的结果是奇数位+偶数位拼起来的单链表
+
+**Example 1:**
+
+```
+Input: 1->2->3->4->5->NULL
+Output: 1->3->5->2->4->NULL
+```
+
+**Example 2:**
+
+```
+Input: 2->1->3->5->6->4->7->NULL
+Output: 2->3->6->7->1->5->4->NULL
+```
+
+### 思路
+
+- 设两个指针，odd 指向 head，even 指向 head.next
+- 判断 even 和 even.next 是否为空，若不为空，odd.next = even.next，即odd指向下一个奇数位（even的 next 永远是奇数位），并且往后移动当前 odd；同样，为了保持 even 始终在 odd 前面，even 也同样执行与 odd 相同的操作
+- 当 even 或 even.next 出现空时，说明我们需要执行拼接操作，即 odd.next = evenHead，把 odd 和 even 链接起来。
+
+### 代码
+
+```python
+class Solution(object):
+    def oddEvenList(self, head):
+        if head == None or head.next == None or head.next.next == None:
+            return head
+        
+        odd = head
+        even = head.next
+        evenHead = even
+        
+        while even and even.next:
+            odd.next = even.next
+            odd = odd.next
+            # 对 even 执行相同操作
+            even.next = odd.next
+            even = even.next
+        # 拼接
+        odd.next = evenHead
+        # 返回
+        return head
+```
 
 
-# **Tree**
+
+# Tree 树
 
 ## 111. Minimum Depth of Binary Tree
 
