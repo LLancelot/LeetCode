@@ -1522,7 +1522,7 @@ class Solution(object):
 >2. Any scores in the given array are non-negative integers and will not exceed 10,000,000.
 >3. If the scores of both players are equal, then player 1 is still the winner.
 
-方法一：递归所有子序列的所有可能，非常慢
+**方法一：递归所有子序列的所有可能，非常慢**
 
 ```python
 # Python
@@ -1565,7 +1565,7 @@ class Solution {
 }
 ```
 
-方法二：记忆化递归，高效（推荐）
+**方法二：记忆化递归，高效（推荐）**
 
 ```python
 class Solution(object):
@@ -1645,6 +1645,8 @@ Note that different sequences are counted as different combinations.
 Therefore the output is 7.
 ```
 
+#### 代码
+
 ```python
 class Solution:
     def combinationSum4(self, nums, target):
@@ -1655,6 +1657,52 @@ class Solution:
                 if i - num>=0:
                     dp[i] += dp[i-num]
         return dp[target]
+```
+
+## [DP-14] 131. Palindrome Partitioning
+
+> Given a string *s*, partition *s* such that every substring of the partition is a palindrome.
+>
+> Return all possible palindrome partitioning of *s*.
+>
+> **Example:**
+>
+> ```
+> Input: "aab"
+> Output:
+> [
+>   ["aa","b"],
+>   ["a","a","b"]
+> ]
+> ```
+
+#### 代码
+
+```python
+class Solution(object):
+    def partition(self, s):
+        """
+        :type s: str
+        :rtype: List[List[str]]
+        """
+        dp = [[] for _ in range(len(s) + 1)]
+        dp[-1] = [[]]
+        
+        for i in range(len(s) - 1, -1, -1):
+            for j in range(i + 1, len(s) + 1):
+                if s[i:j] == s[i:j][::-1]:
+                    for each in dp[j]:
+                        dp[i].append([s[i:j]] + each)
+        return dp[0]
+```
+
+#### DP数组变化过程 (以 input = “aab” 为例)：
+
+```
+i = 2, dp = [[], [], [[u'b']], [[]]]
+i = 1, dp = [[], [[u'a', u'b']], [[u'b']], [[]]]
+i = 0, dp = [[[u'a', u'a', u'b']], [[u'a', u'b']], [[u'b']], [[]]]
+i = 0, dp = [[[u'a', u'a', u'b'], [u'aa', u'b']], [[u'a', u'b']], [[u'b']], [[]]]
 ```
 
 
