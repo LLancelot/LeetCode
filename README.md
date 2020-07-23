@@ -42,6 +42,8 @@
 
 ### DP
 
+- [45. Jump Game 2](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/45.JumpGameII.md#45-jump-game-ii)
+
 - [198. House Robber](https://leetcode.com/problems/house-robber/)
 - [337. House Robber III](https://leetcode.com/problems/house-robber-iii/)
 - [256. Paint House](https://github.com/LLancelot/LeetCode/issues)
@@ -65,15 +67,13 @@
 - [101. Symmetric Tree (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#101-symmetric-treeeasy)
 - [111. Minimum Depth of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#111-minimum-depth-of-binary-tree)
 - [105. Construct Binary Tree from Preorder and Inorder Traversal](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#105-construct-binary-tree-from-preorder-and-inorder-traversal)
-
 - [108. Convert Sorted Array to Binary Search Tree (Easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#108-convert-sorted-array-to-binary-search-tree-easy)
-
 - [107. 层序遍历](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#107-%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86)
 - [112. Path Sum](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#112-path-sum)
 - [113. Path Sum II](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#113-path-sum-ii--medium)
+- [116. Populating Next Right Pointers in Each Node](https://github.com/LLancelot/LeetCode/issues/17)
 - [437. Path Sum III (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#437-path-sum-iii-easy)
 - [124. Binary Tree Maximum Path Sum](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#124-binary-tree-maximum-path-sum)
-
 - [306. Find Leaves of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#306-find-leaves-of-binary-tree)
 - [701. Insert into a BST](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#701-insert-into-a-bst)
 
@@ -94,6 +94,7 @@
 - [79. Word Search](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#79-word-search)
 - [130. Surrounded Regions](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#130-surrounded-regions)
 - [200. Numbers of Islands (三种方法, 经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#200-numbers-of-islands-%E7%BB%8F%E5%85%B8)
+- [694. Number of Distinct Islands](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#694-number-of-distinct-islands)
 - [695. Max Area of Island](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#695-max-area-of-island)
 - [547. Friend Circles](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#547-friend-circles)
 - [733. Flood Fill (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#733-flood-fill)
@@ -106,6 +107,7 @@
 
 - [399. Evaluate Division](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#graph-%E5%9B%BE) (Graph + BFS)
 - [269. Alien Dictionary](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#269-alien-dictionary) (Graph + BFS)
+- [1192. Critical Connections in a Network (Hard)](https://github.com/LLancelot/LeetCode/issues/18)
 
 ### Binary Search
 
@@ -123,7 +125,7 @@
 - _300. Longest Increasing Subsequence_
 - [315. Count of Smaller Numbers After Self](https://github.com/LLancelot/LeetCode/issues/10)
 - _374. Guess Number Higher or Lower_
-- _875. Koko Eating Bananas_
+- [_875. Koko Eating Bananas_](https://leetcode.com/problems/koko-eating-bananas/)
 - _1337. The K Weakest Rows in a Matrix_
 - _1351. Count Negative Numbers in a Sorted Matrix_
 
@@ -183,7 +185,13 @@
 ### Array
 
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
+- [179. Largest Number](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/179.%20Largest%20Number.md#179-largest-number)
 
 ### String
 
 - [38. Count and Say](https://github.com/LLancelot/LeetCode/blob/master/String.md#38-count-and-say)
+- [929. Unique Email Addresses](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/929.UniqueEmailAddresses.md)
+- [1041. Robot Bounded In Circle](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1041.%20Robot%20Bounded%20In%20Circle.md#1041-robot-bounded-in-circle)
+
+- [763. Partition Labels](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/763.%20Partition%20Labels.md)
+- [1505. Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1505.%20Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits.md#leetcode-1505-minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
