@@ -25,6 +25,7 @@
 | [Heap](https://github.com/LLancelot/LeetCode#heap--heap-sort) |      堆      |
 |    [Design](https://github.com/LLancelot/LeetCode#design)    |    设计题    |
 |    [String](https://github.com/LLancelot/LeetCode#string)    |    字符串    |
+| [Palindrome](https://github.com/LLancelot/LeetCode#palindrome) |    回文串    |
 
   
 
@@ -42,8 +43,8 @@
 
 ### DP
 
+- [10. Regular Expression Matching 字符匹配](https://github.com/LLancelot/LeetCode/blob/master/String.md#10-regular-expression-matching)
 - [45. Jump Game 2](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/45.JumpGameII.md#45-jump-game-ii)
-
 - [198. House Robber](https://leetcode.com/problems/house-robber/)
 - [337. House Robber III](https://leetcode.com/problems/house-robber-iii/)
 - [256. Paint House](https://github.com/LLancelot/LeetCode/issues)
@@ -57,6 +58,7 @@
 - [518. Coin Change 2](https://leetcode.com/problems/coin-change-2/)
 - [486. Predict the Winner](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-12-486-predict-the-winner)
 - [377. Combination Sum IV](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-13-377-combination-sum-iv)
+- [131. Palindrome Partitioning 最长回文串划分](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
 
 ### Tree
 
@@ -88,6 +90,7 @@
 - [206. Reverse Linked List (经典 每日一题)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%207%E3%80%91%202020-06-07%20-%20206.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8.md)
 - [25. Reverse Node in k-Group (经典 Hard)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#25-reverse-nodes-in-k-group)
 - [92. Reverse Linked List II (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#92-reverse-linked-list-ii)
+- [328. Odd Even Linked List](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#328-odd-even-linked-list)
 
 ### Depth-First-Search
 
@@ -189,9 +192,14 @@
 
 ### String
 
+- [10. Regular Expression Matching 字符匹配](https://github.com/LLancelot/LeetCode/blob/master/String.md#10-regular-expression-matching)
 - [38. Count and Say](https://github.com/LLancelot/LeetCode/blob/master/String.md#38-count-and-say)
+- [44. Wildcard Matching 万卡匹配](https://github.com/LLancelot/LeetCode/blob/fb237e22cb32219232def5d98f5db9e674d3ff6a/String.md#44-wildcard-matching)
 - [929. Unique Email Addresses](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/929.UniqueEmailAddresses.md)
 - [1041. Robot Bounded In Circle](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1041.%20Robot%20Bounded%20In%20Circle.md#1041-robot-bounded-in-circle)
-
 - [763. Partition Labels](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/763.%20Partition%20Labels.md)
 - [1505. Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1505.%20Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits.md#leetcode-1505-minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
+
+### Palindrome
+
+- [131. Palindrome Partitioning](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
