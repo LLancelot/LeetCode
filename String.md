@@ -248,9 +248,10 @@ Output: false
 
 ## 代码
 
-     ```java
+```java
 // Author: LLancelot
 // Date: 2020-07-24
+// Runtime: 5 ms (63%)
 
 class Solution {
     public boolean isMatch(String s, String p) {
@@ -287,5 +288,4 @@ class Solution {
         return matched[s.length()][p.length()];
     }
 }
-     ```
-
+```
