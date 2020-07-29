@@ -5,27 +5,27 @@
 
 ## Tag
 
-|                             Tag                              |   题解分类   |
-| :----------------------------------------------------------: | :----------: |
-|     [Array](https://github.com/LLancelot/LeetCode#array)     |     数组     |
-| [Two Pointers](https://github.com/LLancelot/LeetCode#two-pointers) |  双指针问题  |
-|        [DP](https://github.com/LLancelot/LeetCode#dp)        |   动态规划   |
-|      [Tree](https://github.com/LLancelot/LeetCode#tree)      |      树      |
-| [Linked List](https://github.com/LLancelot/LeetCode#linked-list) |     链表     |
-|    [Subset](https://github.com/LLancelot/LeetCode#subset)    |   子集问题   |
+| Tag                                                          | 题解分类     |
+| :----------------------------------------------------------- | :----------- |
+| [Array](https://github.com/LLancelot/LeetCode#array)         | 数组         |
+| [Two Pointers](https://github.com/LLancelot/LeetCode#two-pointers) | 双指针问题   |
+| [DP](https://github.com/LLancelot/LeetCode#dp)               | 动态规划     |
+| [Tree](https://github.com/LLancelot/LeetCode#tree)           | 树           |
+| [Linked List](https://github.com/LLancelot/LeetCode#linked-list) | 链表         |
+| [Subset](https://github.com/LLancelot/LeetCode#subset)       | 子集问题     |
 | [DFS](https://github.com/LLancelot/LeetCode#depth-first-search) | 深度优先搜索 |
 | [BFS](https://github.com/LLancelot/LeetCode#breath-first-search) | 广度优先搜索 |
-| [Binary Search](https://github.com/LLancelot/LeetCode#binary-search) |   二分查找   |
-|     [Graph](https://github.com/LLancelot/LeetCode#graph)     |      图      |
+| [Binary Search](https://github.com/LLancelot/LeetCode#binary-search) | 二分查找     |
+| [Graph](https://github.com/LLancelot/LeetCode#graph)         | 图           |
 | [Sliding Window](https://github.com/LLancelot/LeetCode#sliding-window) | 滑动窗口问题 |
 | [Merge Intervals](https://github.com/LLancelot/LeetCode#merge-intervals) | 区间合并问题 |
-| [BackTracking](https://github.com/LLancelot/LeetCode#backtracking) |     回溯     |
-|     [Stack](https://github.com/LLancelot/LeetCode#stack)     |      栈      |
-| [Bit Manipulation](https://github.com/LLancelot/LeetCode/blob/master/bit-manipulation.md) |    位运算    |
-| [Heap](https://github.com/LLancelot/LeetCode#heap--heap-sort) |      堆      |
-|    [Design](https://github.com/LLancelot/LeetCode#design)    |    设计题    |
-|    [String](https://github.com/LLancelot/LeetCode#string)    |    字符串    |
-| [Palindrome](https://github.com/LLancelot/LeetCode#palindrome) |    回文串    |
+| [BackTracking](https://github.com/LLancelot/LeetCode#backtracking) | 回溯         |
+| [Stack](https://github.com/LLancelot/LeetCode#stack)         | 栈           |
+| [Bit Manipulation](https://github.com/LLancelot/LeetCode/blob/master/bit-manipulation.md) | 位运算       |
+| [Heap](https://github.com/LLancelot/LeetCode#heap--heap-sort) | 堆           |
+| [Design](https://github.com/LLancelot/LeetCode#design)       | 设计题       |
+| [String](https://github.com/LLancelot/LeetCode#string)       | 字符串       |
+| [Palindrome](https://github.com/LLancelot/LeetCode#palindrome) | 回文串       |
 
   
 
@@ -104,9 +104,15 @@
 
 ### Breath-First-Search
 
+- [207. Course Schedule (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#207-course-schedule)
+- [210. Course Schedule II (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#210-course-schedule-ii)
+
 - [994. Rotting Oranges](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#994-rotting-oranges)
 
 ### Graph
+
+- [207. Course Schedule (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#207-course-schedule)
+- [210. Course Schedule II (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#210-course-schedule-ii)
 
 - [399. Evaluate Division](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#graph-%E5%9B%BE) (Graph + BFS)
 - [269. Alien Dictionary](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#269-alien-dictionary) (Graph + BFS)
