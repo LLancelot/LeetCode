@@ -40,6 +40,7 @@
 - [Subarrays with Product Less than a Target (medium)](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#713-subarray-product-less-than-k)
 - [Dutch National Flag Problem (medium) / 三色旗 / 颜色分类](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%2002%E3%80%91%202020-06-02%20-%2075.%20%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB.md#day-2-2020-06-02---75-%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB)
 - [4Sum](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#18-4sum-quadruple-sum-to-target-medium)
+- [1537. Get the Maximum Score (Hard)](https://github.com/LLancelot/LeetCode/blob/709dd61503e93189a45ecce3b4af51b33cdb9fe3/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1537.%20Get%20the%20Maximum%20Score.md#1537-get-the-maximum-score)
 
 ### DP
 
@@ -59,6 +60,8 @@
 - [486. Predict the Winner](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-12-486-predict-the-winner)
 - [377. Combination Sum IV](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-13-377-combination-sum-iv)
 - [131. Palindrome Partitioning 最长回文串划分](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
+- [139. Word Break](https://github.com/LLancelot/LeetCode/blob/ef7768fcdab975d18890a8b45ba2fef39ec3b57d/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/139.%20Word%20Break.md#139-word-break)
+- [1524. Number of Sub-arrays With Odd Sum](https://github.com/LLancelot/LeetCode/blob/c80d74264a7528e5235209bdb8de69a16cb685d1/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1524.%20Number%20of%20Sub-arrays%20With%20Odd%20Sum.md#1524-number-of-sub-arrays-with-odd-sum)
 
 ### Tree
 
@@ -158,7 +161,7 @@
 - [模板题: Conflicting Appointments (冲突区间)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#%E6%A8%A1%E6%9D%BF%E9%A2%984---conflicting-appointments)
 - [模板题: Minimum Meeting Rooms (最少的会议室)](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-253-meeting-rooms-ii)
 - Maximum CPU Load
-- Employee Free Time (Hard)
+- [Employee Free Time (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/759.%20Employee%20Free%20Time.md#759-employee-free-time)
 - [729. My Calendar I](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-729-my-calendar-i)
 
 ### Subset
@@ -183,6 +186,7 @@
 
 - [973. K Closest Points to Origin (Medium)](https://github.com/LLancelot/LeetCode/blob/master/heap.md#973-k-closest-points-to-origin-medium)
 - [378. Kth Smallest Element in a Sorted Matrix](https://github.com/LLancelot/LeetCode/blob/master/heap.md#378-kth-smallest-element-in-a-sorted-matrix)
+- [295. Find Median from Data Stream (Hard)](https://github.com/LLancelot/LeetCode/blob/8637033cb683b7b718dad7bc51c74c0a58bca0fe/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/295.%20Find%20Median%20from%20Data%20Stream.md#295-find-median-from-data-stream)
 
 ### Design
 
@@ -195,6 +199,7 @@
 
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
 - [179. Largest Number](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/179.%20Largest%20Number.md#179-largest-number)
+- [498. Diagonal Traverse](https://github.com/LLancelot/LeetCode/blob/b095df0dd886c953108f989520fb52cab6198b21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/498.%20Diagonal%20Traverse.md#498-diagonal-traverse)
 
 ### String
 
