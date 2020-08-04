@@ -205,6 +205,7 @@
 ### String
 
 - [10. Regular Expression Matching 字符匹配](https://github.com/LLancelot/LeetCode/blob/master/String.md#10-regular-expression-matching)
+- [32. Longest Valid Parentheses (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/32.%20Longest%20Valid%20Parentheses.md#32-longest-valid-parentheses)
 - [38. Count and Say](https://github.com/LLancelot/LeetCode/blob/master/String.md#38-count-and-say)
 - [44. Wildcard Matching 万卡匹配](https://github.com/LLancelot/LeetCode/blob/fb237e22cb32219232def5d98f5db9e674d3ff6a/String.md#44-wildcard-matching)
 - [929. Unique Email Addresses](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/929.UniqueEmailAddresses.md)
