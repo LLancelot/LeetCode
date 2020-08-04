@@ -16,11 +16,11 @@
 >- If there is no such window in S that covers all characters in T, return the empty string `""`.
 >- If there is such window, you are guaranteed that there will always be only one unique minimum window in S.
 
-主要思路：
+#### 思路：
 
 - 用```left```和```right```来构建滑动窗口，用```counter```记录T中字符元素的个数，用```dic```记录循环中当前滑动窗口中字符元素的个数，用```matchNum```记录当前滑动窗口中，已经和T中匹配的字符个数（注意：如果T中有多个相同元素，在S中，当我们的滑动窗口里的匹配元素个数小于等于```counter[match_char]```时，才将```matchNum```+=1）
 
-代码及注释：
+#### 代码及注释：
 
 ```python
 class Solution:
@@ -54,6 +54,42 @@ class Solution:
             right += 1
         return rst        
 ```
+
+#### 代码2
+
+```python
+class Solution:
+    def minWindow(self, s: str, pat: str) -> str:
+        winStart, matched, minLength, substrStart = 0, 0, len(s) + 1, 0
+        freq = defaultdict(int)
+        for ch in pat:
+            if ch not in pat:
+                freq[ch] = 0
+            freq[ch] += 1
+
+        for end in range(len(s)):
+            rch = s[end]
+            if rch in freq:
+                freq[rch] -= 1
+                if freq[rch] >= 0:
+                    matched += 1
+
+            while matched == len(pat):
+                if end - winStart + 1 < minLength:
+                    minLength = end - winStart + 1
+                    substrStart = winStart
+
+                lch = s[winStart]
+                winStart += 1
+                if lch in freq:
+                    if freq[lch] == 0:
+                        matched -= 1
+                    freq[lch] += 1
+
+        return "" if minLength > len(s) else s[substrStart: substrStart + minLength]
+```
+
+
 
 ## 3. Longest Substring Without Repeating Characters
 
