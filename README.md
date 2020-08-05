@@ -195,6 +195,7 @@
 - [380. Insert Delete GetRandom O(1) (每日一题)](https://github.com/LLancelot/LeetCode/blob/bed167dfe9cd188c99ee76d4d01379d82386eca4/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%206%E3%80%91%202020-06-06%20-%20380.%20%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0.md)
 - [208. Implement Trie (Prefix Tree)](https://github.com/LLancelot/LeetCode/blob/master/Design.md#208-implement-trie-prefix-tree)
 - [212. Word Search II](https://github.com/LLancelot/LeetCode/blob/master/Design.md#212-word-search-ii)
+- [211. Add and Search Word - Data structure design](https://github.com/LLancelot/LeetCode/blob/master/Design.md#211-add-and-search-word---data-structure-design)
 
 ### Array
 
