@@ -1,6 +1,6 @@
 # Design 
 
-## [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
+# [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
 
 #### 题目
 
@@ -61,7 +61,7 @@ class Trie(object):
         return self.findPrefix(prefix) is not None
 ```
 
-## [212. Word Search II](https://leetcode.com/problems/word-search-ii/)
+# [212. Word Search II](https://leetcode.com/problems/word-search-ii/)
 
 #### 题目
 
@@ -152,5 +152,145 @@ class Solution(object):
                 self.dfs(board, trie, word + char, i+dx, j+dy, res)
             board[i][j] = char
   
+```
+
+# [211. Add and Search Word - Data structure design](https://leetcode.com/problems/add-and-search-word-data-structure-design/)
+
+####  题目
+
+Design a data structure that supports the following two operations:
+
+```
+void addWord(word)
+bool search(word)
+```
+
+search(word) can search a literal word or a regular expression string containing only letters `a-z` or `.`. A `.` means it can represent any one letter.
+
+**Example:**
+
+```
+addWord("bad")
+addWord("dad")
+addWord("mad")
+search("pad") -> false
+search("bad") -> true
+search(".ad") -> true
+search("b..") -> true
+```
+
+#### 代码
+
+- TrieNode 结构
+
+```java
+class WordDictionary {
+
+    private class TrieNode {
+        public TrieNode[] children;
+        public boolean isWord;
+        public String word;
+        public TrieNode() {
+            children = new TrieNode[26];
+            isWord = false;
+            word = "";
+        }
+    }
+    
+    private TrieNode root;
+    /** Initialize your data structure here. */
+    public WordDictionary() {
+        root = new TrieNode();
+    }
+    
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
+        TrieNode node = root;
+        for (int i = 0; i < word.length(); i++) {
+            int index = word.charAt(i) - 'a';
+            if (node.children[index] == null) {
+                // init that children
+                node.children[index] = new TrieNode();
+            }
+            // move node to next level
+            node = node.children[index];
+        }
+        // at the end, set isWord to true
+        node.isWord = true;
+        node.word = word;
+    }
+    
+    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    public boolean search(String word) {
+        return find(word, root, 0);
+    }
+    
+    public boolean find(String word, TrieNode node, int index) {
+        if (node == null)   return false;
+        if (index == word.length()) return node.isWord;
+        if (word.charAt(index) == '.') {
+            for (TrieNode temp : node.children) {
+                if (find(word, temp, index + 1))
+                    return true;
+            }
+        }
+        else {
+            int tempIndex = word.charAt(index) - 'a';
+            TrieNode temp = node.children[tempIndex];
+            
+            return find(word, temp, index + 1);
+        }
+        return false;
+    }
+}
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * WordDictionary obj = new WordDictionary();
+ * obj.addWord(word);
+ * boolean param_2 = obj.search(word);
+ */
+```
+
+- HashMap 结构
+
+  key 为单词长度，value 为相同长度的单词列表
+
+```java
+class WordDictionary {
+    private Map<Integer, List<String>> map;
+    private boolean cmp(String s1, String s2) {
+        for(int i = 0; i < s1.length(); i++) {
+            char ch1 = s1.charAt(i);
+            char ch2 = s2.charAt(i);
+            if(ch1 == '.')  continue;
+            else if(ch1 != ch2) return false;
+        }
+        return true;
+    }
+    /** Initialize your data structure here. */
+    public WordDictionary() {
+        map = new HashMap<Integer, List<String>>();
+    }
+    
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
+        int len = word.length();
+        List<String> list = map.getOrDefault(len, new ArrayList<String>());
+        list.add(word);
+        map.put(len, list);
+    }
+    
+    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    public boolean search(String word) {
+        int len = word.length();
+        if(!map.containsKey(len))   return false;
+        List<String> list = map.get(len);
+        for(String str : list) {
+            if(cmp(word, str))  return true;
+        }
+        return false;
+    }
+}
 ```
 
