@@ -70,3 +70,96 @@ class Solution {
 }
 ```
 
+## 334. Increasing Triplet Subsequence
+
+https://leetcode.com/problems/increasing-triplet-subsequence/
+
+> Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
+>
+> Formally the function should:
+>
+> > Return true if there exists *i, j, k*
+> > such that *arr[i]* < *arr[j]* < *arr[k]* given 0 ≤ *i* < *j* < *k* ≤ *n*-1 else return false.
+>
+> **Note:** Your algorithm should run in O(*n*) time complexity and O(*1*) space complexity.
+>
+> **Example 1:**
+>
+> ```
+> Input: [1,2,3,4,5]
+> Output: true
+> ```
+>
+> **Example 2:**
+>
+> ```
+> Input: [5,4,3,2,1]
+> Output: false
+> ```
+
+### 思路
+
+- 用 min1, min2 记录当前遇到的最小值和第二小值，若遇到 min1 < min2 < num，则说明能找到三个数是连续递增的序列。
+
+### 代码
+
+```python
+class Solution:
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        
+        if len(nums) < 3:
+            return False
+        
+        m1, m2 = float('inf'), float('inf')
+        
+        for num in nums:
+            if num > m2:
+                return True
+            elif num < m1:
+                m1 = num
+            elif num > m1 and num < m2:
+                m2 = num
+        
+        return False
+```
+
+## 442. Find All Duplicates in an Array
+
+https://leetcode.com/problems/find-all-duplicates-in-an-array/
+
+> Given an array of integers, 1 ≤ a[i] ≤ *n* (*n* = size of array), some elements appear **twice** and others appear **once**.
+>
+> Find all the elements that appear **twice** in this array.
+>
+> Could you do it without extra space and in O(*n*) runtime?
+>
+> **Example:**
+>
+> ```
+> Input:
+> [4,3,2,7,8,2,3,1]
+> 
+> Output:
+> [2,3]
+> ```
+
+**找出数组中存在的重复数字**
+
+### 思路
+
+- 因为数字是从 1... n 排列的，所以我们可以把找到对应下标的数字乘以 -1，变成负数，那么如果下一次再遇到相同的数字，我们就会发现这个数字对应下标的那个位置已经是负数了，则说明找到重复数字。如果都不重复，最后的整个数组都应该是负数。
+
+### 代码
+
+```python
+class Solution(object):
+    def findDuplicates(self, nums):
+        res = []
+        for x in nums:
+            if nums[abs(x) - 1] < 0:
+                res.append(abs(x))
+            else:
+                nums[abs(x) - 1] *= -1
+        return res
+```
+
