@@ -41,6 +41,7 @@
 - [Dutch National Flag Problem (medium) / 三色旗 / 颜色分类](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Day%2002%E3%80%91%202020-06-02%20-%2075.%20%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB.md#day-2-2020-06-02---75-%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB)
 - [4Sum](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#18-4sum-quadruple-sum-to-target-medium)
 - [1537. Get the Maximum Score (Hard)](https://github.com/LLancelot/LeetCode/blob/709dd61503e93189a45ecce3b4af51b33cdb9fe3/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1537.%20Get%20the%20Maximum%20Score.md#1537-get-the-maximum-score)
+- [42. Trapping Rain Water](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/42.%20Trapping%20Rain%20Water.md#42-trapping-rain-water)
 
 ### DP
 
@@ -117,10 +118,10 @@
 
 - [207. Course Schedule (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#207-course-schedule)
 - [210. Course Schedule II (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#210-course-schedule-ii)
-
 - [399. Evaluate Division](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#graph-%E5%9B%BE) (Graph + BFS)
 - [269. Alien Dictionary](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#269-alien-dictionary) (Graph + BFS)
 - [1192. Critical Connections in a Network (Hard)](https://github.com/LLancelot/LeetCode/issues/18)
+- [277. Find the Celebrity](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#277-find-the-celebrity)
 
 ### Binary Search
 
@@ -202,6 +203,8 @@
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
 - [179. Largest Number](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/179.%20Largest%20Number.md#179-largest-number)
 - [498. Diagonal Traverse](https://github.com/LLancelot/LeetCode/blob/b095df0dd886c953108f989520fb52cab6198b21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/498.%20Diagonal%20Traverse.md#498-diagonal-traverse)
+- [334. Increasing Triplet Subsequence](https://github.com/LLancelot/LeetCode/blob/master/Array.md)
+- [442. Find All Duplicates in an Array](https://github.com/LLancelot/LeetCode/blob/master/Array.md#442-find-all-duplicates-in-an-array)
 
 ### String
 
