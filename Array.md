@@ -163,3 +163,74 @@ class Solution(object):
         return res
 ```
 
+## 274. H-index
+
+https://leetcode.com/problems/h-index/
+
+> Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
+>
+> According to the [definition of h-index on Wikipedia](https://en.wikipedia.org/wiki/H-index): "A scientist has index *h* if *h* of his/her *N* papers have **at least** *h* citations each, and the other *N − h* papers have **no more than** *h* citations each."
+>
+> **Example:**
+>
+> ```
+> Input: citations = [3,0,6,1,5]
+> Output: 3 
+> Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had 
+>              received 3, 0, 6, 1, 5 citations respectively. 
+>              Since the researcher has 3 papers with at least 3 citations each and the remaining 
+>              two with no more than 3 citations each, her h-index is 3.
+> ```
+
+### 思路
+
+<img src="https://leetcode.com/problems/h-index/Figures/274_H_index.svg" alt="h-index" style="zoom:50%;" />
+
+For example: 
+
+```citation array := [2, 3, 3, 5, 1, 9, 10]```
+
+|           *i*           |  0   |  1   |  2   |   3   |   4   |   5   |   6   |
+| :---------------------: | :--: | :--: | :--: | :---: | :---: | :---: | :---: |
+| ```Sorted Citations```  |  10  |  9   |  5   |   3   |   3   |   2   |   1   |
+| ```citations[i] > i?``` | true | true | true | false | false | false | false |
+
+Thus, we found three "true" from i = 0 ~ 2, and then it becomes false when i = 3. So the result is 3.
+
+### 代码
+
+- O(nlgn) - Sorting whole citations array
+
+```python
+class Solution:
+    def hIndex(self, A: List[int]) -> int:
+        if not A: return 0
+        A.sort()
+        i = 0
+        while i < len(A) and A[len(A)-1-i] > i:
+            i += 1
+        return i
+```
+
+- O(n) - Counting Sort Method, using buckets
+
+```python
+class Solution:
+    def hIndex(self, A: List[int]) -> int:
+        n = len(A)
+        buckets = [0] * (n+1)
+        for c in A:
+            if c >= n:
+                buckets[n] += 1
+            else:
+                buckets[c] += 1
+        
+        count = 0
+        for i in range(n, -1, -1):
+            count += buckets[i]
+            if count >= i:
+                return i
+            
+        return 0
+```
+
