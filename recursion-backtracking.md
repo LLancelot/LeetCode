@@ -267,3 +267,55 @@ class Solution {
 }
 ```
 
+## 1286. Iterator for Combination
+
+https://leetcode.com/problems/iterator-for-combination/
+
+> Design an Iterator class, which has:
+>
+> - A constructor that takes a string `characters` of **sorted distinct** lowercase English letters and a number `combinationLength` as arguments.
+> - A function *next()* that returns the next combination of length `combinationLength` in **lexicographical order**.
+> - A function *hasNext()* that returns `True` if and only if there exists a next combination.
+>
+>  
+>
+> **Example:**
+>
+> ```
+> CombinationIterator iterator = new CombinationIterator("abc", 2); // creates the iterator.
+> 
+> iterator.next(); // returns "ab"
+> iterator.hasNext(); // returns true
+> iterator.next(); // returns "ac"
+> iterator.hasNext(); // returns true
+> iterator.next(); // returns "bc"
+> iterator.hasNext(); // returns false
+> ```
+
+### 代码
+
+```python
+class CombinationIterator:
+
+    def __init__(self, characters: str, combinationLength: int):
+        self.combinations = []
+        
+        def backtrack(combination, i):
+            if len(combination) == combinationLength:
+                self.combinations.append(combination)
+            elif len(combination) < combinationLength:
+                for j in range(i + 1, len(characters)):
+                    backtrack(combination + characters[j], j)
+        
+        for i in range(len(characters)):
+            backtrack(characters[i], i)
+        
+    def next(self) -> str:
+        return self.combinations.pop(0)
+
+    def hasNext(self) -> bool:
+        if self.combinations:
+            return True
+        return False
+```
+
