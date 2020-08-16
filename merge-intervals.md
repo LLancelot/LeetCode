@@ -258,7 +258,7 @@ def can_attend_all_appointments(intervals):
 
 
 
-## leetcode 729. My Calendar I
+## LeetCode 729. My Calendar I
 
 #### 题目
 
@@ -332,7 +332,7 @@ class MyCalendar {
 
 ```
 
-## leetcode 253. Meeting Rooms II
+## LeetCode 253. Meeting Rooms II
 
 #### 题目
 
@@ -378,5 +378,58 @@ class Solution(object):
             # all active meetings are in heap, we need to know the max rooms if happened.
             minRooms = max(minRooms, len(minHeap))
         return minRooms
+```
+
+## LeetCode 435. Non-overlapping Intervals
+
+https://leetcode.com/problems/non-overlapping-intervals/
+
+#### 题目
+
+Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping. 
+
+**Example 1:**
+
+```
+Input: [[1,2],[2,3],[3,4],[1,3]]
+Output: 1
+Explanation: [1,3] can be removed and the rest of intervals are non-overlapping.
+```
+
+**Example 2:**
+
+```
+Input: [[1,2],[1,2],[1,2]]
+Output: 2
+Explanation: You need to remove two [1,2] to make the rest of intervals non-overlapping.
+```
+
+**Example 3:**
+
+```
+Input: [[1,2],[2,3]]
+Output: 0
+Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
+```
+
+#### 思路
+
+- 题意：最少需要移除多少区间，可以使得所有区间都不互相冲突
+- 解法：贪心算法
+- 排序：先按会议**结束的时间**排序，然后遍历所有的区间，假如遇到**开会时间比 cur_end 要早**的区间（即产生冲突的区间），就 **count++**，代表这个区间是要被移除掉的。如果遇到**开会时间比 cur_end 要迟**，说明这个区间不会产生冲突，那么就把 **cur_end 更新**为现在这个非冲突会议的**结束时间**。 
+
+#### 代码
+
+```python
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:        
+        cur_end, _count = float('-inf'), 0       
+        for s, e in sorted(intervals, key=lambda x:x[1]):
+            if s >= cur_end:
+                cur_end = e
+            else:
+                _count += 1
+        
+        return _count
 ```
 
