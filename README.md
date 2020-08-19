@@ -227,9 +227,9 @@
 
 - [5. Longest Palindromic Substring (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/5.%20Longest%20Palindromic%20Substring.md#5-longest-palindromic-substring)
 - [131. Palindrome Partitioning](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
-- 214. Shortest Palindrome (Hard)
-- 234. Palindrome Linked List (Easy)
-- 266. Palindrome Permutation (Easy)
-- 336. Palindrome Pairs (Hard, **Amazon**)
+- *214. Shortest Palindrome (Hard)*
+- *234. Palindrome Linked List (Easy)*
+- *266. Palindrome Permutation (Easy)*
+- *336.Palindrome Pairs (Hard, **Amazon**)*
 - [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
 
