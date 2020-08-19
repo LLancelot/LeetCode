@@ -106,6 +106,7 @@
 - [695. Max Area of Island](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#695-max-area-of-island)
 - [547. Friend Circles](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#547-friend-circles)
 - [733. Flood Fill (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#733-flood-fill)
+- [967. Numbers With Same Consecutive Differences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/967.%20Numbers%20With%20Same%20Consecutive%20Differences.md#967-numbers-with-same-consecutive-differences)
 
 ### Breath-First-Search
 
@@ -130,6 +131,7 @@
 - [729. My Calendar I](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-729-my-calendar-i)
 - _33. Search in Rotated Sorted Array_
 - _34. Find First and Last Position of Element in Sorted Array_
+- [74. Search a 2D Matrix](https://github.com/LLancelot/LeetCode/blob/master/binary-search.md#74-search-a-2d-matrix)
 - _153. Find Minimum in Rotated Sorted Array_
 - _209. Minimum Size Subarray Sum_
 - _230. Kth Smallest Element in a BST_
@@ -140,6 +142,7 @@
 - [315. Count of Smaller Numbers After Self](https://github.com/LLancelot/LeetCode/issues/10)
 - _374. Guess Number Higher or Lower_
 - [_875. Koko Eating Bananas_](https://leetcode.com/problems/koko-eating-bananas/)
+- [1283. Find the Smallest Divisor Given a Threshold](https://github.com/LLancelot/LeetCode/blob/master/binary-search.md#1283-find-the-smallest-divisor-given-a-threshold)
 - _1337. The K Weakest Rows in a Matrix_
 - _1351. Count Negative Numbers in a Sorted Matrix_
 
@@ -165,6 +168,7 @@
 - Maximum CPU Load
 - [Employee Free Time (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/759.%20Employee%20Free%20Time.md#759-employee-free-time)
 - [729. My Calendar I](https://github.com/LLancelot/LeetCode/blob/master/merge-intervals.md#leetcode-729-my-calendar-i)
+- [435. Non-overlapping Intervals](https://github.com/LLancelot/LeetCode/blob/dd22b18d96c6de27e05ab63a0c0ab15838e9e3ee/merge-intervals.md#leetcode-435-non-overlapping-intervals) (**Greedy** Method)
 
 ### Subset
 
@@ -197,6 +201,7 @@
 - [208. Implement Trie (Prefix Tree)](https://github.com/LLancelot/LeetCode/blob/master/Design.md#208-implement-trie-prefix-tree)
 - [212. Word Search II](https://github.com/LLancelot/LeetCode/blob/master/Design.md#212-word-search-ii)
 - [211. Add and Search Word - Data structure design](https://github.com/LLancelot/LeetCode/blob/master/Design.md#211-add-and-search-word---data-structure-design)
+- [1286. Iterator for Combination](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#1286-iterator-for-combination) (Google)
 
 ### Array
 
@@ -205,6 +210,7 @@
 - [498. Diagonal Traverse](https://github.com/LLancelot/LeetCode/blob/b095df0dd886c953108f989520fb52cab6198b21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/498.%20Diagonal%20Traverse.md#498-diagonal-traverse)
 - [334. Increasing Triplet Subsequence](https://github.com/LLancelot/LeetCode/blob/master/Array.md)
 - [442. Find All Duplicates in an Array](https://github.com/LLancelot/LeetCode/blob/master/Array.md#442-find-all-duplicates-in-an-array)
+- [406. Queue Reconstruction by Height](https://github.com/LLancelot/LeetCode/blob/b95a1b6afe8c201f6d07025da2c4403d43759165/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/406.%20Queue%20Reconstruction%20by%20Height.md#406-queue-reconstruction-by-height)
 
 ### String
 
@@ -219,4 +225,11 @@
 
 ### Palindrome
 
+- [5. Longest Palindromic Substring (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/5.%20Longest%20Palindromic%20Substring.md#5-longest-palindromic-substring)
 - [131. Palindrome Partitioning](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
+- 214. Shortest Palindrome (Hard)
+- 234. Palindrome Linked List (Easy)
+- 266. Palindrome Permutation (Easy)
+- 336. Palindrome Pairs (Hard, **Amazon**)
+- [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
+
