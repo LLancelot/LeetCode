@@ -385,6 +385,110 @@ class Solution(object):
         return head
 ```
 
+## 143. Reorder List
+
+https://leetcode.com/problems/reorder-list/
+
+### 题目
+
+Given a singly linked list *L*: *L*0→*L*1→…→*L**n*-1→*L*n,
+reorder it to: *L*0→*L**n*→*L*1→*L**n*-1→*L*2→*L**n*-2→…
+
+You may **not** modify the values in the list's nodes, only nodes itself may be changed.
+
+**Example 1:**
+
+```
+Given 1->2->3->4, reorder it to 1->4->2->3.
+```
+
+**Example 2:**
+
+```
+Given 1->2->3->4->5, reorder it to 1->5->2->4->3.
+```
+
+### 思路
+
+- 先找到链表的中间节点
+- 对链表后半部分进行 reverse，比如 1-2-3-4-5-6，反转后变成 1-2-3-6-5-4
+- 最后，对前半部分和后半部分进行逐一拼接，即1-6, 2-5, 3-4
+
+### 代码
+
+- Python3
+
+```python
+class Solution(object):
+    def reorderList(self, head):
+        """
+        :type head: ListNode
+        :rtype: None Do not return anything, modify head in-place instead.
+        """        
+        if head == None or head.next == None:
+            return
+        p1, p2 = head, head
+        while p2.next and p2.next.next:	# 找到中点
+            p1 = p1.next
+            p2 = p2.next.next
+        
+        pre = p1
+        s = p1.next
+        while s.next:	# 反转后半部分
+            move = s.next
+            s.next = move.next
+            move.next = pre.next
+            pre.next = move
+        
+        p1 = head
+        p2 = pre.next
+        while p1 != pre:	# 前后操作，拼接
+            pre.next = p2.next
+            p2.next = p1.next
+            p1.next = p2
+            p1 = p2.next
+            p2 = pre.next
+```
+
+- Java
+
+```java
+class Solution {
+    public void reorderList(ListNode head) {
+        if(head==null||head.next==null) return;
+
+        //Find the middle of the list
+        ListNode p1=head;
+        ListNode p2=head;
+        while(p2.next!=null&&p2.next.next!=null){ 
+            p1=p1.next;
+            p2=p2.next.next;
+        }
+
+        //Reverse the half after middle  1->2->3->4->5->6 to 1->2->3->6->5->4
+        ListNode preMiddle=p1;
+        ListNode preCurrent=p1.next;
+        while(preCurrent.next!=null){
+            ListNode current=preCurrent.next;
+            preCurrent.next=current.next;
+            current.next=preMiddle.next;
+            preMiddle.next=current;
+        }
+
+        //Start reorder one by one  1->2->3->6->5->4 to 1->6->2->5->3->4
+        p1=head;
+        p2=preMiddle.next;
+        while(p1!=preMiddle){
+            preMiddle.next=p2.next;
+            p2.next=p1.next;
+            p1.next=p2;
+            p1=p2.next;
+            p2=preMiddle.next;
+        }
+    }
+}
+```
+
 
 
 # Tree 树
