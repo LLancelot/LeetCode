@@ -69,6 +69,7 @@
 - [96. Unique Binary Search Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#96-unique-binary-search-trees)
 - [95. Unique Binary Search Trees II](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#95-unique-binary-search-tree-2)
 - [98. Validate a BST](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#98-validate-a-bst)
+- [99. Recover Binary Search Tree (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/99.%20Recover%20Binary%20Search%20Tree.md#99-recover-binary-search-tree)
 - [100. Same Tree (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#100-same-tree-easy)
 - [101. Symmetric Tree (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#101-symmetric-treeeasy)
 - [111. Minimum Depth of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#111-minimum-depth-of-binary-tree)
@@ -123,6 +124,7 @@
 - [269. Alien Dictionary](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#269-alien-dictionary) (Graph + BFS)
 - [1192. Critical Connections in a Network (Hard)](https://github.com/LLancelot/LeetCode/issues/18)
 - [277. Find the Celebrity](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#277-find-the-celebrity)
+- [863. All Nodes Distance K in Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree.md)
 
 ### Binary Search
 
@@ -202,6 +204,7 @@
 - [212. Word Search II](https://github.com/LLancelot/LeetCode/blob/master/Design.md#212-word-search-ii)
 - [211. Add and Search Word - Data structure design](https://github.com/LLancelot/LeetCode/blob/master/Design.md#211-add-and-search-word---data-structure-design)
 - [1286. Iterator for Combination](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#1286-iterator-for-combination) (Google)
+- [1032. Stream of Characters (Use Trie)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1032.%20Stream%20of%20Characters.md)
 
 ### Array
 
