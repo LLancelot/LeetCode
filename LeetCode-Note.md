@@ -1318,6 +1318,55 @@ class Solution(object):
         return self.helper(s.left, t.left) and self.helper(s.right, t.right)
 ```
 
+## 226. Invert Binary Tree
+
+镜像反转二叉树
+
+https://leetcode.com/problems/invert-binary-tree/
+
+**Example:**
+
+Input:
+
+```
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+```
+
+Output:
+
+```
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+```
+
+### 代码
+
+```python
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return None
+        
+        tmp = root.right
+        
+        root.right = self.invertTree(root.left)
+        
+        root.left = self.invertTree(tmp)
+        
+        return root
+```
+
 
 
 ---
