@@ -61,6 +61,7 @@
 - [486. Predict the Winner](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-12-486-predict-the-winner)
 - [377. Combination Sum IV](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#dp-13-377-combination-sum-iv)
 - [131. Palindrome Partitioning 最长回文串划分](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#dp-14-131-palindrome-partitioning)
+- [516. Longest Palindromic Subsequence 最长回文串子序列个数](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
 - [139. Word Break](https://github.com/LLancelot/LeetCode/blob/ef7768fcdab975d18890a8b45ba2fef39ec3b57d/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/139.%20Word%20Break.md#139-word-break)
 - [1524. Number of Sub-arrays With Odd Sum](https://github.com/LLancelot/LeetCode/blob/c80d74264a7528e5235209bdb8de69a16cb685d1/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1524.%20Number%20of%20Sub-arrays%20With%20Odd%20Sum.md#1524-number-of-sub-arrays-with-odd-sum)
 
@@ -236,3 +237,4 @@
 - *336.Palindrome Pairs (Hard, **Amazon**)*
 - [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
 
+- [516. Longest Palindromic Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
