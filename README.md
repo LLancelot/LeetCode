@@ -64,6 +64,7 @@
 - [516. Longest Palindromic Subsequence 最长回文串子序列个数](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
 - [139. Word Break](https://github.com/LLancelot/LeetCode/blob/ef7768fcdab975d18890a8b45ba2fef39ec3b57d/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/139.%20Word%20Break.md#139-word-break)
 - [1524. Number of Sub-arrays With Odd Sum](https://github.com/LLancelot/LeetCode/blob/c80d74264a7528e5235209bdb8de69a16cb685d1/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1524.%20Number%20of%20Sub-arrays%20With%20Odd%20Sum.md#1524-number-of-sub-arrays-with-odd-sum)
+- [403. Frog Jump](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/403.%20Frog%20Jump%20(Hard).md)
 
 ### Tree
 
@@ -85,6 +86,7 @@
 - [306. Find Leaves of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#306-find-leaves-of-binary-tree)
 - [701. Insert into a BST](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#701-insert-into-a-bst)
 - [572. Subtree of Another Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#572-subtree-of-another-tree)
+- [510. In-order Successor in BST II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/510.%20In-order%20Successor%20in%20BST%20II.md)
 
 
 ### Linked List
@@ -109,6 +111,7 @@
 - [547. Friend Circles](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#547-friend-circles)
 - [733. Flood Fill (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#733-flood-fill)
 - [967. Numbers With Same Consecutive Differences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/967.%20Numbers%20With%20Same%20Consecutive%20Differences.md#967-numbers-with-same-consecutive-differences)
+- [980. Unique Paths III (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/980.%20Unique%20Paths%20III%20(Hard).md) 
 
 ### Breath-First-Search
 
@@ -185,11 +188,13 @@
 - [51. N皇后问题](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#hard--51-n-queens)
 - [46. Permutation](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#46-permutation)
 - [47. Permutations II](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#47-permutations-ii)
+- [216. Combination Sum III](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/216.%20Combination%20Sum%20III.md)
 
 ### Stack
 
 - [84. Largest Rectangle in Histogram 直方图最大面积](https://github.com/LLancelot/LeetCode/blob/master/stack.md#84-largest-rectangle-in-histogram-%E5%8D%95%E8%B0%83%E6%A0%88%E7%B3%BB%E5%88%97)
 - [232. Implement Queue using Stacks 利用栈实现队列](https://github.com/LLancelot/LeetCode/blob/master/stack.md#232-implement-queue-using-stacks)
+- [402. Remove K Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/402.%20Remove%20K%20Digits.md)
 
 ### Heap / Heap Sort
 
@@ -222,10 +227,12 @@
 - [32. Longest Valid Parentheses (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/32.%20Longest%20Valid%20Parentheses.md#32-longest-valid-parentheses)
 - [38. Count and Say](https://github.com/LLancelot/LeetCode/blob/master/String.md#38-count-and-say)
 - [44. Wildcard Matching 万卡匹配](https://github.com/LLancelot/LeetCode/blob/fb237e22cb32219232def5d98f5db9e674d3ff6a/String.md#44-wildcard-matching)
+- [97. Interleaving String (hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/97.%20Interleaving%20String%20(hard).md)
 - [929. Unique Email Addresses](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/929.UniqueEmailAddresses.md)
 - [1041. Robot Bounded In Circle](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1041.%20Robot%20Bounded%20In%20Circle.md#1041-robot-bounded-in-circle)
 - [763. Partition Labels](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/763.%20Partition%20Labels.md)
 - [1505. Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1505.%20Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits.md#leetcode-1505-minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
+- [1291. Sequential Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1291.%20Sequential%20Digits.md)
 
 ### Palindrome
 
@@ -238,3 +245,7 @@
 - [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
 
 - [516. Longest Palindromic Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
+
+### Bit Manipulation
+
+- [421. Maximum XOR of Two Numbers in an Array (Use Trie)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/421.%20Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array.md)
