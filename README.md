@@ -112,12 +112,13 @@
 - [733. Flood Fill (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#733-flood-fill)
 - [967. Numbers With Same Consecutive Differences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/967.%20Numbers%20With%20Same%20Consecutive%20Differences.md#967-numbers-with-same-consecutive-differences)
 - [980. Unique Paths III (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/980.%20Unique%20Paths%20III%20(Hard).md) 
+- [934. Shortest Bridge (BFS + DFS)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/934.%20Shortest%20Bridge.md#934-shortest-bridge)
 
 ### Breath-First-Search
 
 - [207. Course Schedule (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#207-course-schedule)
 - [210. Course Schedule II (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#210-course-schedule-ii)
-
+- [934. Shortest Bridge (BFS + DFS)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/934.%20Shortest%20Bridge.md#934-shortest-bridge)
 - [994. Rotting Oranges](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#994-rotting-oranges)
 
 ### Graph
@@ -211,8 +212,11 @@
 - [211. Add and Search Word - Data structure design](https://github.com/LLancelot/LeetCode/blob/master/Design.md#211-add-and-search-word---data-structure-design)
 - [1286. Iterator for Combination](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#1286-iterator-for-combination) (Google)
 - [1032. Stream of Characters (Use Trie)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1032.%20Stream%20of%20Characters.md)
+- [362. Design Hit Counter](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/362.%20Design%20Hit%20Counter.md#362-design-hit-counter)
 
 ### Array
+
+- [41. First Missing Positive](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/41.%20First%20Missing%20Positive.md#41-first-missing-positive)
 
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
 - [179. Largest Number](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/179.%20Largest%20Number.md#179-largest-number)
@@ -220,6 +224,7 @@
 - [334. Increasing Triplet Subsequence](https://github.com/LLancelot/LeetCode/blob/master/Array.md)
 - [442. Find All Duplicates in an Array](https://github.com/LLancelot/LeetCode/blob/master/Array.md#442-find-all-duplicates-in-an-array)
 - [406. Queue Reconstruction by Height](https://github.com/LLancelot/LeetCode/blob/b95a1b6afe8c201f6d07025da2c4403d43759165/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/406.%20Queue%20Reconstruction%20by%20Height.md#406-queue-reconstruction-by-height)
+- [624. Maximum Distance in Arrays](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/624.%20Maximum%20Distance%20in%20Arrays.md#624-maximum-distance-in-arrays)
 
 ### String
 
@@ -233,6 +238,7 @@
 - [763. Partition Labels](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/763.%20Partition%20Labels.md)
 - [1505. Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1505.%20Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits.md#leetcode-1505-minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
 - [1291. Sequential Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1291.%20Sequential%20Digits.md)
+- [468. Validate IP Address](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/468.%20Validate%20IP%20Address.md)
 
 ### Palindrome
 
