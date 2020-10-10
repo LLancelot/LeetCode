@@ -16,6 +16,7 @@
 | [DFS](https://github.com/LLancelot/LeetCode#depth-first-search) | 深度优先搜索 |
 | [BFS](https://github.com/LLancelot/LeetCode#breath-first-search) | 广度优先搜索 |
 | [Binary Search](https://github.com/LLancelot/LeetCode#binary-search) | 二分查找     |
+| [Greedy](https://github.com/LLancelot/LeetCode#greedy)       | 贪心算法     |
 | [Graph](https://github.com/LLancelot/LeetCode#graph)         | 图           |
 | [Sliding Window](https://github.com/LLancelot/LeetCode#sliding-window) | 滑动窗口问题 |
 | [Merge Intervals](https://github.com/LLancelot/LeetCode#merge-intervals) | 区间合并问题 |
@@ -87,6 +88,7 @@
 - [701. Insert into a BST](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#701-insert-into-a-bst)
 - [572. Subtree of Another Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#572-subtree-of-another-tree)
 - [510. In-order Successor in BST II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/510.%20In-order%20Successor%20in%20BST%20II.md)
+- [449. Serialize and Deserialize BST](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/449.%20Serialize%20and%20Deserialize%20BST.md) (序列化:Node->String 和反序列化: String->Node)
 
 
 ### Linked List
@@ -131,6 +133,12 @@
 - [277. Find the Celebrity](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#277-find-the-celebrity)
 - [863. All Nodes Distance K in Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree.md)
 - [1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1334.%20Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance.md) (Floyd-warshall 最短路径)
+
+### Greedy
+
+- [1029. Two City Scheduling](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1029.%20Two%20City%20Scheduling.md#1029-two-city-scheduling)
+- [406. Queue Reconstruction by Height](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/406.%20Queue%20Reconstruction%20by%20Height.md#406-queue-reconstruction-by-height)
+- [435. Non-overlapping Intervals](https://github.com/LLancelot/LeetCode/blob/dd22b18d96c6de27e05ab63a0c0ab15838e9e3ee/merge-intervals.md#leetcode-435-non-overlapping-intervals)
 
 ### Binary Search
 
@@ -197,6 +205,7 @@
 - [84. Largest Rectangle in Histogram 直方图最大面积](https://github.com/LLancelot/LeetCode/blob/master/stack.md#84-largest-rectangle-in-histogram-%E5%8D%95%E8%B0%83%E6%A0%88%E7%B3%BB%E5%88%97)
 - [232. Implement Queue using Stacks 利用栈实现队列](https://github.com/LLancelot/LeetCode/blob/master/stack.md#232-implement-queue-using-stacks)
 - [402. Remove K Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/402.%20Remove%20K%20Digits.md)
+- [946. Validate Stack Sequences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/946.%20Validate%20Stack%20Sequences.md#946-validate-stack-sequences)
 
 ### Heap / Heap Sort
 
@@ -250,8 +259,8 @@
 - *266. Palindrome Permutation (Easy)*
 - *336.Palindrome Pairs (Hard, **Amazon**)*
 - [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
-
 - [516. Longest Palindromic Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
+- [647. Palindromic Substrings](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/647.%20Palindromic%20Substrings.md#647-palindromic-substrings)
 
 ### Bit Manipulation
 
