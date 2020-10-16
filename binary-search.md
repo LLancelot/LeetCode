@@ -215,6 +215,40 @@ Output: false
 
 ### 代码
 
+- 2020.10.16 Daily Challenge
+
+```python
+import bisect
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        if not matrix or len(matrix) == 0 or len(matrix[0]) == 0:
+            return False
+        
+        m, n = len(matrix), len(matrix[0])
+        if target < matrix[0][0] or target > matrix[-1][-1]:
+            return False
+        
+        row_arr = [matrix[x][0] for x in range(m)]
+        row_id = bisect.bisect_right(row_arr, target) - 1
+        col_arr = [matrix[row_id][x] for x in range(n)]
+        return False if self.bsearch(col_arr, n, target) == -1 else True
+    
+    def bsearch(self, arr, size, v):
+        low, high = 0, size-1
+        while low <= high:
+            mid = low + (high - low) // 2
+            if arr[mid] == v:
+                return mid
+            elif arr[mid] < v:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return -1
+```
+
+
+
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
