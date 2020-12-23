@@ -493,6 +493,68 @@ class Solution {
 
 # Tree 树
 
+## 110. Binary Balanced Tree (平衡树)
+
+Determine if a binary tree is height-balanced (the left and right subtrees of *every* node differ in height by no more than 1)
+
+### 代码
+
+- Java
+
+```java
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return getHeight(root) != -1;
+    }
+    
+    private int getHeight(TreeNode node) {
+        if (node == null)
+            return 0;
+        int lh = getHeight(node.left), rh = getHeight(node.right);
+        if (lh == -1 || rh == -1 || Math.abs(lh - rh) > 1)
+            return -1;
+        return 1 + Math.max(lh, rh);
+    }
+}
+```
+
+- Python
+
+```python
+def isBalanced(root):
+    return getHeight(root) != -1
+
+def getHeight(root):
+    if not root:
+        return 0
+    lh, rh = getHeight(root.left), getHeight(root.right)
+    if lh == -1 or rh == -1 or abs(lh - rh) > 1:
+        return -1
+    return max(lh, rh) + 1
+```
+
+- Python (Optimized)
+
+  We can do an optimization in getHeight(): if any node is unbalanced, then the entire tree is unbalanced. Thus, we can terminate early if we find that one subtree is unbalanced.
+
+```python
+def isBalanced(root):
+    return getHeight(root) != -1
+
+def getHeight(root):
+    if not root:
+        return 0
+    lh = getHeight(root.left)
+    if lh == -1:
+        return -1
+    rh = getHeight(root.right)
+    if rh == -1 or abs(rh - lh) > 1:
+        return -1
+    return max(lh, rh) + 1
+```
+
+
+
 ## 111. Minimum Depth of Binary Tree
 
 ```python
