@@ -66,6 +66,7 @@
 - [139. Word Break](https://github.com/LLancelot/LeetCode/blob/ef7768fcdab975d18890a8b45ba2fef39ec3b57d/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/139.%20Word%20Break.md#139-word-break)
 - [1524. Number of Sub-arrays With Odd Sum](https://github.com/LLancelot/LeetCode/blob/c80d74264a7528e5235209bdb8de69a16cb685d1/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1524.%20Number%20of%20Sub-arrays%20With%20Odd%20Sum.md#1524-number-of-sub-arrays-with-odd-sum)
 - [403. Frog Jump](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/403.%20Frog%20Jump%20(Hard).md)
+- [1423. Maximum Points You Can Obtain from Cards](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1423.%20Maximum%20Points%20You%20Can%20Obtain%20from%20Cards.md)
 
 ### Tree
 
@@ -75,9 +76,12 @@
 - [99. Recover Binary Search Tree (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/99.%20Recover%20Binary%20Search%20Tree.md#99-recover-binary-search-tree)
 - [100. Same Tree (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#100-same-tree-easy)
 - [101. Symmetric Tree (easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#101-symmetric-treeeasy)
+- [110. Balanced Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#110-binary-balanced-tree-%E5%B9%B3%E8%A1%A1%E6%A0%91)
 - [111. Minimum Depth of Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#111-minimum-depth-of-binary-tree)
 - [105. Construct Binary Tree from Preorder and Inorder Traversal](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#105-construct-binary-tree-from-preorder-and-inorder-traversal)
 - [108. Convert Sorted Array to Binary Search Tree (Easy)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#108-convert-sorted-array-to-binary-search-tree-easy)
+- [538. Convert BST to Greater Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#538--1038-convert-bst-to-greater-tree)
+- [1038. Binary Search Tree to Greater Sum Tree (Same as 538)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#538--1038-convert-bst-to-greater-tree)
 - [107. 层序遍历](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#107-%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86)
 - [112. Path Sum](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#112-path-sum)
 - [113. Path Sum II](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#113-path-sum-ii--medium)
@@ -227,7 +231,6 @@
 ### Array
 
 - [41. First Missing Positive](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/41.%20First%20Missing%20Positive.md#41-first-missing-positive)
-
 - [238. Product of Array Except Self](https://github.com/LLancelot/LeetCode/blob/master/Array.md#238-product-of-array-except-self-medium)
 - [179. Largest Number](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/179.%20Largest%20Number.md#179-largest-number)
 - [498. Diagonal Traverse](https://github.com/LLancelot/LeetCode/blob/b095df0dd886c953108f989520fb52cab6198b21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/498.%20Diagonal%20Traverse.md#498-diagonal-traverse)
@@ -235,6 +238,8 @@
 - [442. Find All Duplicates in an Array](https://github.com/LLancelot/LeetCode/blob/master/Array.md#442-find-all-duplicates-in-an-array)
 - [406. Queue Reconstruction by Height](https://github.com/LLancelot/LeetCode/blob/b95a1b6afe8c201f6d07025da2c4403d43759165/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/406.%20Queue%20Reconstruction%20by%20Height.md#406-queue-reconstruction-by-height)
 - [624. Maximum Distance in Arrays](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/624.%20Maximum%20Distance%20in%20Arrays.md#624-maximum-distance-in-arrays)
+- [910. Smallest Range II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/910.%20Smallest%20Range%20II.md)
+- [243. Shortest Word Distance](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/243.%20Shortest%20Word%20Distance.md)
 
 ### String
 
@@ -249,6 +254,7 @@
 - [1505. Minimum Possible Integer After at Most K Adjacent Swaps On Digits](https://github.com/LLancelot/LeetCode/blob/cc993b5461a24994e2be233fad8ed8f340135868/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1505.%20Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits.md#leetcode-1505-minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits)
 - [1291. Sequential Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1291.%20Sequential%20Digits.md)
 - [468. Validate IP Address](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/468.%20Validate%20IP%20Address.md)
+- [556. Next Greater Element III](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/556.%20Next%20Greater%20Element%20III.md#556-next-greater-element-iii)
 
 ### Palindrome
 
@@ -265,3 +271,4 @@
 ### Bit Manipulation
 
 - [421. Maximum XOR of Two Numbers in an Array (Use Trie)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/421.%20Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array.md)
+
