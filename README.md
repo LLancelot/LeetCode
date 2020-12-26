@@ -67,6 +67,8 @@
 - [1524. Number of Sub-arrays With Odd Sum](https://github.com/LLancelot/LeetCode/blob/c80d74264a7528e5235209bdb8de69a16cb685d1/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1524.%20Number%20of%20Sub-arrays%20With%20Odd%20Sum.md#1524-number-of-sub-arrays-with-odd-sum)
 - [403. Frog Jump](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/403.%20Frog%20Jump%20(Hard).md)
 - [1423. Maximum Points You Can Obtain from Cards](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1423.%20Maximum%20Points%20You%20Can%20Obtain%20from%20Cards.md)
+- [1143. Longest Common Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1143.%20Longest%20Common%20Subsequence.md) (经典，模板题)
+- [718. Maximum Length of Repeated Subarray](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/718.%20Maximum%20Length%20of%20Repeated%20Subarray.md) (与上题相似)
 
 ### Tree
 
@@ -106,6 +108,7 @@
 - [25. Reverse Node in k-Group (经典 Hard)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#25-reverse-nodes-in-k-group)
 - [92. Reverse Linked List II (经典)](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#92-reverse-linked-list-ii)
 - [328. Odd Even Linked List](https://github.com/LLancelot/LeetCode/blob/32471e93e9fd8e2a3600fe73f02f43c3927f5ccb/LeetCode-Note.md#328-odd-even-linked-list)
+- [82. Remove Duplicates from Sorted List II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/82.%20Remove%20Duplicates%20from%20Sorted%20List%20II.md#82-remove-duplicates-from-sorted-list-ii)
 
 ### Depth-First-Search
 
@@ -210,6 +213,7 @@
 - [232. Implement Queue using Stacks 利用栈实现队列](https://github.com/LLancelot/LeetCode/blob/master/stack.md#232-implement-queue-using-stacks)
 - [402. Remove K Digits](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/402.%20Remove%20K%20Digits.md)
 - [946. Validate Stack Sequences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/946.%20Validate%20Stack%20Sequences.md#946-validate-stack-sequences)
+- [71. Simplify Path](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/71.%20Simplify%20Path.md#71-simplify-path)
 
 ### Heap / Heap Sort
 
