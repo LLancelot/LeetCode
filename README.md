@@ -44,10 +44,11 @@
 - [1537. Get the Maximum Score (Hard)](https://github.com/LLancelot/LeetCode/blob/709dd61503e93189a45ecce3b4af51b33cdb9fe3/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1537.%20Get%20the%20Maximum%20Score.md#1537-get-the-maximum-score)
 - [42. Trapping Rain Water](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/42.%20Trapping%20Rain%20Water.md#42-trapping-rain-water)
 
-### DP
+### Dynamic Programming
 
 - [10. Regular Expression Matching 字符匹配](https://github.com/LLancelot/LeetCode/blob/master/String.md#10-regular-expression-matching)
 - [45. Jump Game 2](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/45.JumpGameII.md#45-jump-game-ii)
+- [91. Decode Ways](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/91.%20Decode%20Ways.md)
 - [198. House Robber](https://leetcode.com/problems/house-robber/)
 - [337. House Robber III](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/337.%20House%20Robber%20III.md)
 - [256. Paint House](https://github.com/LLancelot/LeetCode/issues)
@@ -69,6 +70,8 @@
 - [1423. Maximum Points You Can Obtain from Cards](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1423.%20Maximum%20Points%20You%20Can%20Obtain%20from%20Cards.md)
 - [1143. Longest Common Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1143.%20Longest%20Common%20Subsequence.md) (经典，模板题)
 - [718. Maximum Length of Repeated Subarray](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/718.%20Maximum%20Length%20of%20Repeated%20Subarray.md) (与上题相似)
+- [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1312.%20Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome.md) (记忆化递归, DP数组)
+- [1155. Number of Dice Rolls With Target Sum](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1155.%20Number%20of%20Dice%20Rolls%20With%20Target%20Sum.md) (记忆化递归, DP数组)
 
 ### Tree
 
@@ -271,6 +274,7 @@
 - [409. Longest Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/409.%20Longest%20Palindrome.md#409-longest-palindrome)
 - [516. Longest Palindromic Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
 - [647. Palindromic Substrings](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/647.%20Palindromic%20Substrings.md#647-palindromic-substrings)
+- [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1312.%20Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome.md) (记忆化递归, DP数组)
 
 ### Bit Manipulation
 
