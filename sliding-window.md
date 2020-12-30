@@ -141,6 +141,56 @@ class Solution {
 }
 ```
 
+## 340. Longest Substring with At Most K Distinct Characters
+
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+
+Given a string `s` and an integer `k`, return *the length of the longest substring of* `s` *that contains at most* `k` ***distinct** characters*.
+
+ 
+
+**Example 1:**
+
+```
+Input: s = "eceba", k = 2
+Output: 3
+Explanation: The substring is "ece" with length 3.
+```
+
+**Example 2:**
+
+```
+Input: s = "aa", k = 1
+Output: 2
+Explanation: The substring is "aa" with length 2.
+```
+
+### 代码
+
+- 经典模板题，hash table + sliding window.
+
+```python
+class Solution(object):
+    def lengthOfLongestSubstringKDistinct(self, s, k):
+        if k == 0: return 0
+        left, res = 0, 0
+        dic = collections.defaultdict(int)
+        for i, ch in enumerate(s):
+            dic[ch] += 1
+            if len(dic) <= k:
+                res = max(res, i - left + 1)
+                continue
+            else:
+                left_ch = s[left]
+                dic[left_ch] -= 1
+                if dic[left_ch] == 0:
+                    dic.pop(left_ch)
+                left += 1
+        return res
+```
+
+
+
 ## 30. Substring with Concatenation of All Words
 
 > You are given a string, **s**, and a list of words, **words**, that are all of the same length. Find all starting indices of substring(s) in **s** that is a concatenation of each word in **words** exactly once and without any intervening characters.
