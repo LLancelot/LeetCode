@@ -67,6 +67,48 @@ class Solution(object):
 
 **Java**：
 
+- 定义left,right数组，分别表示该数字左边&右边第一个比它小的数字的index.
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] h) {
+        int n = h.length;
+        int[] left = new int[n];
+        int[] right = new int[n];
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        
+        for (int i = 0; i < n; i ++) {
+            while (!stack.isEmpty() && h[i] <= h[stack.peek()])
+                stack.pop();
+            if (stack.isEmpty())
+                left[i] = -1;
+            else
+                left[i] = stack.peek();
+            stack.push(i);
+        }
+        
+        stack.clear();
+        for (int i = n - 1; i >= 0; i --) {
+            while (!stack.isEmpty() && h[i] <= h[stack.peek()])
+                stack.pop();
+            if (stack.isEmpty())
+                right[i] = n;
+            else
+                right[i] = stack.peek();
+            stack.push(i);
+        }
+        
+        int res = 0;
+        for (int i = 0; i < n; i ++) {
+            res = Math.max(res, h[i] * (right[i] - left[i] - 1));
+        }
+        return res;
+    }
+}
+```
+
+
+
 ```java
 class Solution {
     public int largestRectangleArea(int[] h) {
