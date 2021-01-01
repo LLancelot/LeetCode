@@ -283,5 +283,65 @@ class Solution:
         return False
 ```
 
+## 153. Find Minimum in Rotated Sorted Array
 
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
+有序数组的某一部分旋转后，查找最小值（数组**无重复**元素）
+
+### 代码
+
+```python
+class Solution(object):
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        l, r = 0, len(nums) - 1
+        if nums[r] > nums[0]:
+            return nums[0]
+        while l < r:
+            mid = l + r >> 1
+            if (nums[mid] < nums[0]):
+                r = mid
+            else:
+                l = mid + 1
+        return nums[r]
+```
+
+## 154. Find Minimum in Rotated Sorted Array II
+
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+
+有序数组的某一部分旋转后，查找最小值（数组**含重复**元素）
+
+### 思路
+
+因为数组是分成两段的，各自单调增，我们需要先判断第二段末尾的元素与第一段开头元素是否相同，如果有相同需要去重，保证第二段单调增区间的最大值永远小于第一段的开头。同样，用二分查找。
+
+### 代码
+
+```python
+class Solution(object):
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        l, r = 0, len(nums) - 1
+        while (l < r and nums[r] == nums[0]):
+            r -= 1	# 去重
+        if (nums[l] <= nums[r]):
+            return nums[0]
+        
+        while l < r:
+            mid = l + r >> 1
+            if (nums[mid] < nums[0]):
+                r = mid
+            else:
+                l = mid + 1
+        
+        return nums[r]
+```
 
