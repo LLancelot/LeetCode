@@ -285,3 +285,107 @@ public class Solution extends Relation {
 }
 ```
 
+## 684. Redundant Connection
+
+https://leetcode.com/problems/redundant-connection/
+
+**Example 1:**
+
+```
+Input: [[1,2], [1,3], [2,3]]
+Output: [2,3]
+Explanation: The given undirected graph will be like this:
+  1
+ / \
+2 - 3
+```
+
+
+
+**Example 2:**
+
+```
+Input: [[1,2], [2,3], [3,4], [1,4], [1,5]]
+Output: [1,4]
+Explanation: The given undirected graph will be like this:
+5 - 1 - 2
+    |   |
+    4 - 3
+```
+
+### 代码
+
+- DFS, O(n^2) time, O(n) space
+
+```python
+class Solution(object):
+    def findRedundantConnection(self, E):
+        """
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        return solve(E)
+        
+def solve(E):
+    graph = defaultdict(list)
+    for e in E:
+        u, v = e[0], e[1]
+        visited = set()
+        if dfs(u, v, graph, visited):
+            return e
+        else:
+            graph[u].append(v)
+            graph[v].append(u)
+    return []
+
+def dfs(curr, dst, graph, visited):
+    if curr == dst:
+        # find a road
+        return True
+    visited.add(curr)
+    if not graph[curr] or not graph[dst]:
+        return False
+    for nb in graph[curr]:
+        if nb in visited: continue
+        if dfs(nb, dst, graph, visited): return True
+    return False
+```
+
+- Union-Find, O(n) time and space
+
+```python
+class Solution(object):
+    def findRedundantConnection(self, ed):
+        """
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        return unionFind(ed)
+        
+def unionFind(ed):
+    n = len(ed)
+    parent = [0] * (n + 1)
+    size = [1] * (n + 1)
+    
+    def find(node):
+        while parent[node] != node:
+            parent[node] = parent[parent[node]]
+            node = parent[node]
+        return node
+    
+    for u, v in ed:
+        # add self cycle as parent
+        if parent[u] == 0: parent[u] = u
+        if parent[v] == 0: parent[v] = v
+        pu = find(u)
+        pv = find(v)
+        if pu == pv:
+            return [u, v]
+        if size[pv] > size[pu]:
+            u, v = v, u
+        parent[pv] = pu
+        size[pu] += size[pv]
+    
+    return []
+```
+
