@@ -43,6 +43,7 @@
 - [4Sum](https://github.com/LLancelot/LeetCode/blob/master/two-pointers.md#18-4sum-quadruple-sum-to-target-medium)
 - [1537. Get the Maximum Score (Hard)](https://github.com/LLancelot/LeetCode/blob/709dd61503e93189a45ecce3b4af51b33cdb9fe3/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1537.%20Get%20the%20Maximum%20Score.md#1537-get-the-maximum-score)
 - [42. Trapping Rain Water](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/42.%20Trapping%20Rain%20Water.md#42-trapping-rain-water)
+- [434. Number of Segments in a String](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/434.%20Number%20of%20Segments%20in%20a%20String.md#434-number-of-segments-in-a-string)
 
 ### Dynamic Programming
 
@@ -98,6 +99,7 @@
 - [572. Subtree of Another Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#572-subtree-of-another-tree)
 - [510. In-order Successor in BST II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/510.%20In-order%20Successor%20in%20BST%20II.md)
 - [449. Serialize and Deserialize BST](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/449.%20Serialize%20and%20Deserialize%20BST.md) (序列化:Node->String 和反序列化: String->Node)
+- [236. Lowest Common Ancestor of a Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#236-lowest-common-ancestor-of-a-binary-tree) (经典, LCA 公共祖先问题)
 
 
 ### Linked List
@@ -125,6 +127,7 @@
 - [967. Numbers With Same Consecutive Differences](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/967.%20Numbers%20With%20Same%20Consecutive%20Differences.md#967-numbers-with-same-consecutive-differences)
 - [980. Unique Paths III (Hard)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/980.%20Unique%20Paths%20III%20(Hard).md) 
 - [934. Shortest Bridge (BFS + DFS)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/934.%20Shortest%20Bridge.md#934-shortest-bridge)
+- [417. Pacific Atlantic Water Flow](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/417.%20Pacific%20Atlantic%20Water%20Flow.md#417-pacific-atlantic-water-flow) (大平洋大西洋水流, 经典模板题)
 
 ### Breath-First-Search
 
@@ -132,6 +135,7 @@
 - [210. Course Schedule II (经典)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E3%80%90Graph%E3%80%91Course%20Schedule.md#210-course-schedule-ii)
 - [934. Shortest Bridge (BFS + DFS)](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/934.%20Shortest%20Bridge.md#934-shortest-bridge)
 - [994. Rotting Oranges](https://github.com/LLancelot/LeetCode/blob/master/LeetCode-Note.md#994-rotting-oranges)
+- [417. Pacific Atlantic Water Flow](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/417.%20Pacific%20Atlantic%20Water%20Flow.md#417-pacific-atlantic-water-flow) (大平洋大西洋水流, 经典模板题)
 
 ### Graph
 
@@ -143,6 +147,7 @@
 - [277. Find the Celebrity](https://github.com/LLancelot/LeetCode/blob/master/Graph.md#277-find-the-celebrity)
 - [863. All Nodes Distance K in Binary Tree](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree.md)
 - [1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1334.%20Find%20the%20City%20With%20the%20Smallest%20Number%20of%20Neighbors%20at%20a%20Threshold%20Distance.md) (Floyd-warshall 最短路径)
+- [684. Redundant Connection](https://github.com/LLancelot/LeetCode/blob/941f86f930f2a3c00195ba079fb332669f470883/Graph.md#684-redundant-connection) (DFS, 并查集Union-Find)
 
 ### Greedy
 
@@ -167,6 +172,7 @@
 - _300. Longest Increasing Subsequence_
 - [315. Count of Smaller Numbers After Self](https://github.com/LLancelot/LeetCode/issues/10)
 - _374. Guess Number Higher or Lower_
+- [410. Split Array Largest Sum](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/410.%20Split%20Array%20Largest%20Sum%20(Hard).md#410-split-array-largest-sum-hard) (经典Hard, 二分+贪心)
 - [_875. Koko Eating Bananas_](https://leetcode.com/problems/koko-eating-bananas/)
 - [1283. Find the Smallest Divisor Given a Threshold](https://github.com/LLancelot/LeetCode/blob/master/binary-search.md#1283-find-the-smallest-divisor-given-a-threshold)
 - _1337. The K Weakest Rows in a Matrix_
@@ -175,13 +181,10 @@
 ### Sliding Window
 
 - [3. Longest Substring Without Repeating Characters](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#3-longest-substring-without-repeating-characters)
-
+- [340. Longest Substring with At Most K Distinct Characters](https://github.com/LLancelot/LeetCode/blob/b389a2b57478bb4f905564aae569b3cfd274724c/sliding-window.md#340-longest-substring-with-at-most-k-distinct-characters)
 - [76. Minimum Window Substring](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#sliding-window)
-
 - [30. Substring with Concatenation of All Words](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#30-substring-with-concatenation-of-all-words)
-
 - [模板题：String Anagrams (hard)](https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3)
-
 - [模板题：Permutation in a String (hard)](https://www.educative.io/courses/grokking-the-coding-interview/N0o9QnPLKNv)
 
 ### Merge Intervals
@@ -247,6 +250,8 @@
 - [624. Maximum Distance in Arrays](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/624.%20Maximum%20Distance%20in%20Arrays.md#624-maximum-distance-in-arrays)
 - [910. Smallest Range II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/910.%20Smallest%20Range%20II.md)
 - [243. Shortest Word Distance](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/243.%20Shortest%20Word%20Distance.md)
+- [153. Find Minimum in Rotated Sorted Array](https://github.com/LLancelot/LeetCode/blob/dd488b78adc1bd9b67433612ade8874778ef3586/binary-search.md#153-find-minimum-in-rotated-sorted-array) (无重复元素)
+- [154. Find Minimum in Rotated Sorted Array II](https://github.com/LLancelot/LeetCode/blob/dd488b78adc1bd9b67433612ade8874778ef3586/binary-search.md#154-find-minimum-in-rotated-sorted-array-ii) (有重复元素)
 
 ### String
 
@@ -275,6 +280,7 @@
 - [516. Longest Palindromic Subsequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/516.%20Longest%20Palindromic%20Subsequence.md#516-longest-palindromic-subsequence)
 - [647. Palindromic Substrings](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/647.%20Palindromic%20Substrings.md#647-palindromic-substrings)
 - [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1312.%20Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome.md) (记忆化递归, DP数组)
+- [680. Valid Palindrome II](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/680.%20Valid%20Palindrome%20II.md#680-valid-palindrome-ii) (Easy)
 
 ### Bit Manipulation
 
