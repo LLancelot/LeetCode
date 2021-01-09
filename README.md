@@ -212,6 +212,7 @@
 - [46. Permutation](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#46-permutation)
 - [47. Permutations II](https://github.com/LLancelot/LeetCode/blob/master/recursion-backtracking.md#47-permutations-ii)
 - [216. Combination Sum III](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/216.%20Combination%20Sum%20III.md)
+- [1718. Construct the Lexicographically Largest Valid Sequence](https://github.com/LLancelot/LeetCode/blob/master/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/1718.%20Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence.md) (回溯, 暴力搜索)
 
 ### Stack
 
