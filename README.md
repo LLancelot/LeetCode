@@ -1,7 +1,9 @@
 # LeetCode
-我的LeetCode刷题、思路和代码总结, 以Top 100 liked & Top interviewed questions 为主（since 2020, 更新中）.
+我的LeetCode刷题、思路和代码总结，以及常见算法模板。欢迎在仓库内搜索题解（since 2020, 更新中）. 
 
 部分题目待更新，题解将逐步完善.
+
+欢迎star，便于日常学习/面试/笔试前复习.
 
 ## Tag
 
@@ -9,7 +11,7 @@
 | :----------------------------------------------------------- | :----------- |
 | [Array](https://github.com/LLancelot/LeetCode#array)         | 数组         |
 | [Two Pointers](https://github.com/LLancelot/LeetCode#two-pointers) | 双指针问题   |
-| [DP](https://github.com/LLancelot/LeetCode#dp)               | 动态规划     |
+| [DP](https://github.com/LLancelot/LeetCode#dynamic-programming)               | 动态规划     |
 | [Tree](https://github.com/LLancelot/LeetCode#tree)           | 树           |
 | [Linked List](https://github.com/LLancelot/LeetCode#linked-list) | 链表         |
 | [Subset](https://github.com/LLancelot/LeetCode#subset)       | 子集问题     |
