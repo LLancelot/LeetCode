@@ -371,6 +371,45 @@ class Solution(object):
         
 ```
 
+- Java 代码
+
+```java
+class Solution {
+    public List<List<Integer>> fourSum(int[] arr, int target) {
+        if (arr == null || arr.length < 4) return new ArrayList<>();
+        int n = arr.length;
+        Arrays.sort(arr);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i <= n - 4; i++) {
+            // remove duplicate
+            if (i > 0 && arr[i] == arr[i - 1]) continue;
+            for (int j = i + 1; j <= n - 3; j++) {
+                if (j > i + 1 && arr[j] == arr[j - 1]) continue;
+                // find arr[left], arr[right] to sum up to target
+                int preSum = arr[i] + arr[j];
+                int left = j + 1, right = n - 1;
+                while (left < right) {
+                    if (arr[left] + arr[right] + preSum == target) {
+                        res.add(Arrays.asList(arr[i], arr[j], arr[left], arr[right]));
+                        left++;
+                        right--;
+                        while (left < right && arr[left] == arr[left - 1]) left++;
+                        while (left < right && arr[right] == arr[right + 1]) right--;
+                    }
+                    else if (arr[left] + arr[right] + preSum < target)
+                        left++;
+                    else
+                        right--;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+
+
 ## 模板题5 - Minimum Window Sort
 
 同 [leetcode 581. Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/)
