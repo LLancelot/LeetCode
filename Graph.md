@@ -29,7 +29,7 @@
 
 - 构建一个**graph**，有向图的边权重为**两数之商**，沿着边相乘可以得到最终两个数之间的商，例如A->B = 2.0, B->C = 3.0，那么 A->C = 2.0 * 3.0 = 6.0
 
-  ![image-20200603194353694.png](https://github.com/LLancelot/LeetCode/blob/work/images/image-20200603194353694.png?raw=true)
+  ![image-20200603194353694.png](https://github.com/LLancelot/LeetCode/blob/master/images/image-20200603194353694.png?raw=true)
 
 - 通过深度优先BFS + 队列deque 遍历一遍图，用visited的集合来保存每次循环时访问过的结点，以保证不会重复查找。
 
