@@ -105,6 +105,44 @@ public class Solution {
 }
 ```
 
+- Two pointers
+
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        ListNode pA = headA, pB = headB;
+        int cntA = 0, cntB = 0;
+        while (pA != null) {
+            pA = pA.next;
+            cntA ++;
+        }
+        while (pB != null) {
+            pB = pB.next;
+            cntB ++;
+        }
+		// handle the offsets.
+        if (cntA > cntB) {
+            pA = headA; pB = headB;
+            int a = cntA - cntB;
+            while (a-- > 0) pA = pA.next;
+        }
+        else {
+            pA = headA; pB = headB;
+            int b = cntB - cntA;
+            while (b-- > 0) pB = pB.next;
+        }
+        
+        while (pA != pB) {
+            pA = pA.next;
+            pB = pB.next;
+        }
+        if (pA == null) return null;
+        return pA;
+    }
+}
+```
+
 
 
 ## 19. Remove Nth Node From End of List
