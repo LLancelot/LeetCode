@@ -278,3 +278,117 @@ class WordDictionary {
  */
 ```
 
+## 习题3： LC 212. Word Search II
+
+https://leetcode.com/problems/word-search-ii/
+
+Given an `m x n` `board` of characters and a list of strings `words`, return *all words on the board*.
+
+Each word must be constructed from letters of sequentially adjacent cells, where **adjacent cells** are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/11/07/search1.jpg)
+
+```
+Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
+Output: ["eat","oath"]
+```
+
+**Example 2:**
+
+![img](https://assets.leetcode.com/uploads/2020/11/07/search2.jpg)
+
+```
+Input: board = [["a","b"],["c","d"]], words = ["abcb"]
+Output: []
+```
+
+ 
+
+**Constraints:**
+
+- `m == board.length`
+- `n == board[i].length`
+- `1 <= m, n <= 12`
+- `board[i][j]` is a lowercase English letter.
+- `1 <= words.length <= 3 * 10^4`
+- `1 <= words[i].length <= 10`
+- `words[i]` consists of lowercase English letters.
+- All the strings of `words` are unique.
+
+### 代码
+
+```java
+class Solution {
+    public class TrieNode {
+        int id;
+        TrieNode[] son;
+        TrieNode() {
+            id = -1;
+            son = new TrieNode[26];
+            for (int i = 0; i < 26; i++) son[i] = null;
+        }
+    }
+    public TrieNode root;
+    public Set<Integer> ids;
+    public char[][] g;
+    public int[] dirs = {-1, 0, 1, 0, -1};
+    
+    void insert(String word, int id) {
+        // insert ith word into trie.
+        TrieNode p = root;
+        for (char c : word.toCharArray()) {
+            int u = c - 'a';
+            if (p.son[u] == null) p.son[u] = new TrieNode();
+            p = p.son[u];
+        }
+        p.id = id;
+    }
+    
+    void dfs(int x, int y, TrieNode p) {
+        if (p.id != -1) ids.add(p.id);
+        // backtrack
+        char ch = g[x][y];
+        g[x][y] = '.';
+        for (int d = 0; d < 4; d++) {
+            int xx = x + dirs[d], yy = y + dirs[d + 1];
+            if (xx >= 0 && 
+                xx < g.length && 
+                yy >= 0 && 
+                yy < g[0].length 
+                && g[xx][yy] != '.') {
+                int u = g[xx][yy] - 'a';
+                if (p.son[u] != null)
+                    dfs(xx, yy, p.son[u]);
+            }
+        }
+        // recover
+        g[x][y] = ch;
+    }
+    
+    public List<String> findWords(char[][] board, String[] words) {
+        g = board;
+        root = new TrieNode();
+        ids = new HashSet<>();
+        // insert all words into trie
+        int k = 0;
+        for (String w : words) insert(w, k++);
+        // traverse the board.
+        int n, m;
+        n = g.length; m = g[0].length;
+        for (int i = 0; i < n; i++) 
+            for (int j = 0; j < m; j++) {
+                int u = g[i][j] - 'a';
+                if (root.son[u] != null) 
+                    dfs(i, j, root.son[u]);
+            }
+        List<String> res = new ArrayList<>();
+        for (Integer id : ids) res.add(words[id]);
+        return res;
+    }
+}
+```
+
