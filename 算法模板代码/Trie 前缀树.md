@@ -599,3 +599,87 @@ class MapSum {
 来源：AcWing
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
+
+## 1065. Index Pair of a String
+
+https://leetcode.com/problems/index-pairs-of-a-string/
+
+Given a `text` string and `words` (a list of strings), return all index pairs `[i, j]` so that the substring `text[i]...text[j]` is in the list of `words`.
+
+ 
+
+**Example 1:**
+
+```
+Input: text = "thestoryofleetcodeandme", words = ["story","fleet","leetcode"]
+Output: [[3,7],[9,13],[10,17]]
+```
+
+**Example 2:**
+
+```
+Input: text = "ababa", words = ["aba","ab"]
+Output: [[0,1],[0,2],[2,3],[2,4]]
+Explanation: 
+Notice that matches can overlap, see "aba" is found in [0,2] and [2,4].
+```
+
+ 
+
+**Note:**
+
+1. All strings contains only lowercase English letters.
+2. It's guaranteed that all strings in `words` are different.
+3. `1 <= text.length <= 100`
+4. `1 <= words.length <= 20`
+5. `1 <= words[i].length <= 50`
+6. Return the pairs `[i,j]` in sorted order (i.e. sort them by their first coordinate in case of ties sort them by their second coordinate).
+
+### 代码
+
+```java
+class Solution {
+    class Node {
+        boolean isWord = false;
+        Node[] son = new Node[26];
+    }
+    
+    public Node root;
+    public void insert(String s) {
+        Node p = root;
+        for (char ch: s.toCharArray()) {
+            int u = ch - 'a';
+            if (p.son[u] == null) p.son[u] = new Node();
+            p = p.son[u];
+        }
+        p.isWord = true;
+    }
+    
+    public boolean search(String s) {
+        Node p = root;
+        for (char ch : s.toCharArray()) {
+            int u = ch - 'a';
+            if (p.son[u] == null) return false;
+            p = p.son[u];
+        }
+        return p.isWord;
+    }
+    public int[][] indexPairs(String text, String[] words) {
+        List<int[]> res = new ArrayList<>();
+        root = new Node();
+        for (String w : words) insert(w);
+        for (int i = 0; i < text.length(); i++ ) {
+            for (int j = i + 1; j <= text.length(); j++) {
+                String t = text.substring(i, j);
+                if (search(t)) res.add(new int[]{i, j - 1});
+            }
+        }
+        int[][] res1 = new int[res.size()][2];
+        for (int i = 0; i < res.size() ; i++) {
+            res1[i] = res.get(i);
+        }
+        return res1;
+    }
+}
+```
+
