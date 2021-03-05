@@ -1,4 +1,4 @@
-## Trie 字符串统计
+# 模板背诵 - Trie 字符串统计
 
 https://www.acwing.com/problem/content/description/837/
 
