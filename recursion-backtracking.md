@@ -17,6 +17,47 @@
 
 代码：
 
+- Java
+
+```java
+class Solution {
+	public List<String> res = new ArrayList<>(); 
+    public String[] keys = new String[10];
+    public List<String> letterCombinations(String digits) {
+        if (digits == null || digits.length() == 0) 
+            return res;
+        keys[0] = "";
+        keys[1] = "";
+        keys[2] = "abc";
+        keys[3] = "def";
+        keys[4] = "ghi";
+        keys[5] = "jkl";
+        keys[6] = "mno";
+        keys[7] = "pqrs";
+        keys[8] = "tuv";
+        keys[9] = "wxyz";
+        StringBuilder temp = new StringBuilder();
+        dfs(digits, 0, temp);
+        return res;
+    }
+    public void dfs(String digits, int idx, StringBuilder temp) {
+    	if (temp.length() == digits.length()) {
+    		res.add(temp.toString());
+    		return;
+    	}
+    	int pos = digits.charAt(idx) - '0';
+        String cur = keys[pos];
+        for (int j = 0; j < cur.length(); j++) {
+            temp.append(cur.charAt(j));
+            dfs(digits, idx + 1, temp);
+            temp.deleteCharAt(temp.length() - 1);
+        }
+    }
+}
+```
+
+
+
 ```python
 class Solution(object):
     def letterCombinations(self, digits):
