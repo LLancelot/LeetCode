@@ -1,3 +1,5 @@
+class Solution {
+    public int largestRectangleArea(int[] heights) {
         int n = heights.length;
         int[] h, left, right, s;
         int tt = 0;
@@ -28,3 +30,5 @@
             res = Math.max(res, (right[i] - left[i] - 1) * h[i]);
         }
         return res;
+    }
+}
