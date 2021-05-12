@@ -5,7 +5,7 @@ class Solution {
         h = new int[n + 2];
         left = new int[n + 2];
         right = new int[n + 2];
-        s = new int[n + 2];
+        s = new int[n + 2]; // 单调栈
         h[0] = -1;
         h[n + 1] = -1;
         s[0] = 0;
