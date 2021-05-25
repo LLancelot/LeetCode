@@ -15,18 +15,27 @@ https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/
 示例 1：
 
 输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+
 输出：true
+
+
+
 示例 2：
 
 输入：board = [["a","b"],["c","d"]], word = "abcd"
+
 输出：false
+
 
 
 提示：
 
 1 <= board.length <= 200
+
 1 <= board[i].length <= 200
+
 board 和 word 仅由大小写英文字母组成
+
 
 
 注意：本题与主站 79 题相同：https://leetcode-cn.com/problems/word-search/
@@ -34,7 +43,9 @@ board 和 word 仅由大小写英文字母组成
 
 
 来源：力扣（LeetCode）
+
 链接：https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof
+
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 
