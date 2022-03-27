@@ -190,6 +190,25 @@ class Solution:
     3. return False
 ```
 
+```java
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null)
+            return false;
+        ListNode slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast)
+                return true;
+        }
+        return false;
+    }
+}
+```
+
+
+
 ## 24. Swap nodes in pair
 
 https://leetcode.com/problems/swap-nodes-in-pairs/
