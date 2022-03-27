@@ -163,6 +163,45 @@ def search_pair(arr, target_sum, left, triplets):
 
 ```
 
+- Java (原题 [LC15. 3Sum](https://leetcode.com/problems/3sum/))
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        if (nums == null || nums.length == 0) return new ArrayList<>();
+        int n = nums.length;
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i <= n - 3; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int x = nums[i];
+            int j = i + 1, k = n - 1;
+            List<Integer> temp = new ArrayList<>();
+            while (j < k) {
+                if (nums[j] + nums[k] + x == 0) {
+                    temp.add(nums[i]);
+                    temp.add(nums[j]);
+                    temp.add(nums[k]);
+                    res.add(new ArrayList<>(temp));
+                    temp.clear();
+                    j++;
+                    k--;
+                    while (j < k && nums[j] == nums[j - 1]) j++;
+                    while (j < k && nums[k] == nums[k + 1]) k--;
+                }
+                else if (nums[j] + nums[k] + x > 0)
+                    k--;
+                else
+                    j++;
+            } 
+        }
+        return res;
+    }
+}
+```
+
+
+
 ### Follow up: Triplet Sum Close to Target (medium)
 
 #### 题目
