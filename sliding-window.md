@@ -22,6 +22,47 @@
 
 #### 代码及注释：
 
+- Java
+
+```java
+class Solution {
+    public String minWindow(String str, String pattern) {
+        int winStart = 0, matched = 0, minLength = str.length() + 1, substrStart = 0;
+        Map<Character, Integer> freqMap = new HashMap<>();
+        for (char ch : pattern.toCharArray())
+            freqMap.put(ch, freqMap.getOrDefault(ch, 0) + 1);
+
+        // extend windows [start, end]
+        for (int end = 0; end < str.length(); end++) {
+            char rightChar = str.charAt(end);
+            if (freqMap.containsKey(rightChar)) {
+                freqMap.put(rightChar, freqMap.get(rightChar) - 1);
+                if (freqMap.get(rightChar) >= 0)
+                    matched++;
+            }
+
+            while (matched == pattern.length()) {
+                if (minLength > end - winStart + 1) {
+                    minLength = end - winStart + 1;
+                    substrStart = winStart;
+                }
+
+                char leftChar = str.charAt(winStart++);
+                if (freqMap.containsKey(leftChar)) {
+                    if (freqMap.get(leftChar) == 0)
+                        matched--;
+                    freqMap.put(leftChar, freqMap.get(leftChar) + 1);
+                }
+
+            }
+        }
+        return minLength > str.length() ? "" : str.substring(substrStart, substrStart + minLength);
+    }
+}
+```
+
+
+
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
