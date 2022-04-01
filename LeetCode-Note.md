@@ -643,6 +643,38 @@ while len(queue) != 0:
 return res
 ```
 
+- Java
+
+```java
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if (root == null) return new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        
+        while (!queue.isEmpty()) {
+            List<Integer> level = new ArrayList<>();
+            int queSize = queue.size();
+            while (queSize -- > 0) {
+                TreeNode popNode = queue.poll();
+                if (popNode.left != null) {
+                    queue.add(popNode.left);
+                }
+                if (popNode.right != null) {
+                    queue.add(popNode.right);
+                }
+                level.add(popNode.val);
+            }
+            res.add(level);
+        }
+        return res;
+    }
+}
+```
+
+
+
 ## 98. Validate a BST
 
 ```
