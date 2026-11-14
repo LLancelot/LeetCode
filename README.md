@@ -212,8 +212,8 @@
 - [340. Longest Substring with At Most K Distinct Characters](https://github.com/LLancelot/LeetCode/blob/b389a2b57478bb4f905564aae569b3cfd274724c/sliding-window.md#340-longest-substring-with-at-most-k-distinct-characters)
 - [76. Minimum Window Substring](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#sliding-window)
 - [30. Substring with Concatenation of All Words](https://github.com/LLancelot/LeetCode/blob/master/sliding-window.md#30-substring-with-concatenation-of-all-words)
-- [模板题：String Anagrams (hard)](https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3)
-- [模板题：Permutation in a String (hard)](https://www.educative.io/courses/grokking-the-coding-interview/N0o9QnPLKNv)
+- [模板题：String Anagrams (hard)](https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/problem-challenge-2string-anagrams-hard)
+- [模板题：Permutation in a String (hard)](https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/problem-challenge-1-permutation-in-a-string-hard)
 
 ### Merge Intervals (区间问题)
 

@@ -12,7 +12,7 @@ Let’s jump onto our first problem to develop an understanding of this pattern.
 
 Given an unsorted array of numbers, find the ‘K’ largest numbers in it.
 
-Note: For a detailed discussion about different approaches to solve this problem, take a look at [Kth Smallest Number](https://www.educative.io/collection/page/5668639101419520/5671464854355968/4817079184130048).
+Note: For a detailed discussion about different approaches to solve this problem, take a look at [Kth Smallest Number](https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/kth-smallest-number-easy).
 
 **Example 1:**
 

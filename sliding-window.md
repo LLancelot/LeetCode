@@ -262,7 +262,7 @@ class Solution(object):
 
 ### 思路
 
-This problem follows the **Sliding Window** pattern and has a lot of similarities with [Maximum Sum Subarray of Size K](https://www.educative.io/collection/page/5668639101419520/5671464854355968/5177043027230720/). We will keep track of all the words in a **HashMap** and try to match them in the given string. Here are the set of steps for our algorithm:
+This problem follows the **Sliding Window** pattern and has a lot of similarities with [Maximum Sum Subarray of Size K](https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/maximum-sum-subarray-of-size-k-easy). We will keep track of all the words in a **HashMap** and try to match them in the given string. Here are the set of steps for our algorithm:
 
 1. Keep the frequency of every word in a **HashMap**.
 2. Starting from every index in the string, try to match all the words.
